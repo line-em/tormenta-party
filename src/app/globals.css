@@ -40,21 +40,6 @@
 	color: var(--red);
 }
 
-.dice {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: calc(50px + 0.5em);
-	height: auto;
-	background-color: var(--white);
-	aspect-ratio: 1 / 1;
-	line-height: 0;
-	padding: 15px;
-	border: var(--red) 2px solid;
-	border-radius: 15px;
-	margin: 0 auto;
-}
-
 .add-circle {
 	display: flex;
 	justify-content: center;

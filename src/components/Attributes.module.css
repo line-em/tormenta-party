@@ -1,0 +1,22 @@
+.attrGrid {
+	display: grid;
+	grid-template-columns: repeat(7, 108px);
+	gap: 16px;
+}
+
+.attrGrid li {
+	display: grid;
+	grid-template-columns: 18px 1fr;
+	border: 2px solid var(--red);
+	width: 107px;
+	height: 115px;
+	justify-items: center;
+}
+
+.attrGrid li input {
+	display: grid;
+	grid-template-rows: 2fr 1fr;
+	width: 100%;
+	align-items: center;
+	text-align: center;
+}
