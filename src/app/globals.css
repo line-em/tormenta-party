@@ -12,20 +12,20 @@
 	--header: 3rem;
 	--title: 5rem;
 
+	--black: hsla(0, 0%, 11%, 0.9);
+	--white: hsl(60, 3%, 94%);
+	--white-alpha: hsla(60, 3%, 94%, 0.8);
+	--white-alpha-50: hsla(60, 3%, 94%, 0.5);
+	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
+		url(../assets/bgTormenta.jpg);
+}
+
+[data-theme="dark"] :root {
 	--white: hsla(0, 0%, 11%, 1);
 	--white-alpha: hsla(0, 0%, 11%, 0.8);
 	--white-alpha-50: hsla(0, 0%, 11%, 0.5);
 	--black: hsl(60, 3%, 94%);
 
-	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
-		url(../assets/bgTormenta2.jpg);
-}
-
-[data-theme="dark"] :root {
-	--black: hsla(0, 0%, 11%, 0.9);
-	--white: hsl(60, 3%, 94%);
-	--white-alpha: hsla(60, 3%, 94%, 0.8);
-	--white-alpha-50: hsla(60, 3%, 94%, 0.5);
 	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
 		url(../assets/bgTormenta2.jpg);
 }

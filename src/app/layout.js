@@ -1,7 +1,6 @@
 import "./reset.css";
 import "./globals.css";
 import localFont from "next/font/local";
-import { Providers } from "./providers";
 
 const tormentaFont = localFont({
 	src: "../assets/fonts/Tormenta.ttf",
@@ -48,7 +47,7 @@ export default function RootLayout({ children }) {
 			className={`${tormentaFont.variable} ${loraFont.variable}`}
 			suppressHydrationWarning
 		>
-			<Providers>{children}</Providers>
+			<body>{children}</body>
 		</html>
 	);
 }

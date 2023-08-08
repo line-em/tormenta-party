@@ -17,13 +17,13 @@ export default function Home() {
 
 	return (
 		<main>
+			<ThemeToggle />
 			<header>
-				<ThemeToggle />
 				<h1 className="tormenta title">Aventura Sem Nome</h1>
 			</header>
 			<section>
-				<button onClick={toggleTheme}>Trocar</button>
 				<h1 className="tormenta">Rolagem de Dados</h1>
+
 				<h2 className="dice tormenta">{dice}</h2>
 				<p>{results}</p>
 				<input
