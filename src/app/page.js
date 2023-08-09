@@ -1,6 +1,6 @@
 "use client";
 
-import DiceRolls from "@/components/DiceRolls";
+import DiceRolls from "@/components/DiceRolls/DiceRolls.jsx";
 import FichaDePersonagem from "@/components/FichaDePersonagem";
 import SectionHeading from "@/components/SectionHeading";
 

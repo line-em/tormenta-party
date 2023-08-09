@@ -1,8 +1,7 @@
 import styles from "./Attributes.module.css";
 import { useState } from "react";
-import AttributeCell from "@/components/AttributeCell";
+import AttributeCell from "./AttributeCell";
 import { baseAttributes } from "@/data/base";
-import SectionHeading from "./SectionHeading";
 import Lock from "@/assets/svgs/Lock";
 
 export default function Attributes({ characterSheet }) {
