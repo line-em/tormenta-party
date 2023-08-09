@@ -12,12 +12,6 @@ export default function Home() {
 			</header>
 			<DiceRolls />
 			<Attributes />
-			<Attributes />
-			<Attributes />
-			<Attributes />
-			<Attributes />
-			<Attributes />
-			<Attributes />
 			<section>
 				<SectionHeading type={"swords"} text="Aventureiros" />
 				<h2 className="add-circle">+</h2>

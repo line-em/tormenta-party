@@ -3,6 +3,7 @@ import { useState } from "react";
 import AttributeCell from "@/components/AttributeCell";
 import { baseAttributes } from "@/data/base";
 import SectionHeading from "./SectionHeading";
+import Lock from "@/assets/svgs/Lock";
 
 export default function Attributes({ characterSheet }) {
 	const [isLocked, setIsLocked] = useState(false);
@@ -31,7 +32,7 @@ export default function Attributes({ characterSheet }) {
 				))}
 			</ul>
 			<button onClick={() => setIsLocked(!isLocked)}>
-				{isLocked ? "Unlock" : "Lock"}
+				{isLocked ? "Unlock " : "Lock "} <Lock width={20} height={20} />
 			</button>
 		</section>
 	);

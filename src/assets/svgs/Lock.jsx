@@ -9,7 +9,7 @@ export default function Lock(props) {
 		>
 			<g fill="none">
 				<path
-					stroke="var(--black)"
+					fill="var(--black)"
 					fillRule="evenodd"
 					d="M3 12a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7zm10 2a1 1 0 1 0-2 0v3a1 1 0 1 0 2 0v-3z"
 					clipRule="evenodd"

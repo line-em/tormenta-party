@@ -1,16 +1,20 @@
 :root {
-	--red: hsl(0, 78%, 47%);
-	/* --red: hsl(357, 63%, 44%); */
+	--red: hsl(357, 70%, 47%);
 	--red-dark: hsl(357, 63%, 32%);
 	--golden: hsl(40, 100%, 72%);
 	--golden-dark: hsl(40, 90%, 55%);
 	--grey: hsl(60, 5%, 50%);
+	--warm-grey: #d1c9c3;
 
 	--regular: 1rem;
 	--small: 0.75rem;
 	--big: 2rem;
 	--header: 3rem;
 	--title: 5rem;
+
+	--spacing-xs: 10px;
+	--spacing-s: 15px;
+	--spacing-m: 25px;
 
 	--black: hsla(0, 0%, 11%, 0.9);
 	--white: hsl(60, 3%, 94%);
@@ -26,7 +30,7 @@
 	--white-alpha-50: hsla(0, 0%, 11%, 0.5);
 	--black: hsl(60, 3%, 94%);
 
-	--bg-image: linear-gradient(var(--white-alpha), var(--white-alpha-50)),
+	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
 		url(../assets/bgTormenta2.jpg);
 }
 
@@ -90,29 +94,52 @@ main {
 
 section {
 	background-color: var(--white-alpha);
-	padding: 15px 25px;
-	border-radius: 15px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	padding: var(--spacing-s) var(--spacing-m);
+	border-radius: var(--spacing-s);
+	box-shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.2);
 	backdrop-filter: blur(3px);
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-s);
 }
 
 section + section {
-	margin-block-start: 15px;
+	margin-block-start: var(--spacing-s);
 }
 
 section header {
 	display: flex;
 	align-items: center;
-	gap: 15px;
+	gap: var(--spacing-s);
 }
 
 input {
-	padding: 15px 10px;
+	padding: var(--spacing-s) var(--spacing-xs);
 	font-size: var(--big);
 	font-weight: 700;
 	border: none;
 	width: 100%;
+}
+
+button {
+	padding: var(--spacing-xs) var(--spacing-s);
+	border: 1px transparent solid;
+	background-color: var(--red);
+	color: var(--golden);
+	font-weight: 700;
+	letter-spacing: 1px;
+	cursor: pointer;
+	border-radius: var(--spacing-xs);
+	transition: 100ms;
+}
+
+button:hover {
+	background-color: var(--red-dark);
+	color: var(--golden-dark);
+}
+
+button:active {
+	border: 1px var(--golden) solid;
 }
