@@ -20,13 +20,19 @@ export default function DiceRolls() {
 			<SectionHeading type={"dice"} text="Rolagem de Dados" />
 			<h2 className={`${styles.dice}`}>{dice}</h2>
 			<p>{results}</p>
+			<section className="row">
+				<button onClick={() => rollDice("1d4")}>1d4</button>
+				<button onClick={() => rollDice("1d6")}>1d6</button>
+				<button onClick={() => rollDice("1d8")}>1d8</button>
+				<button onClick={() => rollDice("1d12")}>1d12</button>
+				<button onClick={() => rollDice("1d20")}>1d20</button>
+			</section>
 			<input
 				type="text"
 				placeholder="2D6"
 				onChange={(e) => setCurrValue(e.target.value)}
 			/>
 			<button onClick={() => rollDice(currValue)}>Click</button>
-			<button onClick={() => rollDice("1d20")}>1d20</button>
 		</section>
 	);
 }

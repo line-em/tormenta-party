@@ -1,7 +1,19 @@
 .attrGrid {
 	display: grid;
-	grid-template-columns: repeat(6, 108px);
+	grid-template-columns: repeat(6, 108px) 70px;
 	gap: var(--spacing-m);
+}
+
+.attrGrid button {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--white);
+	color: var(--black);
+}
+
+.attrGrid button:hover {
+	background-color: var(--warm-grey);
 }
 
 .attrGrid li {

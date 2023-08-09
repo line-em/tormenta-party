@@ -105,6 +105,10 @@ section {
 	gap: var(--spacing-s);
 }
 
+section.row {
+	flex-direction: row;
+}
+
 section + section {
 	margin-block-start: var(--spacing-s);
 }
@@ -133,6 +137,8 @@ button {
 	cursor: pointer;
 	border-radius: var(--spacing-xs);
 	transition: 100ms;
+	display: flex;
+	gap: var(--spacing-xs);
 }
 
 button:hover {

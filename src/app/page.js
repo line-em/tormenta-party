@@ -1,7 +1,7 @@
 "use client";
 
-import Attributes from "@/components/Attributes";
 import DiceRolls from "@/components/DiceRolls";
+import FichaDePersonagem from "@/components/FichaDePersonagem";
 import SectionHeading from "@/components/SectionHeading";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
 				<h1 className="tormenta title">Aventura Sem Nome</h1>
 			</header>
 			<DiceRolls />
-			<Attributes />
+			<FichaDePersonagem />
 			<section>
 				<SectionHeading type={"swords"} text="Aventureiros" />
 				<h2 className="add-circle">+</h2>

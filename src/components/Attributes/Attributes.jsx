@@ -18,7 +18,6 @@ export default function Attributes({ characterSheet }) {
 
 	return (
 		<section>
-			<SectionHeading type={"scroll"} text="Atributos" />
 			<ul className={styles.attrGrid}>
 				{Object.entries(attributes).map(([attribute, { value, modifier }]) => (
 					<AttributeCell
@@ -30,10 +29,10 @@ export default function Attributes({ characterSheet }) {
 						isLocked={isLocked}
 					/>
 				))}
+				<button onClick={() => setIsLocked(!isLocked)}>
+					{isLocked ? "Unlock " : "Lock "} <Lock width={20} height={20} />
+				</button>
 			</ul>
-			<button onClick={() => setIsLocked(!isLocked)}>
-				{isLocked ? "Unlock " : "Lock "} <Lock width={20} height={20} />
-			</button>
 		</section>
 	);
 }
