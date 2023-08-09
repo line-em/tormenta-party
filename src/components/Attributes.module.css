@@ -1,22 +1,50 @@
 .attrGrid {
 	display: grid;
 	grid-template-columns: repeat(7, 108px);
-	gap: 16px;
+	gap: 20px;
+	margin: 0 auto;
 }
 
 .attrGrid li {
 	display: grid;
 	grid-template-columns: 18px 1fr;
-	border: 2px solid var(--red);
-	width: 107px;
-	height: 115px;
-	justify-items: center;
+	/* border: 2px solid var(--red); */
+	width: 110px;
+	height: 114px;
+	justify-items: baseline;
 }
 
-.attrGrid li input {
+.attrGrid li div {
 	display: grid;
-	grid-template-rows: 2fr 1fr;
-	width: 100%;
-	align-items: center;
+	grid-template-rows: 1fr 25px;
+	gap: 0.5em;
+	grid-template-columns: 1fr;
+	background-color: var(--white);
+}
+
+.attrGrid li span {
+	font-weight: 700;
+	background-color: var(--black);
+	writing-mode: vertical-lr;
+	transform: rotate(180deg) translateY(1px);
+	color: var(--golden);
+	text-align: end;
+	padding-bottom: 5px;
+}
+
+.attrGrid li p {
 	text-align: center;
+	font-weight: 700;
+	font-size: 1.2em;
+	color: var(--red-dark);
+}
+
+.attrGrid input {
+	text-align: center;
+	color: var(--red);
+}
+
+.attrGrid input:disabled {
+	color: var(--black);
+	opacity: 1;
 }

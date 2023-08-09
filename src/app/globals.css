@@ -26,7 +26,7 @@
 	--white-alpha-50: hsla(0, 0%, 11%, 0.5);
 	--black: hsl(60, 3%, 94%);
 
-	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
+	--bg-image: linear-gradient(var(--white-alpha), var(--white-alpha-50)),
 		url(../assets/bgTormenta2.jpg);
 }
 
@@ -71,7 +71,7 @@ a {
 }
 
 body {
-	min-height: 100dvh;
+	background-image: var(--bg-image);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -80,20 +80,8 @@ body {
 	font-size: var(--regular);
 	display: grid;
 	align-items: center;
-}
-
-body::before {
-	content: "";
-	/* background-image: url(../assets/bgTormenta2.jpg); */
-	background-image: var(--bg-image);
-	/* filter: grayscale(0.5);
-	opacity: 0.8; */
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	z-index: -1;
+	min-height: 100dvh;
+	position: relative;
 }
 
 main {
@@ -108,8 +96,23 @@ section {
 	backdrop-filter: blur(3px);
 	display: flex;
 	flex-direction: column;
+	gap: 15px;
 }
 
 section + section {
 	margin-block-start: 15px;
+}
+
+section header {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+input {
+	padding: 15px 10px;
+	font-size: var(--big);
+	font-weight: 700;
+	border: none;
+	width: 100%;
 }

@@ -2,6 +2,7 @@ import styles from "./Attributes.module.css";
 import { useState } from "react";
 import AttributeCell from "@/components/AttributeCell";
 import { baseAttributes } from "@/data/base";
+import SectionHeading from "./SectionHeading";
 
 export default function Attributes({ characterSheet }) {
 	const [isLocked, setIsLocked] = useState(false);
@@ -15,7 +16,8 @@ export default function Attributes({ characterSheet }) {
 	};
 
 	return (
-		<>
+		<section>
+			<SectionHeading type={"scroll"} text="Atributos" />
 			<ul className={styles.attrGrid}>
 				{Object.entries(attributes).map(([attribute, { value, modifier }]) => (
 					<AttributeCell
@@ -31,6 +33,6 @@ export default function Attributes({ characterSheet }) {
 			<button onClick={() => setIsLocked(!isLocked)}>
 				{isLocked ? "Unlock" : "Lock"}
 			</button>
-		</>
+		</section>
 	);
 }

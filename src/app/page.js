@@ -1,8 +1,8 @@
 "use client";
 
-import AttributeCell from "@/components/AttributeCell";
 import Attributes from "@/components/Attributes";
 import DiceRolls from "@/components/DiceRolls";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Home() {
 	return (
@@ -11,11 +11,15 @@ export default function Home() {
 				<h1 className="tormenta title">Aventura Sem Nome</h1>
 			</header>
 			<DiceRolls />
+			<Attributes />
+			<Attributes />
+			<Attributes />
+			<Attributes />
+			<Attributes />
+			<Attributes />
+			<Attributes />
 			<section>
-				<Attributes />
-			</section>
-			<section>
-				<h1 className="tormenta">Aventureiros</h1>
+				<SectionHeading type={"swords"} text="Aventureiros" />
 				<h2 className="add-circle">+</h2>
 				<h2 className="add-circle">+</h2>
 				<h2 className="add-circle">+</h2>

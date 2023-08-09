@@ -19,10 +19,10 @@ export default function AttributeCell({
 			<span>{attribute}</span>
 			<div>
 				<input
-					type="number"
+					type="text"
 					value={attributeValue}
 					min={0}
-					max={20}
+					max={25}
 					onChange={handleValueChange}
 					disabled={isLocked}
 				/>
