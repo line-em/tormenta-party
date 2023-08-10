@@ -15,7 +15,7 @@
 		url(../assets/bgTormenta.jpg);
 
 	--small: 0.75rem;
-	--regular: 1rem;
+	--regular: 1.1rem;
 	--medium: 1.5rem;
 	--big: 2rem;
 	--header: 3rem;
@@ -141,10 +141,29 @@ section.grid {
 
 input {
 	padding: var(--spacing-s) var(--spacing-xs);
-	font-size: var(--big);
+	font-size: var(--regular);
 	font-weight: 700;
 	border: none;
 	width: 100%;
+}
+
+input:focus,
+input:active {
+	border: none;
+	outline: none;
+	color: var(--red);
+}
+
+input.medium {
+	font-size: var(--medium);
+}
+
+input.big {
+	font-size: var(--big);
+}
+
+input.transparent {
+	background-color: transparent;
 }
 
 button {
@@ -198,4 +217,8 @@ dialog::backdrop {
 
 html:has(dialog[open]) {
 	overflow: hidden;
+}
+
+dialog button {
+	margin-block-start: 1rem;
 }

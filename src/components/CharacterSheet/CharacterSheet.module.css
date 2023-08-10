@@ -1,0 +1,15 @@
+.characterSheet {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	/* grid-template-columns: 2fr 1fr; */
+	gap: var(--spacing-l);
+	place-items: center;
+}
+
+.characterSheet header {
+	grid-column: span 2;
+}
+
+.characterSheet ul {
+	grid-column: 2;
+}

@@ -1,7 +1,7 @@
 import OpenModal from "@/components/Modal/OpenModal";
 import { useState, useRef } from "react";
 import Modal from "./Modal/Modal";
-import CharacterSheet from "@/components/CharacterSheet";
+import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 
 const CharacterList = () => {
 	const ref = useRef(null);

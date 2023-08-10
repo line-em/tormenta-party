@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 const Modal = forwardRef(({ children, onClose }, ref) => {
 	const isClickInsideRectangle = (e, element) => {
 		const r = element.getBoundingClientRect();
-		console.log(r);
 		return (
 			e.clientX > r.left &&
 			e.clientX < r.right &&
@@ -20,7 +19,7 @@ const Modal = forwardRef(({ children, onClose }, ref) => {
 			ref={ref}
 		>
 			{children}
-			<button onClick={onClose}>oi</button>
+			<button onClick={onClose}>Fechar</button>
 		</dialog>
 	);
 });

@@ -33,6 +33,7 @@ export default function AttributeCell({
 					value={attributeValue}
 					min={0}
 					max={25}
+					className="big"
 					onChange={handleValueChange}
 					disabled={isLocked}
 					onKeyDown={(e) => isNumberKey(e)}
