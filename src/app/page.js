@@ -3,7 +3,7 @@
 import DiceRolls from "@/components/DiceRolls/DiceRolls.jsx";
 import FichaDePersonagem from "@/components/CharacterSheet";
 import SectionHeading from "@/components/SectionHeading";
-import DialogCard from "@/components/DialogCard";
+import DialogCard from "@/components/DialogCard/DialogCard";
 
 export default function Home() {
 	return (
@@ -37,6 +37,20 @@ export default function Home() {
 						rel="noopener noreferrer"
 					>
 						Referência Rápida
+					</a>
+					<a
+						href="https://eduardomarques.pythonanywhere.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Grimório de Magias
+					</a>
+					<a
+						href="https://helladarion-codex.netlify.app/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Ficha de Mostro
 					</a>
 				</section>
 			</div>
