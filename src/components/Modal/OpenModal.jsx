@@ -1,19 +1,20 @@
 import DefaultUser from "@/assets/svgs/DefaultUser";
 import Plus from "@/assets/svgs/Plus";
-import styles from "./DialogCard.module.css";
+import styles from "./OpenModal.module.css";
 import Circle from "../Circle/Circle";
-const DialogCard = ({ isCreated, hasImg, currentCharacter }) => {
+
+const OpenModal = ({ isCreated, hasImg, currentCharacter, func }) => {
 	return (
 		<section className="row">
 			{isCreated ? (
-				<button className={styles.transparentButton}>
+				<button className={styles.transparentButton} onClick={func}>
 					<Circle>
 						<DefaultUser width={25} height={25} />
 					</Circle>
 					<h3>{currentCharacter}</h3>
 				</button>
 			) : (
-				<button className={styles.transparentButton}>
+				<button className={styles.transparentButton} onClick={func}>
 					<Circle>
 						<Plus width={30} height={30} />
 					</Circle>
@@ -23,4 +24,4 @@ const DialogCard = ({ isCreated, hasImg, currentCharacter }) => {
 	);
 };
 
-export default DialogCard;
+export default OpenModal;

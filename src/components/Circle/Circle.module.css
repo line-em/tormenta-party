@@ -6,7 +6,8 @@
 	height: 50px;
 	border-radius: 50%;
 	background-color: var(--golden-dark);
-	transition: 100ms ease-in-out;
+	transition: var(--transition);
+	aspect-ratio: 1/1;
 }
 
 .addCircle:hover,

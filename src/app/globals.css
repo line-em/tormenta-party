@@ -6,6 +6,14 @@
 	--grey: hsl(60, 5%, 50%);
 	--warm-grey: #d1c9c3;
 
+	--black: hsla(0, 0%, 11%, 0.9);
+	--black-alpha: hsla(0, 0%, 11%, 0.5);
+	--white: hsl(60, 3%, 94%);
+	--white-alpha: hsla(60, 3%, 94%, 0.8);
+	--white-alpha-50: hsla(60, 3%, 94%, 0.5);
+	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
+		url(../assets/bgTormenta.jpg);
+
 	--small: 0.75rem;
 	--regular: 1rem;
 	--medium: 1.5rem;
@@ -18,15 +26,11 @@
 	--spacing-m: 25px;
 	--spacing-l: 35px;
 
-	--black: hsla(0, 0%, 11%, 0.9);
-	--white: hsl(60, 3%, 94%);
-	--white-alpha: hsla(60, 3%, 94%, 0.8);
-	--white-alpha-50: hsla(60, 3%, 94%, 0.5);
-	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
-		url(../assets/bgTormenta.jpg);
+	--transition: 100ms ease-in-out;
+	--shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="dark"] :root {
+/* [data-theme="dark"] :root {
 	--white: hsla(0, 0%, 11%, 1);
 	--white-alpha: hsla(0, 0%, 11%, 0.8);
 	--white-alpha-50: hsla(0, 0%, 11%, 0.5);
@@ -34,7 +38,7 @@
 
 	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
 		url(../assets/bgTormenta2.jpg);
-}
+} */
 
 ::selection {
 	background-color: var(--red);
@@ -52,7 +56,6 @@ h1 {
 
 h1.title {
 	font-size: var(--title);
-	line-height: 1.5;
 	text-align: center;
 }
 
@@ -96,19 +99,21 @@ main {
 	border-inline: 10px solid var(--black);
 }
 
-section {
-	background-color: var(--white-alpha);
-	padding: var(--spacing-s) var(--spacing-m);
-	border-radius: var(--spacing-s);
-	box-shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.2);
+section,
+.section-style {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: var(--spacing-s);
+	background-color: var(--white-alpha);
+	padding: var(--spacing-s) var(--spacing-m);
+	border-radius: var(--spacing-s);
+	box-shadow: var(--shadow);
 }
 
-section.row {
+section.row,
+.section-style.row {
 	flex-direction: row;
 }
 
@@ -116,7 +121,9 @@ section.big {
 	padding-block: var(--spacing-l);
 }
 
-section + section:not(.row) {
+section + section:not(.row),
+header + section:not(.row),
+section:not(.row) + header {
 	margin-block-start: var(--spacing-s);
 }
 
@@ -149,9 +156,10 @@ button {
 	letter-spacing: 1px;
 	cursor: pointer;
 	border-radius: var(--spacing-xs);
-	transition: 100ms ease-in-out;
+	transition: var(--transition);
 	display: flex;
 	gap: var(--spacing-xs);
+	max-width: 40ch;
 }
 
 button:hover {
@@ -161,4 +169,33 @@ button:hover {
 
 button:active {
 	border: 1px var(--golden) solid;
+}
+
+dialog {
+	width: 80%;
+	background-color: var(--white);
+	padding: var(--spacing-m) var(--spacing-l);
+	border-radius: var(--spacing-s);
+	box-shadow: var(--shadow);
+	border: none;
+	opacity: 1;
+}
+
+dialog[open] {
+	display: grid;
+	margin: var(--spacing-l) auto;
+}
+
+dialog:not([open]) {
+	pointer-events: none;
+	margin: 0;
+}
+
+dialog::backdrop {
+	background-color: hsla(0, 0%, 0%, 0.5);
+	backdrop-filter: blur(5px);
+}
+
+html:has(dialog[open]) {
+	overflow: hidden;
 }

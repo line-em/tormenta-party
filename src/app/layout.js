@@ -1,4 +1,5 @@
 import "./reset.css";
+import "./animation.css";
 import "./globals.css";
 import localFont from "next/font/local";
 

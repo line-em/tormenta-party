@@ -10,5 +10,5 @@
 }
 
 .transparentButton h3:hover {
-	transition: 200ms;
+	transition: var(--transition);
 }

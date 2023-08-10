@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DiceRoller } from "@dice-roller/rpg-dice-roller";
 import styles from "./DiceRolls.module.css";
-import SectionHeading from "../SectionHeading";
+import SectionHeading from "../Headings/SectionHeading";
 
 export default function DiceRolls() {
 	const [dice, setDice] = useState("");
