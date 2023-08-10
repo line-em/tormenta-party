@@ -1,0 +1,4 @@
+-   Character sheet modals with TABS.
+-   Remove / Delete characters
+-   Implement the dice
+-   Premade dices - Iniciative, etc

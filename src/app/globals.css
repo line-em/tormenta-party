@@ -6,8 +6,9 @@
 	--grey: hsl(60, 5%, 50%);
 	--warm-grey: #d1c9c3;
 
-	--regular: 1rem;
 	--small: 0.75rem;
+	--regular: 1rem;
+	--medium: 1.5rem;
 	--big: 2rem;
 	--header: 3rem;
 	--title: 5rem;
@@ -15,6 +16,7 @@
 	--spacing-xs: 10px;
 	--spacing-s: 15px;
 	--spacing-m: 25px;
+	--spacing-l: 35px;
 
 	--black: hsla(0, 0%, 11%, 0.9);
 	--white: hsl(60, 3%, 94%);
@@ -53,7 +55,6 @@
 	background-color: var(--red);
 	color: var(--white);
 	border-radius: 50%;
-	margin: 0 auto;
 }
 
 h1 {
@@ -63,10 +64,15 @@ h1 {
 h1.title {
 	font-size: var(--title);
 	line-height: 1.5;
+	text-align: center;
 }
 
 h2 {
 	font-size: var(--big);
+}
+
+h3 {
+	font-size: var(--medium);
 }
 
 a {
@@ -76,6 +82,7 @@ a {
 
 body {
 	background-image: var(--bg-image);
+	backdrop-filter: grayscale(0.8);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -90,6 +97,14 @@ body {
 
 main {
 	margin: 0 auto;
+	background-color: var(--white-alpha);
+	min-height: 100dvh;
+	padding: var(--spacing-m) var(--spacing-l);
+	min-width: 90ch;
+	backdrop-filter: blur(3px);
+	display: grid;
+	place-items: center;
+	border-inline: 10px solid var(--black);
 }
 
 section {
@@ -97,7 +112,6 @@ section {
 	padding: var(--spacing-s) var(--spacing-m);
 	border-radius: var(--spacing-s);
 	box-shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.2);
-	backdrop-filter: blur(3px);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -109,13 +123,23 @@ section.row {
 	flex-direction: row;
 }
 
-section + section {
+section.big {
+	padding-block: var(--spacing-l);
+}
+
+section + section:not(.row) {
 	margin-block-start: var(--spacing-s);
 }
 
 section header {
 	display: flex;
 	align-items: center;
+	gap: var(--spacing-s);
+}
+
+section.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	gap: var(--spacing-s);
 }
 

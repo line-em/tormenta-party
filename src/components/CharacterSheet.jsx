@@ -3,11 +3,11 @@ import { useState } from "react";
 import SectionHeading from "./SectionHeading";
 import Attributes from "@/components/Attributes/Attributes";
 
-export default function FichaDePersonagem({ characterSheet }) {
+export default function CharacterSheet({ characterSheet }) {
 	return (
-		<section>
+		<dialog>
 			<SectionHeading type={"scroll"} text="Ficha de Personagem" />
 			<Attributes />
-		</section>
+		</dialog>
 	);
 }
