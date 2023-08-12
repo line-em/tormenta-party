@@ -4,9 +4,9 @@ import SectionHeading from "@/components/Headings/SectionHeading";
 export default function Home() {
 	return (
 		<div>
-			<SectionHeading type={"sword"} text="Aventureiros" />
+			<SectionHeading icon={"sword"}>Aventureiros</SectionHeading>
 			<CharacterList />
-			<SectionHeading type={"clips"} text="Recursos Adicionais" />
+			<SectionHeading icon={"clips"}>Recursos Adicionais</SectionHeading>
 			<section>
 				<a
 					href="https://referencet20.vercel.app/"

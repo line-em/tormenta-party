@@ -100,6 +100,10 @@ main {
 	border-inline: 10px solid var(--black);
 }
 
+.align-start {
+	align-self: start; /*used to center an only child in the main container */
+}
+
 section,
 .section-style {
 	display: flex;
@@ -120,6 +124,12 @@ section.row,
 
 section.big {
 	padding-block: var(--spacing-l);
+}
+
+.no-shadow {
+	background-color: transparent;
+	border-radius: 0;
+	box-shadow: none;
 }
 
 section + section:not(.row),
@@ -236,4 +246,13 @@ html:has(dialog[open]) {
 
 dialog button {
 	margin-block-start: 1rem;
+}
+
+dialog > button {
+	margin: var(--spacing-s) var(--spacing-m);
+	width: fit-content;
+}
+
+dialog svg {
+	flex-shrink: 0;
 }

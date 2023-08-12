@@ -2,6 +2,7 @@ import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
 import { baseAttributes } from "@/data/base";
 import { useState } from "react";
+import Health from "../CharacterSheet/Health";
 
 export default function Attributes({ characterSheet, isLocked }) {
 	const [attributes, setAttributes] = useState(baseAttributes);
@@ -22,9 +23,9 @@ export default function Attributes({ characterSheet, isLocked }) {
 					attributeValue={value}
 					attributeModifier={modifier}
 					updateAttribute={updateAttribute}
-					isLocked={isLocked}
 				/>
 			))}
+			<Health isLocked={isLocked} />
 		</ul>
 	);
 }

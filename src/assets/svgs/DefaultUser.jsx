@@ -8,8 +8,8 @@ export default function DefaultUser(props) {
 			{...props}
 		>
 			<g
-				fill="none"
-				stroke="var(--black)"
+				fill="var(--black)"
+				// stroke="var(--black)"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 				strokeWidth="2"

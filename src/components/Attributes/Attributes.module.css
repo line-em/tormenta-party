@@ -1,13 +1,14 @@
 .attrGrid {
 	display: grid;
-	grid-template-columns: repeat(6, 108px);
+	grid-template-columns: repeat(6, minmax(108px, 1fr)) minmax(120px, 2fr);
 	gap: var(--spacing-m);
 }
 
 .attrGrid li {
 	display: grid;
 	grid-template-columns: 18px 1fr;
-	width: 110px;
+	max-width: 125px;
+	min-width: 100px;
 	height: 114px;
 	justify-items: baseline;
 }

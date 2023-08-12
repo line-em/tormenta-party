@@ -2,12 +2,8 @@ form.basic {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: var(--spacing-s);
+	/* align-items: center; */
 	/* min-width: 868px; */
-}
-
-form.basic svg {
-	max-height: 10px;
-	margin-block-start: -1rem;
 }
 
 .span2 {

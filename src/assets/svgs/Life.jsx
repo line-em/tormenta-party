@@ -1,4 +1,4 @@
-export default function Health(props) {
+export default function Life(props) {
 	return (
 		<svg
 			width="1em"
