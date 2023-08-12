@@ -1,3 +1,4 @@
+"use client";
 import OpenModal from "@/components/Modal/OpenModal";
 import { useState, useRef } from "react";
 import Modal from "./Modal/Modal";
