@@ -1,43 +1,44 @@
-.floatingLabel {
+.floating-label {
 	position: relative;
-	/* margin-bottom: 20px; */
 }
 
-.floatingText {
+.floating-text {
 	color: var(--red);
+	font-weight: 700;
 	position: absolute;
 	pointer-events: none;
-	/* left: 15px;
-  top: 11px;
-  padding: 0 5px; */
+	left: var(--spacing-s);
+	top: var(--spacing-s);
+	background: white;
+	transition: var(--transition);
+}
+
+.transparent ~ .floating-text {
 	background: var(--white);
-	/* transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all; */
 }
 
-.floatingInput {
+.floating-input {
 	display: block;
-	/* width: 100%;
-  height: 36px;
-  padding: 0 20px;
-  background: #fff;
-  color: #323840; */
+	padding-inline: var(--spacing-s);
 	border: 1px solid var(--warm-grey);
-	/* border-radius: 4px; */
+	border-radius: var(--spacing-s);
 }
 
-.did-floating-input:focus,
-.did-floating-select:focus {
-	outline: none;
+.floating-input:focus {
+	border: 1px solid var(--warm-grey);
 }
-.did-floating-input:focus ~ .did-floating-label,
-.did-floating-select:focus ~ .did-floating-label {
+
+.floating-input:focus ~ .floating-text,
+.floating-input:not(:placeholder-shown) ~ .floating-text {
+	left: 8px;
 	top: -8px;
-	font-size: 13px;
+	font-size: var(--small);
+	border: 1px solid var(--warm-grey);
+	border-radius: var(--spacing-s);
+	padding-inline: var(--spacing-s);
 }
 
-select.did-floating-select {
+/* select.did-floating-select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -45,12 +46,7 @@ select.did-floating-select {
 
 select.did-floating-select::-ms-expand {
 	display: none;
-}
-
-.did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
-	top: -8px;
-	font-size: 13px;
-}
+} */
 
 .did-floating-select:not([value=""]):valid ~ .did-floating-label {
 	top: -8px;

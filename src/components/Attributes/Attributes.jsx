@@ -1,11 +1,9 @@
 import styles from "./Attributes.module.css";
-import { useState } from "react";
 import AttributeCell from "./AttributeCell";
 import { baseAttributes } from "@/data/base";
-import Lock from "@/assets/svgs/Lock";
+import { useState } from "react";
 
-export default function Attributes({ characterSheet }) {
-	const [isLocked, setIsLocked] = useState(true);
+export default function Attributes({ characterSheet, isLocked }) {
 	const [attributes, setAttributes] = useState(baseAttributes);
 
 	const updateAttribute = (attribute, newValue, newModifier) => {
@@ -27,9 +25,6 @@ export default function Attributes({ characterSheet }) {
 					isLocked={isLocked}
 				/>
 			))}
-			<button onClick={() => setIsLocked(!isLocked)}>
-				{isLocked ? "Unlock " : "Lock "} <Lock width={20} height={20} />
-			</button>
 		</ul>
 	);
 }

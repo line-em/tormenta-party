@@ -2,7 +2,7 @@ import Divider from "@/assets/svgs/Divider";
 import styles from "./Forms.module.css";
 import { useForm } from "react-hook-form";
 
-const BasicInfo = () => {
+const BasicInfo = ({ isLocked }) => {
 	const {
 		handleSubmit,
 		register,
@@ -15,24 +15,32 @@ const BasicInfo = () => {
 
 	return (
 		<form onSubmit={handleSubmit(handleChanges)} className={styles.basic}>
-			<div className={`${styles.span2}`}>
-				<label htmlFor="nome">Nome</label>
+			<div className={`${styles.span2} floating-label`}>
 				<input
 					type="text"
 					id="nome"
-					className="big transparent"
-					placeholder="Nome do Personagem"
+					className="big floating-input"
+					placeholder=" "
+					disabled={isLocked}
 					{...register("Nome do Personagem", { maxLength: 80 })}
 				/>
-				<Divider />
+				<label htmlFor="nome" className="floating-text big">
+					Nome do Personagem
+				</label>
+				{/* <Divider /> */}
 			</div>
-			<input
-				type="text"
-				id="nome"
-				placeholder="Raça"
-				className="transparent"
-				{...register("Raça", { maxLength: 80 })}
-			/>
+			<div className="floating-label">
+				<input
+					type="text"
+					id="raca"
+					placeholder="Raça"
+					className="transparent floating-input"
+					{...register("Raça", { maxLength: 80 })}
+				/>
+				<label htmlFor="raca" className="floating-text">
+					Raça
+				</label>
+			</div>
 			<input
 				type="text"
 				id="nome"

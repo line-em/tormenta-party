@@ -1,19 +1,7 @@
 .attrGrid {
 	display: grid;
-	grid-template-columns: repeat(6, 108px) 70px;
+	grid-template-columns: repeat(6, 108px);
 	gap: var(--spacing-m);
-}
-
-.attrGrid button {
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--white);
-	color: var(--black);
-}
-
-.attrGrid button:hover {
-	background-color: var(--warm-grey);
 }
 
 .attrGrid li {
@@ -30,6 +18,7 @@
 	gap: 0.5em;
 	grid-template-columns: 1fr;
 	background-color: var(--warm-grey);
+	border-radius: 0 var(--spacing-s) var(--spacing-s) 0;
 }
 
 .attrGrid li span {
@@ -40,6 +29,7 @@
 	color: var(--golden);
 	text-align: end;
 	padding-bottom: var(--spacing-xs);
+	border-radius: 0 var(--spacing-s) var(--spacing-s) 0;
 }
 
 .attrGrid li p {
@@ -52,6 +42,7 @@
 .attrGrid input {
 	text-align: center;
 	color: var(--red);
+	border-radius: 0 var(--spacing-s) 0 0;
 }
 
 .attrGrid input:disabled {
