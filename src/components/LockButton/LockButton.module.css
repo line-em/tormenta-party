@@ -1,0 +1,11 @@
+.lockStyle {
+	/* flex-direction: column; */
+	align-items: center;
+	justify-content: center;
+	background-color: var(--white);
+	color: var(--black);
+}
+
+.lockStyle:hover {
+	background-color: var(--warm-grey);
+}

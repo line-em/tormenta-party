@@ -5,7 +5,7 @@ import MajesticonsScrollText from "@/assets/svgs/Scroll";
 import RiSwordFill from "@/assets/svgs/Swords";
 const SectionHeading = ({ icon = "none", row = true, children }) => {
 	return (
-		<header className={`section-style ${row === true && "row"}`}>
+		<header className={`section-style ${row && "row"}`}>
 			{(() => {
 				const iconProps = { width: 55, height: 55 };
 				switch (icon) {
