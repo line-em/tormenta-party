@@ -8,24 +8,33 @@ import Circle from "../Circle/Circle";
 import Clips from "@/assets/svgs/Clips";
 import LockButton from "../LockButton/LockButton";
 
-export default function CharacterSheet({ characterSheet }) {
+export default function CharacterSheet({ character }) {
 	const [isLocked, setIsLocked] = useState(true);
+	const [currentTab, setCurrentTab] = useState("main");
 
 	return (
 		<div className={styles.characterSheet}>
-			<SectionHeading icon={"scroll"} row={false}>
+			<SectionHeading
+				icon={"scroll"}
+				// row={false}
+			>
 				Ficha de Personagem
 			</SectionHeading>
 			<BasicInfo isLocked={isLocked} />
-			<Circle css={"big"}>
-				<Clips width={50} height={50} />
-			</Circle>
 			<Attributes isLocked={isLocked} />
-			<div>
-				<button>Basic Info</button>
+			<aside>
+				<Circle width={"100%"} height={"auto"} max-width={"10vw"}>
+					<Clips width={50} height={50} />
+				</Circle>
+			</aside>
+			<nav>
+				<button disabled={currentTab === "main"}>{character.name}</button>
+				<button>Combate</button>
 				<button>Inventário</button>
-			</div>
-			<LockButton isLocked={isLocked} />
+				<button>Magias</button>
+				<button>Notas</button>
+			</nav>
+			<LockButton isLocked={isLocked} setIsLocked={setIsLocked} />
 		</div>
 	);
 }

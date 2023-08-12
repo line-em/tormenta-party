@@ -24,7 +24,7 @@ const CharacterList = () => {
 			<OpenModal />
 
 			<Modal ref={ref} onClose={onClose}>
-				<CharacterSheet />
+				<CharacterSheet character={{ name: "Anisha Tariq" }} />
 			</Modal>
 		</section>
 	);

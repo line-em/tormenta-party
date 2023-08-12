@@ -12,6 +12,6 @@
 }
 
 .addCircle:hover,
-*:hover > .addCircle {
+button:hover > .addCircle {
 	background-color: var(--warm-grey);
 }

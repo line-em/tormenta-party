@@ -1,10 +1,48 @@
 .characterSheet {
 	display: grid;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 1fr 5fr;
+	grid-auto-flow: dense;
 	margin: var(--spacing-s) var(--spacing-m);
-	gap: var(--spacing-l);
+	gap: var(--spacing-xxs) var(--spacing-l);
+	grid-template-areas: "sidebar content";
 }
 
-/* .characterSheet header {
+.characterSheet header {
 	grid-column: span 2;
-} */
+	margin-block-end: var(--spacing-l);
+}
+
+.characterSheet > :where(aside, nav, button) {
+	grid-column: sidebar;
+}
+
+.characterSheet > :where(form, section, ul) {
+	grid-column: content;
+}
+
+.characterSheet button {
+	width: fit-content;
+}
+
+.characterSheet nav {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 0 var(--spacing-s);
+}
+
+.characterSheet nav button {
+	background-color: var(--warm-grey-light);
+	color: var(--red);
+	padding: var(--spacing-xxs) var(--spacing-xs);
+}
+
+.characterSheet nav button:not(:disabled):hover {
+	background-color: var(--warm-grey);
+	color: var(--black);
+}
+
+.characterSheet nav button:disabled {
+	background-color: var(--white);
+	text-decoration: underline;
+}

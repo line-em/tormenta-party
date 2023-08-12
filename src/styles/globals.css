@@ -5,6 +5,7 @@
 	--golden-dark: hsl(40, 90%, 55%);
 	--grey: hsl(60, 5%, 50%);
 	--warm-grey: #d1c9c3;
+	--warm-grey-light: #e1dbd6;
 
 	--black: hsla(0, 0%, 11%, 0.9);
 	--black-alpha: hsla(0, 0%, 11%, 0.5);
@@ -209,6 +210,10 @@ button:hover {
 
 button:active {
 	border: 1px var(--golden) solid;
+}
+
+button:disabled {
+	cursor: default;
 }
 
 .tormenta > button {

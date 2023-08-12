@@ -2,7 +2,7 @@ import Lock from "@/assets/svgs/Lock";
 import Unlock from "@/assets/svgs/Unlock";
 import styles from "./LockButton.module.css";
 
-const LockButton = ({ isLocked }) => {
+const LockButton = ({ isLocked, setIsLocked }) => {
 	return (
 		<button className={styles.lockStyle} onClick={() => setIsLocked(!isLocked)}>
 			{isLocked ? (

@@ -1,11 +1,13 @@
 form.basic {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: var(--spacing-s);
+	align-items: start;
+	place-content: start;
 	/* align-items: center; */
 	/* min-width: 868px; */
 }
 
-.span2 {
-	grid-column: span 2;
+.span3 {
+	grid-column: span 3;
 }
