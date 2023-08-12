@@ -44,5 +44,5 @@
 
 .characterSheet nav button:disabled {
 	background-color: var(--white);
-	text-decoration: underline;
+	border: 1px solid var(--red);
 }

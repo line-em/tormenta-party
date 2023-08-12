@@ -20,6 +20,7 @@ export default function Attributes({ characterSheet, isLocked }) {
 				<AttributeCell
 					key={attribute}
 					attribute={attribute}
+					isLocked={isLocked}
 					attributeValue={value}
 					attributeModifier={modifier}
 					updateAttribute={updateAttribute}

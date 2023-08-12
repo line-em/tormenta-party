@@ -19,6 +19,7 @@ export default function CharacterSheet({ character }) {
 				// row={false}
 			>
 				Ficha de Personagem
+				<LockButton isLocked={isLocked} setIsLocked={setIsLocked} />
 			</SectionHeading>
 			<BasicInfo isLocked={isLocked} />
 			<Attributes isLocked={isLocked} />
@@ -28,13 +29,12 @@ export default function CharacterSheet({ character }) {
 				</Circle>
 			</aside>
 			<nav>
-				<button disabled={currentTab === "main"}>{character.name}</button>
+				<button disabled={currentTab === "main"}>Perfil</button>
 				<button>Combate</button>
 				<button>Inventário</button>
 				<button>Magias</button>
 				<button>Notas</button>
 			</nav>
-			<LockButton isLocked={isLocked} setIsLocked={setIsLocked} />
 		</div>
 	);
 }
