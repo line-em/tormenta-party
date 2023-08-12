@@ -1,0 +1,23 @@
+.list {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	min-height: auto;
+	margin-block-start: var(--spacing-s);
+	place-items: start;
+	place-content: start;
+}
+
+.list li {
+	padding: var(--spacing-xs);
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.list > li:nth-child(2n) {
+	background-color: var(--warm-grey-light);
+}
+
+.list input {
+	width: auto;
+}

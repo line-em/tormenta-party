@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import Remove from "@/assets/svgs/Remove";
 
 const Modal = forwardRef(({ children, onClose }, ref) => {
 	const isClickInsideRectangle = (e, element) => {
@@ -18,8 +19,10 @@ const Modal = forwardRef(({ children, onClose }, ref) => {
 			}
 			ref={ref}
 		>
+			<button onClick={onClose} className="modal-button">
+				<Remove width={25} height={25} />
+			</button>
 			{children}
-			<button onClick={onClose}>Fechar</button>
 		</dialog>
 	);
 });

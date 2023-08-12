@@ -1,40 +1,52 @@
 .characterSheet {
 	display: grid;
 	grid-template-columns: 1fr 5fr;
+	grid-template-rows: auto;
 	grid-auto-flow: dense;
 	margin: var(--spacing-s) var(--spacing-m);
-	gap: var(--spacing-xxs) var(--spacing-l);
+	gap: var(--spacing-xs) var(--spacing-l);
 	grid-template-areas: "sidebar content";
 }
 
-.characterSheet header {
-	grid-column: span 2;
-	margin-block-end: var(--spacing-l);
-}
-
-.characterSheet > :where(aside, nav, button) {
+.characterSheet > aside {
 	grid-column: sidebar;
 }
 
-.characterSheet > :where(form, section, ul) {
+.characterSheet > article {
 	grid-column: content;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-s);
 }
 
-.characterSheet button {
-	width: fit-content;
+.characterSheet footer {
+	grid-column: span 2;
+	display: flex;
+	gap: var(--spacing-s);
+	margin-top: auto;
+	place-items: end;
+	place-content: end;
+	margin-inline-end: 0;
+}
+
+.characterSheet aside {
+	margin-inline: auto;
 }
 
 .characterSheet nav {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	gap: 0 var(--spacing-s);
+	align-items: center;
+	gap: var(--spacing-s);
+	margin-block-start: var(--spacing-s);
 }
 
 .characterSheet nav button {
 	background-color: var(--warm-grey-light);
 	color: var(--red);
 	padding: var(--spacing-xxs) var(--spacing-xs);
+	position: relative;
 }
 
 .characterSheet nav button:not(:disabled):hover {

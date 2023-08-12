@@ -1,6 +1,6 @@
 .attrGrid {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(108px, 1fr)) minmax(120px, 2fr);
+	grid-template-columns: repeat(6, minmax(131px, auto)) minmax(100px, 1fr);
 	gap: var(--spacing-m);
 }
 

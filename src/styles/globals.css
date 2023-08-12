@@ -225,7 +225,9 @@ button:disabled {
 }
 
 dialog {
+	position: relative;
 	width: 80%;
+	max-height: 90dvh;
 	background-color: var(--white);
 	padding: var(--spacing-m) var(--spacing-l);
 	border-radius: var(--spacing-s);
@@ -253,13 +255,17 @@ html:has(dialog[open]) {
 	overflow: hidden;
 }
 
-dialog button {
-	margin-block-start: 1rem;
+dialog > button {
+	top: var(--spacing-s);
+	right: var(--spacing-s);
+	width: fit-content;
+	position: absolute;
+	padding: var(--spacing-xxs);
+	background-color: var(--warm-grey-light);
 }
 
-dialog > button {
-	margin: var(--spacing-s) var(--spacing-m);
-	width: fit-content;
+dialog > button:hover {
+	background-color: var(--warm-grey);
 }
 
 dialog svg {
