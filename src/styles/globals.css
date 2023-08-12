@@ -1,4 +1,5 @@
 :root {
+	--purple: hsl(261, 54%, 47%);
 	--red: hsl(357, 70%, 47%);
 	--red-dark: hsl(357, 63%, 32%);
 	--golden: hsl(40, 100%, 72%);
@@ -25,6 +26,7 @@
 	--spacing-xxs: 5px;
 	--spacing-xs: 10px;
 	--spacing-s: 15px;
+	--spacing-sm: 20px;
 	--spacing-m: 25px;
 	--spacing-l: 35px;
 
@@ -137,16 +139,8 @@ section.big {
 	box-shadow: none;
 }
 
-section + section:not(.row),
-header + section:not(.row),
-section:not(.row) + header {
-	margin-block-start: var(--spacing-s);
-}
-
-section header {
-	display: flex;
-	align-items: center;
-	gap: var(--spacing-s);
+.no-padding {
+	padding: 0;
 }
 
 section.grid {
@@ -155,8 +149,24 @@ section.grid {
 	gap: var(--spacing-s);
 }
 
+section + section:not(.row),
+header + section:not(.row),
+section:not(.row) + header {
+	margin-block-start: var(--spacing-s);
+}
+
+section.grid > section {
+	margin-block-start: 0;
+}
+
+section header {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-s);
+}
+
 input {
-	padding: var(--spacing-s) var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-s);
 	font-size: var(--regular);
 	font-weight: 700;
 	border: none;
@@ -170,6 +180,11 @@ input:not(:disabled):active {
 	border: transparent 1px solid;
 	outline: none;
 	color: var(--red);
+}
+
+input.small {
+	font-size: var(--small);
+	padding: var(--spacing-sm) var(--spacing-xxs) var(--spacing-xs);
 }
 
 input.medium,
@@ -270,4 +285,12 @@ dialog > button:hover {
 
 dialog svg {
 	flex-shrink: 0;
+}
+
+.span2 {
+	grid-column: span 2;
+}
+
+.span3 {
+	grid-column: span 3;
 }

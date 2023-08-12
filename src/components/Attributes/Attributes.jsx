@@ -2,7 +2,7 @@ import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
 import { baseAttributes } from "@/data/base";
 import { useState } from "react";
-import Health from "../CharacterSheet/Health";
+import Health from "../CharacterSheet/Geral/Health";
 
 export default function Attributes({ characterSheet, isLocked }) {
 	const [attributes, setAttributes] = useState(baseAttributes);
@@ -15,18 +15,20 @@ export default function Attributes({ characterSheet, isLocked }) {
 	};
 
 	return (
-		<ul className={styles.attrGrid}>
-			{Object.entries(attributes).map(([attribute, { value, modifier }]) => (
-				<AttributeCell
-					key={attribute}
-					attribute={attribute}
-					isLocked={isLocked}
-					attributeValue={value}
-					attributeModifier={modifier}
-					updateAttribute={updateAttribute}
-				/>
-			))}
+		<div className={styles.attrGrid}>
+			<ul>
+				{Object.entries(attributes).map(([attribute, { value, modifier }]) => (
+					<AttributeCell
+						key={attribute}
+						attribute={attribute}
+						isLocked={isLocked}
+						attributeValue={value}
+						attributeModifier={modifier}
+						updateAttribute={updateAttribute}
+					/>
+				))}
+			</ul>
 			<Health isLocked={isLocked} />
-		</ul>
+		</div>
 	);
 }

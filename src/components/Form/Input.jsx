@@ -1,17 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const Input = ({
-	rowCss,
-	inputCss,
-	id,
-	label,
-	disabled,
-	onChange,
-	type,
-	value,
-	placeholder
-}) => {
+const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value }) => {
 	const {
 		handleSubmit,
 		register,
@@ -20,6 +10,19 @@ const Input = ({
 		mode: "onChange"
 	});
 
+	const registerObj =
+		type === "number"
+			? {
+					...register(`${label}`, {
+						pattern: /[0-9]/,
+						maxLength: 10,
+						valueAsNumber: true
+					})
+			  }
+			: {
+					...register(`${label}`, { maxLength: 80 })
+			  };
+
 	return (
 		<div className={`${rowCss} floating-label`}>
 			<input
@@ -27,8 +30,9 @@ const Input = ({
 				id={id}
 				className={`${inputCss} floating-input`}
 				placeholder=" "
+				value={value}
 				disabled={disabled}
-				{...register(`${label}`, { maxLength: 80 })}
+				{...registerObj}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}

@@ -1,6 +1,12 @@
 .attrGrid {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(131px, auto)) minmax(100px, 1fr);
+	grid-template-columns: 1fr 250px;
+	gap: var(--spacing-m);
+}
+
+.attrGrid ul {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(108px, auto));
 	gap: var(--spacing-m);
 }
 
@@ -40,12 +46,12 @@
 	color: var(--red-dark);
 }
 
-.attrGrid input {
+.attrGrid ul input {
 	text-align: center;
 	color: var(--red);
 	border-radius: 0 var(--spacing-s) 0 0;
 }
-.attrGrid input:disabled {
+.attrGrid ul input:disabled {
 	color: var(--black);
 	background-color: var(--white);
 }

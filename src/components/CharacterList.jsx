@@ -19,7 +19,7 @@ const CharacterList = () => {
 	return (
 		<section className="grid big">
 			<OpenModal isCreated currentCharacter={"Anisha Tariq"} func={onOpen} />
-			<OpenModal currentCharacter={"Howkin Khan Howkin"} isCreated />
+			<OpenModal currentCharacter={"Howkin Khan"} isCreated />
 			<OpenModal />
 			<OpenModal />
 

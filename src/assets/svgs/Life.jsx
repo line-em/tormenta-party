@@ -8,8 +8,8 @@ export default function Life(props) {
 			{...props}
 		>
 			<path
-				stroke="var(--black)"
-				fill="var(--black)"
+				// stroke="var(--black)"
+				fill="var(--red)"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 				strokeWidth="2"

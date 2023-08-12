@@ -1,13 +1,11 @@
-import SectionHeading from "../Headings/SectionHeading";
 import styles from "./CharacterSheet.module.css";
 import Attributes from "@/components/Attributes/Attributes";
-import BasicInfo from "./BasicInfo";
+import BasicInfo from "./Geral/BasicInfo";
 import "@/styles/floating-input.css";
 import { useState } from "react";
-import Circle from "../Circle/Circle";
-import Clips from "@/assets/svgs/Clips";
 import LockButton from "../LockButton/LockButton";
 import Pericias from "./Pericias";
+import Sidebar from "./Sidebar";
 
 export default function CharacterSheet({ character }) {
 	const [isLocked, setIsLocked] = useState(true);
@@ -15,27 +13,11 @@ export default function CharacterSheet({ character }) {
 
 	return (
 		<div className={styles.characterSheet}>
-			<aside>
-				<Circle
-					width={"100%"}
-					height={"auto"}
-					min-width={"9vw"}
-					max-width={"10vw"}
-				>
-					<Clips width={50} height={50} />
-				</Circle>
-				<nav>
-					<button disabled={currentTab === "main"}>Perfil</button>
-					<button>Combate</button>
-					<button>Inventário</button>
-					<button>Magias</button>
-					<button>Notas</button>
-				</nav>
-			</aside>
+			<Sidebar currentTab={currentTab} />
 			<article className="no-shadow">
-				<BasicInfo isLocked={isLocked} />
+				<BasicInfo isLocked={isLocked} name={character.name} />
 				<Attributes isLocked={isLocked} />
-				<Pericias />
+				{/* <Pericias /> */}
 				<footer>
 					<LockButton isLocked={isLocked} setIsLocked={setIsLocked} />
 					<button>Save</button>

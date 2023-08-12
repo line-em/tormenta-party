@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import "../styles/animation.css";
 import localFont from "next/font/local";
 import TitleHeading from "@/components/Headings/TitleHeading";
-import { AuthContextProvider } from '@/context/AuthContext'
+import { AuthContextProvider } from "@/context/AuthContext";
 
 const tormentaFont = localFont({
 	src: "../assets/fonts/Tormenta.ttf",
@@ -52,10 +52,8 @@ export default function RootLayout({ children }) {
 		>
 			<body>
 				<main>
-					<TitleHeading>Aventura n1</TitleHeading>
-					<AuthContextProvider>
-						{children}
-					</AuthContextProvider>
+					<TitleHeading>Aventura Tormenta</TitleHeading>
+					<AuthContextProvider>{children}</AuthContextProvider>
 				</main>
 			</body>
 		</html>

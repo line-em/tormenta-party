@@ -1,25 +1,14 @@
-import { isNumberKey } from "@/app/utils";
-import styles from "./Forms.module.css";
-import { useForm } from "react-hook-form";
-import Input from "../Form/Input";
+import Input from "../../Form/Input";
+import Form from "@/components/Form/Form";
 
-const BasicInfo = ({ isLocked }) => {
-	const {
-		handleSubmit,
-		register,
-		formState: { errors }
-	} = useForm({
-		mode: "onChange"
-	});
-
-	const handleChanges = (data) => console.log(data);
-
+const BasicInfo = ({ isLocked, name }) => {
 	return (
-		<form onSubmit={handleSubmit(handleChanges)} className={styles.basic}>
+		<Form>
 			<Input
-				rowCss={styles.span3}
+				rowCss="span3"
 				inputCss="big"
 				id={"nome"}
+				value={name}
 				label={"Nome"}
 				disabled={isLocked}
 				type="text"
@@ -35,10 +24,7 @@ const BasicInfo = ({ isLocked }) => {
 			<Input id={"classe"} label={"Classe"} disabled={isLocked} type="text" />
 			<Input id={"lvl"} label={"Nível"} disabled={isLocked} type="number" />
 			<Input id={"religiao"} label={"Religião"} disabled={isLocked} type="text" />
-
-			{/* <button type="submit">ddd</button> */}
-			{errors === true && <p>An error has been found.</p>}
-		</form>
+		</Form>
 	);
 };
 
