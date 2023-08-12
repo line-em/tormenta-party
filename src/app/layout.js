@@ -1,6 +1,6 @@
-import "./reset.css";
-import "./animation.css";
-import "./globals.css";
+import "../styles/reset.css";
+import "../styles/globals.css";
+import "../styles/animation.css";
 import localFont from "next/font/local";
 
 const tormentaFont = localFont({
@@ -48,6 +48,9 @@ export default function RootLayout({ children }) {
 			className={`${tormentaFont.variable} ${loraFont.variable}`}
 			suppressHydrationWarning
 		>
+			<head>
+				<link rel="icon" href="/favicon.png" sizes="any" />
+			</head>
 			<body>{children}</body>
 		</html>
 	);

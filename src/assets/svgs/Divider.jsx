@@ -2,7 +2,12 @@ import React from "react";
 
 const Divider = ({ props }) => {
 	return (
-		<svg class="section-divider" viewBox="0 0 1920 60" aria-hidden="true" {...props}>
+		<svg
+			className="section-divider"
+			viewBox="0 0 1920 60"
+			aria-hidden="true"
+			{...props}
+		>
 			<path
 				data-theme="softSecondary"
 				fill="var(--color-bg)"
