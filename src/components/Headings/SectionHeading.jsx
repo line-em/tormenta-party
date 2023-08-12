@@ -2,12 +2,12 @@ import Clips from "@/assets/svgs/Clips";
 import Dices from "@/assets/svgs/Dices.jsx";
 import MajesticonsScrollText from "@/assets/svgs/Scroll";
 import RiSwordFill from "@/assets/svgs/Swords";
-const SectionHeading = ({ type, text }) => {
+const SectionHeading = ({ icon = "none", children }) => {
 	return (
 		<header className="section-style row">
 			{(() => {
 				const iconProps = { width: 55, height: 55 };
-				switch (type) {
+				switch (icon) {
 					case "dice":
 						return <Dices {...iconProps} />;
 					case "scroll":
@@ -16,11 +16,11 @@ const SectionHeading = ({ type, text }) => {
 						return <Clips {...iconProps} />;
 					case "sword":
 						return <RiSwordFill {...iconProps} />;
-					default:
+					case "none":
 						return;
 				}
 			})()}
-			<h1 className="tormenta">{text}</h1>
+			<h1 className="tormenta">{children}</h1>
 		</header>
 	);
 };

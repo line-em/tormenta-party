@@ -6,3 +6,9 @@ export function calculateModifier(attributeValue) {
 	const modifier = Math.floor((attributeValue - 10) / 2);
 	return modifier;
 }
+
+export function isNumberKey(evt) {
+	var charCode = evt.which ? evt.which : evt.keyCode;
+	if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+	return true;
+}

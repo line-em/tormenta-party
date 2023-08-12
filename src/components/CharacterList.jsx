@@ -1,5 +1,5 @@
 "use client";
-import OpenModal from "@/components/Modal/OpenModal";
+import OpenModal from "@/components/Modal/OpenCharacterModal";
 import { useState, useRef } from "react";
 import Modal from "./Modal/Modal";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";

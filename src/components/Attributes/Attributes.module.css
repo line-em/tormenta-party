@@ -15,7 +15,7 @@
 .attrGrid li div {
 	display: grid;
 	grid-template-rows: 1fr var(--spacing-m);
-	gap: 0.5em;
+	gap: 0.2em;
 	grid-template-columns: 1fr;
 	background-color: var(--warm-grey);
 	border-radius: 0 var(--spacing-s) var(--spacing-s) 0;
@@ -44,8 +44,7 @@
 	color: var(--red);
 	border-radius: 0 var(--spacing-s) 0 0;
 }
-
 .attrGrid input:disabled {
 	color: var(--black);
-	opacity: 1;
+	background-color: var(--white);
 }

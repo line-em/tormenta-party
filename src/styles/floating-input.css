@@ -13,8 +13,9 @@
 	transition: var(--transition);
 }
 
-.transparent ~ .floating-text {
-	background: var(--white);
+.floating-input:disabled ~ .floating-text {
+	background: transparent;
+	color: var(--grey);
 }
 
 .floating-input {
@@ -25,7 +26,7 @@
 }
 
 .floating-input:focus {
-	border: 1px solid var(--warm-grey);
+	border: 1px solid var(--grey);
 }
 
 .floating-input:focus ~ .floating-text,
@@ -36,6 +37,11 @@
 	border: 1px solid var(--warm-grey);
 	border-radius: var(--spacing-s);
 	padding-inline: var(--spacing-s);
+}
+
+.floating-input:disabled:not(:placeholder-shown) ~ .floating-text {
+	background: white;
+	color: var(--red);
 }
 
 /* select.did-floating-select {

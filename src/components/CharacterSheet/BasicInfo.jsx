@@ -1,4 +1,4 @@
-import Divider from "@/assets/svgs/Divider";
+import { isNumberKey } from "@/app/utils";
 import styles from "./Forms.module.css";
 import { useForm } from "react-hook-form";
 
@@ -33,8 +33,9 @@ const BasicInfo = ({ isLocked }) => {
 				<input
 					type="text"
 					id="raca"
-					placeholder="Raça"
-					className="transparent floating-input"
+					disabled={isLocked}
+					placeholder=" "
+					className="floating-input"
 					{...register("Raça", { maxLength: 80 })}
 				/>
 				<label htmlFor="raca" className="floating-text">
@@ -44,21 +45,30 @@ const BasicInfo = ({ isLocked }) => {
 			<input
 				type="text"
 				id="nome"
+				disabled={isLocked}
 				placeholder="Origem"
 				{...register("Origem", { maxLength: 80 })}
 			/>
 			<input
 				type="text"
 				id="nome"
+				disabled={isLocked}
 				placeholder="Classe"
 				{...register("Classe", { maxLength: 80 })}
 			/>
-			<input
-				type="text"
-				id="nome"
-				placeholder="Nivel"
-				{...register("Nivel", { maxLength: 80 })}
-			/>
+			<div className="floating-label">
+				<input
+					type="number"
+					id="lvl"
+					disabled={isLocked}
+					className="floating-input"
+					onKeyDown={(e) => isNumberKey(e)}
+					{...register("Nivel", { maxLength: 2 })}
+				/>
+				<label htmlFor="lvl" className="floating-text">
+					Nível
+				</label>
+			</div>
 			{/* <button type="submit">ddd</button> */}
 			{errors === true && <p>An error has been found.</p>}
 		</form>
