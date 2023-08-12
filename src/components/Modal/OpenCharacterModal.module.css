@@ -1,0 +1,14 @@
+.transparentButton {
+	background-color: transparent;
+	color: var(--black);
+	align-items: center;
+}
+
+.transparentButton:hover {
+	color: var(--red);
+	background-color: transparent;
+}
+
+.transparentButton h3:hover {
+	transition: var(--transition);
+}
