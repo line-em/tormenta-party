@@ -15,7 +15,8 @@ const BasicInfo = () => {
 
 	return (
 		<form onSubmit={handleSubmit(handleChanges)} className={styles.basic}>
-			<div className={styles.span2}>
+			<div className={`${styles.span2}`}>
+				<label htmlFor="nome">Nome</label>
 				<input
 					type="text"
 					id="nome"

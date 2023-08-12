@@ -1,7 +1,8 @@
-import "./reset.css";
-import "./animation.css";
-import "./globals.css";
+import "../styles/reset.css";
+import "../styles/globals.css";
+import "../styles/animation.css";
 import localFont from "next/font/local";
+import TitleHeading from "@/components/Headings/TitleHeading";
 
 const tormentaFont = localFont({
 	src: "../assets/fonts/Tormenta.ttf",
@@ -48,7 +49,12 @@ export default function RootLayout({ children }) {
 			className={`${tormentaFont.variable} ${loraFont.variable}`}
 			suppressHydrationWarning
 		>
-			<body>{children}</body>
+			<body>
+				<main>
+					<TitleHeading>Aventura n1</TitleHeading>
+					{children}
+				</main>
+			</body>
 		</html>
 	);
 }
