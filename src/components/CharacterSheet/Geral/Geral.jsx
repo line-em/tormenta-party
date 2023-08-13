@@ -6,7 +6,7 @@ import Armor from "./Armor";
 const Geral = ({ isLocked, character }) => {
 	return (
 		<>
-			<BasicInfo isLocked={isLocked} name={character.name} />
+			<BasicInfo isLocked={isLocked} data={data} />
 			<Attributes isLocked={isLocked} />
 			<section className="grid no-shadow">
 				<Armor width={50} height={50} opacity={0.5} />

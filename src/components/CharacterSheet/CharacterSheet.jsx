@@ -1,5 +1,4 @@
 import styles from "./CharacterSheet.module.css";
-
 import "@/styles/floating-input.css";
 import { useState } from "react";
 import Pericias from "./Pericias/Pericias";

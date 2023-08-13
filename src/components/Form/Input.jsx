@@ -1,27 +1,30 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value }) => {
+const Input = ({ rowCss, inputCss, id, label, disabled, type }) => {
 	const {
 		handleSubmit,
 		register,
-		formState: { errors }
+		formState: { errors },
+		setValue,
+		getValues
 	} = useForm({
-		mode: "onChange"
+		mode: "onBlur"
 	});
-	const registerObj =
-		type === "number"
-			? {
-					...register(`${label}`, {
-						pattern: /[0-9]/,
-						maxLength: 10,
-						valueAsNumber: true,
-						value: value
-					})
-			  }
-			: {
-					...register(`${label}`, { maxLength: 80 })
-			  };
+
+	// const registerObj =
+	// 	type === "number"
+	// 		? {
+	// 				...register(`${label}`, {
+	// 					pattern: /[0-9]/,
+	// 					maxLength: 10,
+	// 					valueAsNumber: true,
+	// 					value: value
+	// 				})
+	// 		  }
+	// 		: {
+	// 				...register(`${label}`, { maxLength: 80 })
+	// 		  };
 
 	return (
 		<div className={`${rowCss} floating-label`}>
@@ -30,10 +33,8 @@ const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value })
 				id={id}
 				className={`${inputCss} floating-input`}
 				placeholder=" "
-				onChange={onChange}
 				disabled={disabled}
-				value={value}
-				{...registerObj}
+				{...register(`${label}`, { maxLength: 80 })}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}
