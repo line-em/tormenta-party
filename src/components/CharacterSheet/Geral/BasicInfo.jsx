@@ -9,6 +9,7 @@ const BasicInfo = ({ isLocked, data }) => {
 				inputCss="big"
 				id="charName"
 				initialData={data?.charName}
+
 				label={"Nome"}
 				disabled={isLocked}
 				type="text"
@@ -21,16 +22,10 @@ const BasicInfo = ({ isLocked, data }) => {
 				type="text"
 				inputCss="big"
 			/>
-			<Input
-				id="origem"
-				label={"Origem"}
-				value={data?.origem}
-				disabled={isLocked}
-				type="text"
-			/>
-			<Input id={"classe"} label={"Classe"} disabled={isLocked} type="text" />
-			<Input id={"lvl"} label={"Nível"} disabled={isLocked} type="number" />
-			<Input id={"religiao"} label={"Religião"} disabled={isLocked} type="text" />
+			<Input id={"origem"} initialData={data.origem} label={"Origem"} disabled={isLocked} type="text" />
+			<Input id={"classe"} initialData={data.classes} label={"Classe"} disabled={isLocked} type="text" />
+			<Input id={"lvl"} initialData={data.level} label={"Nível"} disabled={isLocked} type="number" />
+			<Input id={"religiao"} initialData={data.divindade} label={"Religião"} disabled={isLocked} type="text" />
 		</Form>
 	);
 };
