@@ -32,6 +32,7 @@ const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value })
 				placeholder=" "
 				onChange={onChange}
 				disabled={disabled}
+				value={value}
 				{...registerObj}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
