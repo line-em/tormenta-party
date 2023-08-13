@@ -1,7 +1,11 @@
 import React from "react";
 
 const loading = () => {
-	return <div>Loading...</div>;
+	return (
+		<>
+			<div className="spinner align-start"></div> Loading
+		</>
+	);
 };
 
 export default loading;

@@ -13,9 +13,14 @@ const Form = ({ onSubmit, func, children }) => {
 	const handleChanges = (data) => console.log(data);
 
 	return (
-		<form onSubmit={onSubmit} className={styles.basic}>
+		<form
+			// onSubmit={onSubmit}
+			// onChange={handleSubmit(handleChanges)}
+			className={styles.basic}
+		>
 			{children}
 			{errors === true && <p>An error has been found.</p>}
+			{/* <button type="submit">Submit</button> */}
 		</form>
 	);
 };

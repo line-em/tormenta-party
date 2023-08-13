@@ -36,7 +36,7 @@
 	font-size: var(--small);
 	border: 1px solid var(--warm-grey);
 	border-radius: var(--spacing-s);
-	padding-inline: var(--spacing-s);
+	padding-inline: var(--spacing-xs);
 }
 
 .floating-input:disabled:not(:placeholder-shown) ~ .floating-text {

@@ -12,3 +12,11 @@ export function isNumberKey(evt) {
 	if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
 	return true;
 }
+
+export const getPercent = (curr, total) => {
+	const calculateValue = (curr / total) * 100;
+	if (calculateValue > 100) {
+		return 100;
+	}
+	return calculateValue;
+};

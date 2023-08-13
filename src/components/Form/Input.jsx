@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value }) => {
@@ -9,14 +9,14 @@ const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value })
 	} = useForm({
 		mode: "onChange"
 	});
-
 	const registerObj =
 		type === "number"
 			? {
 					...register(`${label}`, {
 						pattern: /[0-9]/,
 						maxLength: 10,
-						valueAsNumber: true
+						valueAsNumber: true,
+						value: value
 					})
 			  }
 			: {
@@ -30,8 +30,9 @@ const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value })
 				id={id}
 				className={`${inputCss} floating-input`}
 				placeholder=" "
-				value={value}
+				onChange={onChange}
 				disabled={disabled}
+				value={value}
 				{...registerObj}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
