@@ -8,11 +8,11 @@ export default function AttributeCell({
 	updateAttribute,
 	isLocked
 }) {
-	const handleValueChange = (event, locked) => {
-		if (!event.target.value) {
-			event.target.value = 0;
+	const handleValueChange = (e) => {
+		if (!e.target.value) {
+			e.target.value = 0;
 		}
-		const newValue = parseInt(event.target.value, 10);
+		const newValue = parseInt(e.target.value, 10);
 		const newModifier = calculateModifier(newValue);
 		updateAttribute(attribute, newValue, newModifier);
 	};

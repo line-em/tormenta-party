@@ -4,7 +4,9 @@ const Footer = ({ isLocked, setIsLocked, onSubmit }) => {
 	return (
 		<footer>
 			<LockButton isLocked={isLocked} setIsLocked={setIsLocked} />
-			<button onSubmit={onSubmit}>Save</button>
+			<button onSubmit={onSubmit} type="submit">
+				Save
+			</button>
 		</footer>
 	);
 };

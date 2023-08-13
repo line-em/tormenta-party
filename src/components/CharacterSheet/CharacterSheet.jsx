@@ -5,6 +5,7 @@ import Pericias from "./Pericias/Pericias";
 import Sidebar from "./Sidebar";
 import Geral from "./Geral/Geral";
 import Footer from "./Footer";
+import Form from "../Form/Form";
 
 export default function CharacterSheet({ data }) {
 	const [isLocked, setIsLocked] = useState(true);
@@ -24,10 +25,7 @@ export default function CharacterSheet({ data }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
-			<article className="no-shadow">
-				{getContent()}
-				<Footer isLocked={isLocked} setIsLocked={setIsLocked} />
-			</article>
+			<Form hasButton>{getContent()}</Form>
 		</div>
 	);
 }

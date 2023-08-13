@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import styles from "./Forms.module.css";
+import Footer from "../CharacterSheet/Footer";
 
-const Form = ({ onSubmit, func, children }) => {
+const Form = ({ onSubmit, children, styled, hasButton = false }) => {
 	const {
 		handleSubmit,
 		register,
@@ -13,14 +13,10 @@ const Form = ({ onSubmit, func, children }) => {
 	const handleChanges = (data) => console.log(data);
 
 	return (
-		<form
-			// onSubmit={onSubmit}
-			// onChange={handleSubmit(handleChanges)}
-			className={styles.basic}
-		>
+		<form onSubmit={onSubmit}>
 			{children}
 			{errors === true && <p>An error has been found.</p>}
-			{/* <button type="submit">Submit</button> */}
+			{hasButton && <Footer />}
 		</form>
 	);
 };
