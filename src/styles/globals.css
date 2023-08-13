@@ -215,6 +215,28 @@ dialog {
 	opacity: 1;
 }
 
+@media screen and (max-width: 1600px) {
+	dialog {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	dialog {
+		padding: var(--spacing-xs) var(--spacing-s);
+		width: 90%;
+	}
+
+	input.big,
+	label.big {
+		--big: 1.8rem;
+	}
+
+	input {
+		padding: var(--spacing-s) var(--spacing-xxs) var(--spacing-xs);
+	}
+}
+
 dialog[open] {
 	display: grid;
 	margin: var(--spacing-l) auto;
@@ -249,12 +271,4 @@ dialog > button:hover {
 
 dialog svg {
 	flex-shrink: 0;
-}
-
-.span2 {
-	grid-column: span 2;
-}
-
-.span3 {
-	grid-column: span 3;
 }

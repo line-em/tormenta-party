@@ -1,11 +1,11 @@
 import Input from "../../Form/Input";
-import styles from "@/components/Form/Forms.module.css";
+import styles from "./BasicInfo.module.css";
 
 const BasicInfo = ({ isLocked, data }) => {
 	return (
 		<article className={styles.basic}>
 			<Input
-				rowCss="span3"
+				rowCss={styles.span3}
 				inputCss="big"
 				id="charName"
 				initialData={data?.charName}
@@ -16,7 +16,7 @@ const BasicInfo = ({ isLocked, data }) => {
 			<Input
 				id="raca"
 				label={"Raça"}
-				value={data?.raca}
+				initialData={data?.raca}
 				disabled={isLocked}
 				type="text"
 				inputCss="big"

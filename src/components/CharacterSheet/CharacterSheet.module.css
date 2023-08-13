@@ -51,11 +51,13 @@
 		display: flex;
 		gap: var(--spacing-s);
 		justify-content: center;
+		align-items: center;
 		width: 100%;
 		margin-block-end: 1rem;
 	}
 
 	.characterSheet nav {
 		flex-direction: row;
+		margin-block-start: 0;
 	}
 }

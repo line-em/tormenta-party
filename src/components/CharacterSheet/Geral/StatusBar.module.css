@@ -33,6 +33,12 @@
 	align-items: center;
 }
 
+@media screen and (max-width: 1100px) {
+	.info {
+		gap: var(--spacing-xs);
+	}
+}
+
 .info .modify {
 	display: grid;
 	gap: var(--spacing-xs);

@@ -24,8 +24,17 @@ button:hover > .addCircle {
 
 @media screen and (max-width: 1700px) {
 	aside > .addCircle {
-		width: 50%;
+		width: 60%;
 		height: auto;
-		max-width: 5vw;
+		max-width: 6vw;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	aside > .addCircle {
+		width: 100%;
+		height: auto;
+		max-width: 10vw;
+		min-width: 10vw;
 	}
 }

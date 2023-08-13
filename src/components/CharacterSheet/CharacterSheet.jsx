@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import Form from "../Form/Form";
 
 export default function CharacterSheet({ data }) {
-	const [isLocked, setIsLocked] = useState(true);
+	const [isLocked, setIsLocked] = useState(false);
 	const [currentTab, setCurrentTab] = useState("geral");
 
 	const getContent = () => {
@@ -25,7 +25,9 @@ export default function CharacterSheet({ data }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
-			<Form hasButton>{getContent()}</Form>
+			{/* <Form hasButton> */}
+			{getContent()}
+			{/* </Form> */}
 		</div>
 	);
 }
