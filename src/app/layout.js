@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
 		>
 			<body>
 				<main>
-					<TitleHeading>Aventura Tormenta</TitleHeading>
+					<TitleHeading>A ameaça purista</TitleHeading>
 					<AuthContextProvider>{children}</AuthContextProvider>
 				</main>
 			</body>
