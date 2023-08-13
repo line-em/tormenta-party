@@ -12,7 +12,7 @@ const Sidebar = ({ currentTab, setCurrentTab }) => {
 
 	return (
 		<aside>
-			<Circle width={"100%"} height={"auto"} min-width={"9vw"} max-width={"10vw"}>
+			<Circle width={"100%"} height={"auto"} minWidth={"9vw"} maxWidth={"10vw"}>
 				<Clips width={50} height={50} />
 			</Circle>
 			<nav>
