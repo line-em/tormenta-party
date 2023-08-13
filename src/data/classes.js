@@ -16,6 +16,7 @@ export const classes = [
 ];
 
 export const origens = [
+	{ "Sem Origem": " " },
 	{ Acólito: "Membro da Igreja" },
 	{ "Amigo dos animais": "Amigo Especial" },
 	{ Amnésico: "Lembranças Graduais" },
