@@ -6,14 +6,14 @@ import Sidebar from "./Sidebar";
 import Geral from "./Geral/Geral";
 import Footer from "./Footer";
 
-export default function CharacterSheet({ character }) {
+export default function CharacterSheet({ data }) {
 	const [isLocked, setIsLocked] = useState(true);
 	const [currentTab, setCurrentTab] = useState("geral");
 
 	const getContent = () => {
 		switch (currentTab) {
 			case "geral":
-				return <Geral isLocked={isLocked} character={character} />;
+				return <Geral isLocked={isLocked} data={data} />;
 			case "pericias":
 				return <Pericias />;
 			default:

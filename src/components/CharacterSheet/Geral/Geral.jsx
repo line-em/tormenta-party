@@ -3,7 +3,7 @@ import BasicInfo from "./BasicInfo";
 import SmallNotes from "./SmallNotes";
 import Armor from "./Armor";
 
-const Geral = ({ isLocked, character }) => {
+const Geral = ({ isLocked, data }) => {
 	return (
 		<>
 			<BasicInfo isLocked={isLocked} data={data} />
