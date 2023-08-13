@@ -2,7 +2,7 @@ import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
 import { baseAttributes } from "@/data/base";
 import { useState } from "react";
-import Health from "../CharacterSheet/Geral/Health";
+import StatusBar from "../CharacterSheet/Geral/StatusBar";
 
 export default function Attributes({ characterSheet, isLocked }) {
 	const [attributes, setAttributes] = useState(baseAttributes);
@@ -28,7 +28,10 @@ export default function Attributes({ characterSheet, isLocked }) {
 					/>
 				))}
 			</ul>
-			<Health isLocked={isLocked} />
+			<section className="no-shadow no-padding grid">
+				<StatusBar isLocked={isLocked} type={"PV"} />
+				<StatusBar isLocked={isLocked} type={"PM"} />
+			</section>
 		</div>
 	);
 }
