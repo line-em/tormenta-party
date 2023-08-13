@@ -12,8 +12,8 @@ const Sidebar = ({ currentTab, setCurrentTab }) => {
 
 	return (
 		<aside>
-			<Circle width={"100%"} height={"auto"} minWidth={"9vw"} maxWidth={"10vw"}>
-				<Clips width={50} height={50} />
+			<Circle>
+				<Clips width={40} height={40} />
 			</Circle>
 			<nav>
 				{tabs.map((tab) => (

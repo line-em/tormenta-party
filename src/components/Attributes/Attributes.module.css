@@ -7,7 +7,7 @@
 
 .attrGrid ul {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(108px, auto));
+	grid-template-columns: repeat(6, minmax(95px, auto));
 	gap: var(--spacing-m);
 }
 
