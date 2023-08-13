@@ -25,9 +25,7 @@ export default function CharacterSheet({ data }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
-			{/* <Form hasButton> */}
-			{getContent()}
-			{/* </Form> */}
+			<Form hasButton>{getContent()}</Form>
 		</div>
 	);
 }

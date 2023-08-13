@@ -22,7 +22,7 @@ button:hover > .addCircle {
 	background-color: var(--warm-grey);
 }
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1600px) {
 	aside > .addCircle {
 		width: 60%;
 		height: auto;

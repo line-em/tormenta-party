@@ -39,7 +39,7 @@
 	margin-block-start: var(--spacing-s);
 }
 
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1600px) {
 	.characterSheet {
 		grid-template-columns: 1fr;
 		grid-template-areas: "content";

@@ -20,8 +20,8 @@
 	--regular: 1.1rem;
 	--medium: 1.5rem;
 	--big: 2rem;
-	--header: 3rem;
-	--title: 5rem;
+	--header: clamp(2.7rem, 1rem + 2vw, 3rem);
+	--title: clamp(3.75rem, 1.5rem + 3vw, 4.8rem);
 
 	--spacing-xxs: 5px;
 	--spacing-xs: 10px;
@@ -101,6 +101,12 @@ main {
 	display: grid;
 	place-items: center;
 	border-inline: 10px solid var(--black);
+}
+
+@media screen and (max-width: 1100px) {
+	main {
+		min-width: 90%;
+	}
 }
 
 .align-start {
