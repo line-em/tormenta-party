@@ -146,7 +146,7 @@ section.big {
 section.grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: var(--spacing-s);
+	gap: var(--spacing-m);
 }
 
 section + section:not(.row),
@@ -155,8 +155,8 @@ section:not(.row) + header {
 	margin-block-start: var(--spacing-s);
 }
 
-section.grid > section {
-	margin-block-start: 0;
+section.grid > article {
+	margin: 0;
 }
 
 section header {

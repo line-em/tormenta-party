@@ -2,6 +2,7 @@
 	display: grid;
 	grid-template-columns: 1fr 250px;
 	gap: var(--spacing-m);
+	align-items: center;
 }
 
 .attrGrid ul {
