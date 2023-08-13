@@ -1,20 +1,20 @@
 import DefaultUser from "@/assets/svgs/DefaultUser";
 import Plus from "@/assets/svgs/Plus";
-import styles from "./OpenCharacterModal.module.css";
 import Circle from "../Circle/Circle";
 
-const OpenModal = ({ isCreated, hasImg, currentCharacter, func }) => {
+const OpenCharacterModal = ({ isCreated, hasImg, currentCharacter, func }) => {
 	return (
 		<section className="row">
 			{isCreated ? (
-				<button className={styles.transparentButton} onClick={func}>
+				<button className="headless" onClick={func}>
 					<Circle>
 						<DefaultUser width={25} height={25} />
 					</Circle>
 					<h3>{currentCharacter}</h3>
 				</button>
 			) : (
-				<button className={styles.transparentButton} onClick={func}>
+				// <button className={styles.transparentButton} onClick={func}>
+				<button className="headless" onClick={func}>
 					<Circle>
 						<Plus width={30} height={30} />
 					</Circle>
@@ -24,4 +24,4 @@ const OpenModal = ({ isCreated, hasImg, currentCharacter, func }) => {
 	);
 };
 
-export default OpenModal;
+export default OpenCharacterModal;

@@ -8,11 +8,13 @@ const Sidebar = ({ currentTab }) => {
 				<Clips width={50} height={50} />
 			</Circle>
 			<nav>
-				<button disabled={currentTab === "main"}>Geral</button>
-				<button>Perícias</button>
-				<button>Equipamento</button>
-				<button>Magias</button>
-				<button>Notas</button>
+				<button disabled={currentTab === "main"} className="secondary">
+					Geral
+				</button>
+				<button className="secondary">Perícias</button>
+				<button className="secondary">Equipamento</button>
+				<button className="secondary">Magias</button>
+				<button className="secondary">Notas</button>
 			</nav>
 		</aside>
 	);

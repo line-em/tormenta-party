@@ -1,6 +1,7 @@
 import "../styles/reset.css";
 import "../styles/globals.css";
 import "../styles/animation.css";
+import "../styles/buttons.css";
 import localFont from "next/font/local";
 import TitleHeading from "@/components/Headings/TitleHeading";
 import { AuthContextProvider } from "@/context/AuthContext";

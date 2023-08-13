@@ -1,6 +1,6 @@
 "use client";
-import OpenModal from "@/components/Modal/OpenCharacterModal";
-import { useState, useRef } from "react";
+import OpenCharacterModal from "@/components/Modal/OpenCharacterModal";
+import { useRef } from "react";
 import Modal from "./Modal/Modal";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 
@@ -18,10 +18,14 @@ const CharacterList = () => {
 
 	return (
 		<section className="grid big">
-			<OpenModal isCreated currentCharacter={"Anisha Tariq"} func={onOpen} />
-			<OpenModal currentCharacter={"Howkin Khan"} isCreated />
-			<OpenModal />
-			<OpenModal />
+			<OpenCharacterModal
+				isCreated
+				currentCharacter={"Anisha Tariq"}
+				func={onOpen}
+			/>
+			<OpenCharacterModal currentCharacter={"Howkin Khan"} isCreated />
+			<OpenCharacterModal />
+			<OpenCharacterModal />
 
 			<Modal ref={ref} onClose={onClose}>
 				<CharacterSheet character={{ name: "Anisha Tariq" }} />

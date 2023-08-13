@@ -203,42 +203,6 @@ input:disabled {
 	cursor: not-allowed;
 }
 
-button {
-	padding: var(--spacing-xs) var(--spacing-s);
-	border: 1px transparent solid;
-	background-color: var(--red);
-	color: var(--golden);
-	font-weight: 700;
-	letter-spacing: 1px;
-	cursor: pointer;
-	border-radius: var(--spacing-xs);
-	transition: var(--transition);
-	display: flex;
-	gap: var(--spacing-xs);
-	max-width: 40ch;
-}
-
-button:hover {
-	background-color: var(--red-dark);
-	color: var(--golden-dark);
-}
-
-button:active {
-	border: 1px var(--golden) solid;
-}
-
-button:disabled {
-	cursor: default;
-}
-
-.tormenta > button {
-	display: inline-flex;
-	font-family: var(--default-font);
-	font-size: var(--regular);
-	margin-block-start: 0;
-	margin-inline-start: var(--spacing-xs);
-}
-
 dialog {
 	position: relative;
 	width: 80%;

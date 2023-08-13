@@ -12,7 +12,17 @@ const Health = ({ isLocked }) => {
 	return (
 		<section className="no-shadow no-padding grid">
 			<article className={styles.info}>
-				<Life opacity={0.7} width={50} height={50} />
+				<div className={styles.modify}>
+					<div className={styles.modifyValues}>
+						<p>-1</p>
+						<p>-5</p>
+					</div>
+					<Life opacity={0.7} width={55} height={55} />
+					<div className={styles.modifyValues}>
+						<p>+1</p>
+						<p>+5</p>
+					</div>
+				</div>
 
 				<div className={styles.progress}>
 					<div
@@ -20,38 +30,53 @@ const Health = ({ isLocked }) => {
 						style={{ width: `${getPercent(health.current, health.total)}%` }}
 					></div>
 				</div>
-				<section className="no-shadow no-padding grid">
-					<Input
-						inputCss={""}
-						id={"PV Total"}
-						label={"Total"}
-						disabled={isLocked}
-						onChange={(e) => setHealth(e.target.value)}
-					/>
-					<Input
-						inputCss={""}
-						id={"PV Atual"}
-						label={"Atual"}
-						disabled={isLocked}
-						onChange={(e) => setCurrHealth(e.target.value)}
-					/>
-				</section>
+				<p style={{ fontSize: "var(--small)" }}>
+					<strong>{health.current}</strong> /{" "}
+					<span style={{ color: "var(--grey)" }}>{health.total}</span>
+				</p>
 			</article>
 			<article className={styles.info}>
-				<Mana opacity={0.7} width={50} height={50} />
+				<div className={styles.modify}>
+					<div className={styles.modifyValues}>
+						<p>-1</p>
+						<p>-5</p>
+					</div>
+					<Mana opacity={0.7} width={55} height={55} />
+					<div className={styles.modifyValues}>
+						<p>+1</p>
+						<p>+5</p>
+					</div>
+				</div>
 				<div className={styles.progress}>
 					<div
 						className={`${styles.progressBar} ${styles.mana}`}
 						style={{ width: `${getPercent(mana.current, mana.total)}%` }}
 					></div>
 				</div>
-				<section className="no-shadow no-padding grid">
-					<Input id={"PM Total"} label={"Total"} disabled={isLocked} />
-					<Input id={"PM Atual"} label={"Atual"} disabled={isLocked} />
-				</section>
+				<p style={{ fontSize: "var(--small)" }}>
+					<strong>{health.current}</strong> /{" "}
+					<span style={{ color: "var(--grey)" }}>{health.total}</span>
+				</p>
 			</article>
 		</section>
 	);
 };
 
 export default Health;
+
+/* <Input
+						inputCss={""}
+						id={"PV Total"}
+						label={"Total"}
+						disabled={isLocked}
+						onChange={(e) => setHealth({ ...health, total: e.target.value })}
+					/>
+					<Input
+						inputCss={""}
+						id={"PV Atual"}
+						label={"Atual"}
+						disabled={isLocked}
+						onChange={(e) =>
+							setHealth({ ...health, current: e.target.value })
+						}
+					/> */
