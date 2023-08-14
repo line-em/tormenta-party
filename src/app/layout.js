@@ -4,6 +4,7 @@ import "../styles/animation.css";
 import "../styles/buttons.css";
 import localFont from "next/font/local";
 import { AuthContextProvider } from "@/context/AuthContext";
+import TitleHeading from "@/components/Headings/TitleHeading";
 
 const tormentaFont = localFont({
 	src: "../assets/fonts/Tormenta.ttf",
@@ -51,7 +52,10 @@ export default function RootLayout({ children }) {
 			suppressHydrationWarning
 		>
 			<body>
-				<AuthContextProvider>{children}</AuthContextProvider>
+				<main className="center-align">
+					<TitleHeading>A ameaça purista</TitleHeading>
+					<AuthContextProvider>{children}</AuthContextProvider>
+				</main>
 			</body>
 		</html>
 	);

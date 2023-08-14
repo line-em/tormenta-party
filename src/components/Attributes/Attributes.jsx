@@ -16,6 +16,10 @@ export default function Attributes({ characterSheet, isLocked }) {
 
 	return (
 		<div className={styles.attrGrid}>
+			<section className="no-shadow no-padding grid">
+				<StatusBar isLocked={isLocked} type={"PV"} />
+				<StatusBar isLocked={isLocked} type={"PM"} />
+			</section>
 			<ul>
 				{Object.entries(attributes).map(([attribute, { value, modifier }]) => (
 					<AttributeCell
@@ -28,10 +32,6 @@ export default function Attributes({ characterSheet, isLocked }) {
 					/>
 				))}
 			</ul>
-			<section className="no-shadow no-padding grid">
-				<StatusBar isLocked={isLocked} type={"PV"} />
-				<StatusBar isLocked={isLocked} type={"PM"} />
-			</section>
 		</div>
 	);
 }

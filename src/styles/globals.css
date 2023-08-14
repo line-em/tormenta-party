@@ -176,7 +176,8 @@ section header {
 	gap: var(--spacing-s);
 }
 
-input {
+input,
+select {
 	padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-s);
 	font-size: var(--regular);
 	font-weight: 700;
@@ -186,32 +187,51 @@ input {
 	border-radius: var(--spacing-s);
 }
 
+select {
+	background-color: white;
+}
+
 input:not(:disabled):focus,
-input:not(:disabled):active {
+input:not(:disabled):active,
+select:not(:disabled):focus,
+select:not(:disabled):active {
 	border: transparent 1px solid;
 	outline: none;
 	color: var(--red);
 }
 
-input.small {
+input.small,
+label.small,
+select.small {
 	font-size: var(--small);
 	padding: var(--spacing-sm) var(--spacing-xxs) var(--spacing-xs);
 }
 
 input.medium,
-label.medium {
+label.medium,
+select.medium {
 	font-size: var(--medium);
 }
 
 input.big,
-label.big {
+label.big,
+select.big {
 	font-size: var(--big);
 }
 
-input:disabled {
+input:disabled,
+select:disabled {
 	color: var(--black);
 	opacity: 1;
 	cursor: not-allowed;
+}
+
+select:disabled {
+	background-color: #f8f8f7;
+}
+
+option {
+	font-weight: 400;
 }
 
 dialog {
@@ -239,7 +259,8 @@ dialog {
 	}
 
 	input.big,
-	label.big {
+	label.big,
+	select.big {
 		--big: 1.8rem;
 	}
 

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Footer from "./Footer";
 
-const Form = ({ children }) => {
+const Form = ({ children, isLocked, setIsLocked }) => {
 	// Depois deixar o onSubmit as a prop. FIXME:
 	const {
 		handleSubmit,
@@ -25,7 +25,7 @@ const Form = ({ children }) => {
 		<form onSubmit={handleSubmit(handleChanges)}>
 			{children}
 			{errors === true && <p>An error has been found.</p>}
-			{<Footer />}
+			{<Footer isLocked={isLocked} setIsLocked={setIsLocked} />}
 		</form>
 	);
 };

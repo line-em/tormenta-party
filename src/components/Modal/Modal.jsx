@@ -5,14 +5,14 @@ import Remove from "@/assets/svgs/Remove";
 const Modal = forwardRef(({ children, onClose }, ref) => {
 	const isClickInsideRectangle = (e, element) => {
 		const r = element.getBoundingClientRect();
-		return (
+		const isClickInsideElement =
 			e.clientX > r.left &&
 			e.clientX < r.right &&
 			e.clientY > r.top &&
-			e.clientY < r.bottom
-		);
+			e.clientY < r.bottom;
+		const isClickInsideSelect = element.contains(e.target);
+		return isClickInsideElement || isClickInsideSelect;
 	};
-
 	return (
 		<dialog
 			onClick={(e) =>
