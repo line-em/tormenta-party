@@ -23,29 +23,29 @@ const Pericias = ({ data }) => {
 
 	const [total, setTotal] = useState({}); // Total state for each skill
 
-	const toggleTreinada = (skill) => {
+	const toggleTreinada = (skill, defaultModifier) => {
 		setTreinadas((prevTreinadas) => ({
 			...prevTreinadas,
 			[skill]: !prevTreinadas[skill]
 		}));
-		updateTotal(skill);
+		updateTotal(skill, defaultModifier);
 	};
 
-	const handleOutros = (e, skill) => {
+	const handleOutros = (e, skill, defaultModifier) => {
 		setOutros((prevOutros) => ({
 			...prevOutros,
 			[skill]: Number(e.target.value)
 		}));
-		updateTotal(skill);
+		updateTotal(skill, defaultModifier);
 	};
 
-	const updateTotal = (skill) => {
+	const updateTotal = (skill, defaultModifier) => {
 		setTotal((prevTotal) => ({
 			...prevTotal,
 			[skill]:
 				halfLevel +
 				(treinadas[skill] ? 2 : 0) +
-				calculateModifier(tempData["FOR"]) +
+				calculateModifier(tempData[defaultModifier]) +
 				(outros[skill] || 0)
 		}));
 	};
@@ -82,7 +82,9 @@ const Pericias = ({ data }) => {
 							type="checkbox"
 							id={item.skill}
 							checked={treinadas[item.skill]}
-							onChange={() => toggleTreinada(item.skill)}
+							onChange={() =>
+								toggleTreinada(item.skill, item.defaultModifier)
+							}
 						/>
 					</li>
 
@@ -92,7 +94,9 @@ const Pericias = ({ data }) => {
 							type="number"
 							id={item.skill}
 							value={outros[item.skill]}
-							onChange={(e) => handleOutros(e, item.skill)}
+							onChange={(e) =>
+								handleOutros(e, item.skill, item.defaultModifier)
+							}
 							style={{ width: "60px", padding: "5px", textAlign: "center" }}
 						/>
 					</li>
