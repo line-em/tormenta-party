@@ -1,6 +1,7 @@
 .basic {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(6, 1fr);
+	/* grid-template-columns: repeat(4, 1fr); */
 	gap: var(--spacing-s);
 	align-items: start;
 	place-content: start;
@@ -8,4 +9,8 @@
 
 .span3 {
 	grid-column: span 3;
+}
+
+.span2 {
+	grid-column: span 2;
 }

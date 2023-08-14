@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
-const SelectInput = ({ rowCss, inputCss, id, label, disabled, options }) => {
+const SelectInput = ({ rowCss, inputCss, id, label, disabled, initalData, options }) => {
 	// FIXME: remove watch
 	const { register, watch } = useForm({
 		mode: "onChange",
 		defaultValues: {
-			[id]: options[0]
+			[id]: initalData || options[0]
 		}
 	});
 	// FIXME: remove watch
