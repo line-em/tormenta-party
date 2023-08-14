@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./CharacterSheet.module.css";
 import "@/styles/floating-input.css";
 import { useState } from "react";

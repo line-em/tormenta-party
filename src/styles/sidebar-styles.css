@@ -1,0 +1,42 @@
+main.fichas {
+	padding: 0;
+	display: grid;
+	grid-template-columns: minmax(auto, 20%) 1fr;
+	min-height: 100dvh;
+}
+
+aside.main-style,
+aside.main-style ~ main {
+	padding: 0 var(--spacing-s);
+	border-inline: none;
+}
+
+main.fichas main {
+	border-inline-start: 10px solid var(--black);
+}
+
+aside.main-style header {
+	margin-block-end: var(--spacing-s);
+}
+
+aside.main-style h1.title {
+	font-size: var(--header);
+}
+
+aside.main-style h1 {
+	font-size: var(--big);
+}
+
+aside.main-style section.grid {
+	grid-template-columns: 1fr;
+	place-items: center;
+	gap: var(--spacing-s);
+}
+
+aside.main-style section.big {
+	padding: var(--spacing-s);
+}
+
+aside.main-style section.grid section.row h3 {
+	font-size: var(--regular);
+}

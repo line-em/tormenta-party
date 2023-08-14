@@ -1,17 +1,16 @@
+import "@/styles/sidebar-styles.css";
 import CharacterList from "@/components/CharacterList";
 import SectionHeading from "@/components/Headings/SectionHeading";
 import TitleHeading from "@/components/Headings/TitleHeading";
-import Link from "next/link";
 
-export default function Home() {
+const Layout = ({ children }) => {
 	return (
-		<main className="center-align">
-			<TitleHeading>A ameaça purista</TitleHeading>
-			<div>
+		<main className="fichas">
+			<aside className="main-style">
+				<TitleHeading>A ameaça purista</TitleHeading>
 				<SectionHeading icon={"sword"}>Aventureiros</SectionHeading>
 				<CharacterList />
-				{/* <Link href="/ficha/anisha">xx</Link> */}
-				<SectionHeading icon={"clips"}>Recursos Adicionais</SectionHeading>
+				{/* <SectionHeading icon={"clips"}>Recursos Adicionais</SectionHeading> */}
 				<section>
 					<a
 						href="https://referencet20.vercel.app/"
@@ -35,7 +34,10 @@ export default function Home() {
 						Ficha de Mostro
 					</a>
 				</section>
-			</div>
+			</aside>
+			<main>{children}</main>
 		</main>
 	);
-}
+};
+
+export default Layout;

@@ -1,6 +1,6 @@
 .characterSheet {
 	display: grid;
-	grid-template-columns: 1fr 5fr;
+	grid-template-columns: auto 1fr;
 	grid-template-rows: auto;
 	grid-auto-flow: dense;
 	margin: var(--spacing-s) var(--spacing-m);
