@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { getDocument, getCollection } from "@/firebase/firestore/getData";
+import { addData } from "@/firebase/firestore/addData";
 import Modal from "./Modal/Modal";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 
@@ -49,14 +50,25 @@ const CharacterList = () => {
 		setCharList(list);
 	};
 
+	const updateCharacter = async (name, data) => {
+		const { error } = await addData('characters', name, 
+		{
+			... data,    
+			user_uid: user.uid || "not loged",
+    		charName: name
+		}
+		);
+		error ? alert(error.message) : alert("Character created")
+	}
+
 	return (
 		<section className="grid big">
 			<OpenCharacterModal
 				isCreated
 				currentCharacter={"Anisha Tariq"}
-				func={onOpen}
+				func={() => onOpen}
 			/>
-			<OpenCharacterModal currentCharacter={"Howkin Khan"} isCreated func={onOpen} />
+			<OpenCharacterModal currentCharacter={"Howkin Khan"} isCreated func={() => onOpen} />
 			<OpenCharacterModal />
 			<OpenCharacterModal />
 
