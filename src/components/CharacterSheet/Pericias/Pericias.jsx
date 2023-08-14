@@ -73,7 +73,7 @@ const Pericias = ({ data }) => {
 
 					{/* Render "Modificador" */}
 					<li className={styles.modificador}>
-						{calculateModifier(tempData.CAR)}
+						{calculateModifier(tempData[item.defaultModifier])}
 					</li>
 
 					{/* Render treinada */}
