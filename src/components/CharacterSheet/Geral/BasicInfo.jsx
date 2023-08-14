@@ -5,8 +5,7 @@ import SelectInput from "@/components/Form/SelectInput";
 import { todasOrigens } from "@/data/origens";
 import { todasLinhagens } from "@/data/linhagens";
 
-const BasicInfo = ({ isLocked, data }) => {
-	// console.log(data.charName);
+const BasicInfo = ({ isLocked, data }) => { 
 	return (
 		<article className={styles.basic}>
 			<Input
@@ -27,11 +26,11 @@ const BasicInfo = ({ isLocked, data }) => {
 				options={todasLinhagens}
 			/>
 			<SelectInput
-				id={"lvl"}
+				id={"level"}
 				inputCss="big"
 				label={"Level"}
 				disabled={isLocked}
-				initialData={data?.lvl}
+				initialData={data?.level}
 				options={Array.from({ length: 10 }, (_, index) => index + 1)}
 			/>
 			<SelectInput
@@ -57,7 +56,7 @@ const BasicInfo = ({ isLocked, data }) => {
 			/>
 			<Input
 				id={"xp"}
-				initialData={data?.divindade}
+				initialData={data?.xp}
 				label={"Experiência"}
 				disabled={isLocked}
 			/>
