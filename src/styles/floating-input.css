@@ -43,36 +43,9 @@
 	padding-inline: var(--spacing-xs);
 }
 
-.floating-input:disabled:not(:placeholder-shown) ~ .floating-text {
+.floating-input:disabled:not(:placeholder-shown) ~ .floating-text,
+.floating-select:disabled:not([value=""]):valid ~ .floating-text,
+.floating-select:disabled:not([value]) ~ .floating-text {
 	background: white;
-	color: var(--grey);
+	color: var(--red);
 }
-
-/* .floating-select:not([value=""]):valid ~ .floating-label {
-	top: -8px;
-	font-size: 13px;
-}
-
-.did-floating-select[value=""]:focus ~ .did-floating-label {
-	top: 11px;
-	font-size: 13px;
-} */
-/* 
-.did-floating-select:not([multiple]):not([size]) {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath id='Path_1' data-name='Path 1' d='M371,294l4,6,4-6Z' transform='translate(-371 -294)' fill='%23003d71'/%3E%3C/svg%3E%0A");
-	background-position: right 15px top 50%;
-	background-repeat: no-repeat;
-}
-
-.did-error-input .did-floating-input,
-.did-error-input .did-floating-select {
-	border: 2px solid #9d3b3b;
-	color: #9d3b3b;
-}
-.did-error-input .did-floating-label {
-	font-weight: 600;
-	color: #9d3b3b;
-}
-.did-error-input .did-floating-select:not([multiple]):not([size]) {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath id='Path_1' data-name='Path 1' d='M371,294l4,6,4-6Z' transform='translate(-371 -294)' fill='%239d3b3b'/%3E%3C/svg%3E%0A");
-} */

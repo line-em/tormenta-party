@@ -1,22 +1,58 @@
 .list {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	min-height: auto;
-	margin-block-start: var(--spacing-s);
-	place-items: start;
-	place-content: start;
+
+	grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto auto;
+	row-gap: var(--spacing-xs);
+	grid-auto-flow: dense;
+	grid-template-areas: "total pericia treinada nivel modificador outros";
+	height: 50vh;
+	overflow-y: auto;
+}
+
+.list [role="columnheader"] {
+	background-color: var(--warm-grey-light);
+	padding: var(--spacing-xxs) 0;
+	z-index: 1;
+	font-weight: 700;
+	position: sticky;
+	top: 0;
+	border-bottom: 2px solid var(--red);
+}
+
+.pericia {
+	grid-column: pericia;
+}
+
+.total {
+	grid-column: total;
+}
+
+.modificador {
+	grid-column: modificador;
+}
+
+.outros {
+	grid-column: outros;
+}
+
+.treinada {
+	grid-column: treinada;
+}
+
+.nivel {
+	grid-column: nivel;
 }
 
 .list li {
-	padding: var(--spacing-xs);
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	border-bottom: 1px solid var(--warm-grey-light);
 }
 
-.list > li:nth-child(2n) {
+/* .list > li:nth-child(2n) {
 	background-color: var(--warm-grey-light);
-}
+} */
 
 .list input {
 	width: auto;

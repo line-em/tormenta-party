@@ -23,14 +23,14 @@ const CharacterList = () => {
 			: alert("You need to be logged in to see the characters");
 	}, [user]);
 
-	const getCharacter = async (name) => {
+	const getCharacter = React.cache(async (name) => {
 		const { result, error } = await getDocument("characters", name);
 		console.log(result.data());
 		error && alert(error.message);
 		// setCharacter(result.data());
-	};
+	});
 
-	const getCharacterList = async () => {
+	const getCharacterList = React.cache(async () => {
 		const { result, error } = await getCollection("characters");
 		let list = result.docs.map((data) => {
 			return {
@@ -40,7 +40,7 @@ const CharacterList = () => {
 		// console.log(list);
 		error && alert(error.message);
 		setCharList(list);
-	};
+	});
 
 	const updateCharacter = async (name, data) => {
 		const { error } = await addData("characters", name, {

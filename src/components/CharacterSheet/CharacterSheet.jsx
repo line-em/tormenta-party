@@ -2,6 +2,7 @@
 
 import styles from "./CharacterSheet.module.css";
 import "@/styles/floating-input.css";
+import "@/styles/checkbox.css";
 import { useState } from "react";
 import Pericias from "./Pericias/Pericias";
 import Sidebar from "./Sidebar";

@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { isNumberKey } from "@/app/utils";
 const NumberInput = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
-	// FIXME: remove watch
+	// FIXME: NOT BEING USED SO FAR
 	const { register, watch } = useForm({
 		mode: "onChange",
 		defaultValues: {

@@ -29,3 +29,12 @@ export const pericias = [
 	{ skill: "Vontade", trained: false },
 	{ skill: "Sobrevivência", trained: false }
 ];
+
+export const periciasCols = [
+	"Total",
+	"Perícia",
+	"Treinada",
+	"1/2 Nível",
+	"Modificador",
+	"Outros"
+];
