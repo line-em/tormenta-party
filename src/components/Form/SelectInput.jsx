@@ -9,7 +9,7 @@ const SelectInput = ({ rowCss, inputCss, id, label, disabled, initalData, option
 	});
 	// FIXME: remove watch
 	const watchAllFields = watch();
-	console.log(watchAllFields);
+	// console.log(watchAllFields);
 
 	return (
 		<div className={`${rowCss} floating-label`}>

@@ -6,6 +6,7 @@ import { todasOrigens } from "@/data/origens";
 import { todasLinhagens } from "@/data/linhagens";
 
 const BasicInfo = ({ isLocked, data }) => {
+	// console.log(data.charName);
 	return (
 		<article className={styles.basic}>
 			<Input

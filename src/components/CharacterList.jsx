@@ -1,80 +1,80 @@
 "use client";
-import OpenCharacterModal from "@/components/Modal/OpenCharacterModal";
+import Circle from "@/components/Circle/Circle";
 import { useRef, useState, useEffect } from "react";
+import React from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { getDocument, getCollection } from "@/firebase/firestore/getData";
 import { addData } from "@/firebase/firestore/addData";
-import Modal from "./Modal/Modal";
-import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
+
+import Plus from "@/assets/svgs/Plus";
+import CharacterModal from "@/components/Modal/CharacterModal";
 
 const CharacterList = () => {
-	const [ charList, setCharList ]  = useState([]);
-	const [ character, setCharacter ] = useState({});
-	
-	const ref = useRef(null);
-	const onOpen = () => {
-		getCharacter();
-		ref.current.showModal();
-	}
-	const { user } = useAuthContext()
-    const router = useRouter()
+	const [charList, setCharList] = useState([]);
+	// const [character, setCharacter] = useState({});
+
+	const { user } = useAuthContext();
+	const router = useRouter();
 
 	useEffect(() => {
-		user ? getCharacterList() : alert("You need to be logged in to see the characters")
-	},[user])
+		user
+			? getCharacterList()
+			: alert("You need to be logged in to see the characters");
+	}, [user]);
 
-	const onClose = () => {
-		ref.current.className = "close";
-		setTimeout(() => {
-			ref.current.close();
-			ref.current.className = "";
-		}, 200); // this value will matching your css animation timing
-	};
-
-	const getCharacter = async () => {
-		const {result, error} = await getDocument(
-			"sheets",
-			"first_sheet"
-		);
+	const getCharacter = async (name) => {
+		const { result, error } = await getDocument("characters", name);
 		console.log(result.data());
 		error && alert(error.message);
-		setCharacter(result.data());
+		// setCharacter(result.data());
 	};
 
 	const getCharacterList = async () => {
-		const {result, error} = await getCollection('characters');
-		let list = result.docs.map((data) => {return data.id})
-		console.log({list})
+		const { result, error } = await getCollection("characters");
+		let list = result.docs.map((data) => {
+			return {
+				...data.data()
+			};
+		});
+		// console.log(list);
 		error && alert(error.message);
 		setCharList(list);
 	};
 
 	const updateCharacter = async (name, data) => {
-		const { error } = await addData('characters', name, 
-		{
-			... data,    
+		const { error } = await addData("characters", name, {
+			...data,
 			user_uid: user.uid || "not loged",
-    		charName: name
-		}
-		);
-		error ? alert(error.message) : alert("Character created")
-	}
+			charName: name
+		});
+		error ? alert(error.message) : alert("Character created");
+	};
 
 	return (
 		<section className="grid big">
-			<OpenCharacterModal
+			{charList.map((character) => (
+				<CharacterModal key={character.charName} currentCharacter={character} />
+			))}
+			<section className="row">
+				<button className="headless" onClick={() => console.log("click")}>
+					<Circle>
+						<Plus width={30} height={30} />
+					</Circle>
+				</button>
+			</section>
+			{/* <OpenCharacterModal
 				isCreated
 				currentCharacter={"Anisha Tariq"}
+				func={onOpen}
+			/>
+			<OpenCharacterModal
+				currentCharacter={"Howkin Khan"}
+				isCreated
 				func={() => onOpen}
 			/>
-			<OpenCharacterModal currentCharacter={"Howkin Khan"} isCreated func={() => onOpen} />
 			<OpenCharacterModal />
-			<OpenCharacterModal />
-
-			<Modal ref={ref} onClose={onClose}>
-				<CharacterSheet character={character || "Anisha Tariq"} />
-			</Modal>
+			<OpenCharacterModal /> */}
 		</section>
 	);
 };

@@ -11,7 +11,6 @@ import Form from "../Form/Form";
 export default function CharacterSheet({ data }) {
 	const [isLocked, setIsLocked] = useState(false);
 	const [currentTab, setCurrentTab] = useState("geral");
-
 	const getContent = () => {
 		switch (currentTab) {
 			case "geral":

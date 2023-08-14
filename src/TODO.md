@@ -1,4 +1,1 @@
--   Character sheet modals with TABS.
--   Remove / Delete characters
--   Implement the dice
--   Premade dices - Iniciative, etc
+### Data já no build, e as mudanças só revalidam
