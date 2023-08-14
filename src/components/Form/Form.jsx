@@ -5,13 +5,20 @@ const Form = ({ children }) => {
 	// Depois deixar o onSubmit as a prop. FIXME:
 	const {
 		handleSubmit,
-		formState: { errors }
+		register,
+		formState: { errors, touchedFields }
 	} = useForm({
-		mode: "onSubmit"
+		mode: "onBlur"
 	});
 	const handleChanges = (data) => {
 		console.log("click");
-		console.log(data);
+		try {
+			console.log(data);
+			console.log(touchedFields);
+		} catch (error) {
+			console.log(error);
+			console.log(errors);
+		}
 	};
 
 	return (

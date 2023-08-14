@@ -3,11 +3,7 @@ import { useForm } from "react-hook-form";
 import { isNumberKey } from "@/app/utils";
 const NumberInput = ({ rowCss, inputCss, id, label, disabled, type, initialData }) => {
 	// FIXME: remove watch
-	const {
-		register,
-		watch,
-		formState: { errors }
-	} = useForm({
+	const { register, watch } = useForm({
 		mode: "onChange",
 		defaultValues: {
 			[id]: initialData
@@ -15,7 +11,7 @@ const NumberInput = ({ rowCss, inputCss, id, label, disabled, type, initialData 
 	});
 	// FIXME: remove watch
 	const watchAllFields = watch();
-	console.log(watchAllFields);
+	// console.log(watchAllFields);
 
 	return (
 		<div className={`${rowCss} floating-label`}>
