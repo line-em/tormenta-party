@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { isNumberKey } from "@/app/utils";
-const NumberInput = ({ rowCss, inputCss, id, label, disabled, type, initialData }) => {
+const NumberInput = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
 	// FIXME: remove watch
 	const { register, watch } = useForm({
 		mode: "onChange",

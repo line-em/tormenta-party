@@ -1,6 +1,8 @@
 import NumberInput from "@/components/Form/NumberInput";
 import Input from "../../Form/Input";
 import styles from "./BasicInfo.module.css";
+import SelectInput from "@/components/Form/SelectInput";
+import { todasOrigens } from "@/data/origens";
 
 const BasicInfo = ({ isLocked, data }) => {
 	return (
@@ -20,11 +22,11 @@ const BasicInfo = ({ isLocked, data }) => {
 				disabled={isLocked}
 				inputCss="big"
 			/>
-			<Input
+			<SelectInput
 				id={"origem"}
-				initialData={data?.origem}
 				label={"Origem"}
 				disabled={isLocked}
+				options={todasOrigens}
 			/>
 			<Input
 				id={"classe"}
@@ -32,11 +34,11 @@ const BasicInfo = ({ isLocked, data }) => {
 				label={"Classe"}
 				disabled={isLocked}
 			/>
-			<NumberInput
+			<SelectInput
 				id={"lvl"}
-				initialData={data?.level}
-				label={"Nível"}
+				label={"Level"}
 				disabled={isLocked}
+				options={Array.from({ length: 10 }, (_, index) => index + 1)}
 			/>
 			<Input
 				id={"religiao"}

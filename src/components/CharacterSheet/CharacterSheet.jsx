@@ -26,7 +26,9 @@ export default function CharacterSheet({ data }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
-			<Form>{getContent()}</Form>
+			<Form isLocked={isLocked} setIsLocked={setIsLocked}>
+				{getContent()}
+			</Form>
 		</div>
 	);
 }
