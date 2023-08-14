@@ -1,5 +1,4 @@
 "use client";
-import Circle from "@/components/Circle/Circle";
 import { useRef, useState, useEffect } from "react";
 import React from "react";
 import { useAuthContext } from "@/context/AuthContext";
@@ -9,6 +8,7 @@ import { addData } from "@/firebase/firestore/addData";
 
 import Plus from "@/assets/svgs/Plus";
 import CharacterModal from "@/components/Modal/CharacterModal";
+import CircleAndTextButton from "./Circle/CircleAndTextButton";
 
 const CharacterList = () => {
 	const [charList, setCharList] = useState([]);
@@ -56,25 +56,16 @@ const CharacterList = () => {
 			{charList.map((character) => (
 				<CharacterModal key={character.charName} currentCharacter={character} />
 			))}
-			<section className="row">
-				<button className="headless" onClick={() => console.log("click")}>
-					<Circle>
-						<Plus width={30} height={30} />
-					</Circle>
-				</button>
-			</section>
-			{/* <OpenCharacterModal
-				isCreated
-				currentCharacter={"Anisha Tariq"}
-				func={onOpen}
-			/>
-			<OpenCharacterModal
-				currentCharacter={"Howkin Khan"}
-				isCreated
-				func={() => onOpen}
-			/>
-			<OpenCharacterModal />
-			<OpenCharacterModal /> */}
+			{charList.length < 6 && (
+				<section className="row">
+					<CircleAndTextButton
+						func={() => console.log("click")}
+						icon={<Plus width={30} height={30} />}
+					>
+						Criar
+					</CircleAndTextButton>
+				</section>
+			)}
 		</section>
 	);
 };
