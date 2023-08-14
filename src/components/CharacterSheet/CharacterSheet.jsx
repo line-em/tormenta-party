@@ -1,34 +1,30 @@
 import styles from "./CharacterSheet.module.css";
-import Attributes from "@/components/Attributes/Attributes";
-import BasicInfo from "./Geral/BasicInfo";
 import "@/styles/floating-input.css";
 import { useState } from "react";
-import LockButton from "../LockButton/LockButton";
-import Pericias from "./Pericias";
+import Pericias from "./Pericias/Pericias";
 import Sidebar from "./Sidebar";
-import SmallNotes from "./Geral/SmallNotes";
-import Armor from "./Geral/Armor";
+import Geral from "./Geral/Geral";
+import Form from "../Form/Form";
 
-export default function CharacterSheet({ character }) {
-	const [isLocked, setIsLocked] = useState(true);
-	const [currentTab, setCurrentTab] = useState("main");
+export default function CharacterSheet({ data }) {
+	const [isLocked, setIsLocked] = useState(false);
+	const [currentTab, setCurrentTab] = useState("geral");
+
+	const getContent = () => {
+		switch (currentTab) {
+			case "geral":
+				return <Geral isLocked={isLocked} data={data} />;
+			case "pericias":
+				return <Pericias />;
+			default:
+				return "Conteúdo não disponível";
+		}
+	};
 
 	return (
 		<div className={styles.characterSheet}>
-			<Sidebar currentTab={currentTab} />
-			<article className="no-shadow">
-				<BasicInfo isLocked={isLocked} name={character.name} />
-				<Attributes isLocked={isLocked} />
-				<section className="grid no-shadow">
-					<Armor width={50} height={50} opacity={0.5} />
-					<SmallNotes />
-				</section>
-				{/* <Pericias /> */}
-				<footer>
-					<LockButton isLocked={isLocked} setIsLocked={setIsLocked} />
-					<button>Save</button>
-				</footer>
-			</article>
+			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
+			<Form>{getContent()}</Form>
 		</div>
 	);
 }

@@ -11,7 +11,30 @@
 	cursor: pointer;
 }
 
+aside > .addCircle {
+	width: 100%;
+	height: auto;
+	max-width: 10vw;
+}
+
 .addCircle:hover,
 button:hover > .addCircle {
 	background-color: var(--warm-grey);
+}
+
+@media screen and (max-width: 1600px) {
+	aside > .addCircle {
+		width: 60%;
+		height: auto;
+		max-width: 6vw;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	aside > .addCircle {
+		width: 100%;
+		height: auto;
+		max-width: 10vw;
+		min-width: 10vw;
+	}
 }

@@ -1,30 +1,50 @@
+import NumberInput from "@/components/Form/NumberInput";
 import Input from "../../Form/Input";
-import Form from "@/components/Form/Form";
+import styles from "./BasicInfo.module.css";
 
-const BasicInfo = ({ isLocked, name }) => {
+const BasicInfo = ({ isLocked, data }) => {
 	return (
-		<Form>
+		<article className={styles.basic}>
 			<Input
-				rowCss="span3"
+				rowCss={styles.span3}
 				inputCss="big"
-				id={"nome"}
-				value={name}
+				id="charName"
+				initialData={data?.charName}
 				label={"Nome"}
 				disabled={isLocked}
-				type="text"
 			/>
 			<Input
-				id={"raca"}
+				id="raca"
 				label={"Raça"}
+				initialData={data?.raca}
 				disabled={isLocked}
-				type="text"
 				inputCss="big"
 			/>
-			<Input id={"origem"} label={"Origem"} disabled={isLocked} type="text" />
-			<Input id={"classe"} label={"Classe"} disabled={isLocked} type="text" />
-			<Input id={"lvl"} label={"Nível"} disabled={isLocked} type="number" />
-			<Input id={"religiao"} label={"Religião"} disabled={isLocked} type="text" />
-		</Form>
+			<Input
+				id={"origem"}
+				initialData={data?.origem}
+				label={"Origem"}
+				disabled={isLocked}
+			/>
+			<Input
+				id={"classe"}
+				initialData={data?.classes}
+				label={"Classe"}
+				disabled={isLocked}
+			/>
+			<NumberInput
+				id={"lvl"}
+				initialData={data?.level}
+				label={"Nível"}
+				disabled={isLocked}
+			/>
+			<Input
+				id={"religiao"}
+				initialData={data?.divindade}
+				label={"Religião"}
+				disabled={isLocked}
+			/>
+		</article>
 	);
 };
 

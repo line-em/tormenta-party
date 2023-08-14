@@ -8,13 +8,15 @@ export default function AttributeCell({
 	updateAttribute,
 	isLocked
 }) {
-	const handleValueChange = (event, locked) => {
-		if (!event.target.value) {
-			event.target.value = 0;
+	const handleValueChange = (e) => {
+		if (!isLocked) {
+			if (!e.target.value) {
+				e.target.value = 0;
+			}
+			const newValue = parseInt(e.target.value, 10);
+			const newModifier = calculateModifier(newValue);
+			updateAttribute(attribute, newValue, newModifier);
 		}
-		const newValue = parseInt(event.target.value, 10);
-		const newModifier = calculateModifier(newValue);
-		updateAttribute(attribute, newValue, newModifier);
 	};
 
 	return (
@@ -27,7 +29,7 @@ export default function AttributeCell({
 					min={0}
 					max={25}
 					className="big"
-					onChange={!isLocked && handleValueChange}
+					onChange={handleValueChange}
 					disabled={isLocked}
 					onKeyDown={(e) => isNumberKey(e)}
 				/>

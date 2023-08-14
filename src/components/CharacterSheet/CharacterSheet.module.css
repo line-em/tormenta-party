@@ -10,9 +10,10 @@
 
 .characterSheet > aside {
 	grid-column: sidebar;
+	margin-inline: auto;
 }
 
-.characterSheet > article {
+.characterSheet > form {
 	grid-column: content;
 	display: flex;
 	flex-direction: column;
@@ -24,13 +25,9 @@
 	display: flex;
 	gap: var(--spacing-s);
 	margin-top: auto;
-	place-items: end;
-	place-content: end;
+	place-items: flex-end;
+	place-content: flex-end;
 	margin-inline-end: 0;
-}
-
-.characterSheet aside {
-	margin-inline: auto;
 }
 
 .characterSheet nav {
@@ -40,4 +37,27 @@
 	align-items: center;
 	gap: var(--spacing-s);
 	margin-block-start: var(--spacing-s);
+}
+
+@media screen and (max-width: 1600px) {
+	.characterSheet {
+		grid-template-columns: 1fr;
+		grid-template-areas: "content";
+		margin: var(--spacing-xxs) var(--spacing-xxs);
+	}
+
+	.characterSheet > aside {
+		grid-column: content;
+		display: flex;
+		gap: var(--spacing-s);
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin-block-end: 1rem;
+	}
+
+	.characterSheet nav {
+		flex-direction: row;
+		margin-block-start: 0;
+	}
 }

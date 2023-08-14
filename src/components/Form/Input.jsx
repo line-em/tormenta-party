@@ -1,39 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
-const Input = ({ rowCss, inputCss, id, label, disabled, onChange, type, value }) => {
+const Input = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
+	// FIXME: remove watch
 	const {
-		handleSubmit,
 		register,
+		watch,
 		formState: { errors }
 	} = useForm({
-		mode: "onChange"
+		mode: "onChange",
+		defaultValues: {
+			[id]: initialData
+		}
 	});
-	const registerObj =
-		type === "number"
-			? {
-					...register(`${label}`, {
-						pattern: /[0-9]/,
-						maxLength: 10,
-						valueAsNumber: true,
-						value: value
-					})
-			  }
-			: {
-					...register(`${label}`, { maxLength: 80 })
-			  };
+
+	// FIXME: remove watch
+	const watchAllFields = watch();
+	console.log(watchAllFields);
 
 	return (
 		<div className={`${rowCss} floating-label`}>
 			<input
-				type={type}
+				type={"text"}
 				id={id}
 				className={`${inputCss} floating-input`}
 				placeholder=" "
-				onChange={onChange}
 				disabled={disabled}
-				value={value}
-				{...registerObj}
+				{...register(id, { maxLength: 80 })}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}
