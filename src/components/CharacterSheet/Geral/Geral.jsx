@@ -8,8 +8,8 @@ const Geral = ({ isLocked, data }) => {
 		<>
 			<BasicInfo isLocked={isLocked} data={data} />
 			<Attributes isLocked={isLocked} />
-			<section className="grid no-shadow">
-				<Armor width={50} height={50} opacity={0.5} />
+			<section className="grid no-shadow no-padding">
+				<Armor />
 				<SmallNotes />
 			</section>
 		</>

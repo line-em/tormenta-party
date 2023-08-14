@@ -1,3 +1,4 @@
+import Armor from "@/assets/svgs/Armor";
 import Clips from "@/assets/svgs/Clips";
 import DefaultUser from "@/assets/svgs/DefaultUser";
 import Dices from "@/assets/svgs/Dices.jsx";
@@ -19,6 +20,8 @@ const SectionHeading = ({ icon = "none", small = false, children }) => {
 						return <Clips {...iconProps} />;
 					case "sword":
 						return <RiSwordFill {...iconProps} />;
+					case "armor":
+						return <Armor {...iconProps} />;
 					case "user":
 						return <DefaultUser {...iconProps} />;
 					case "none":

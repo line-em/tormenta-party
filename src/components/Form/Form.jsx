@@ -1,22 +1,24 @@
 import { useForm } from "react-hook-form";
-import Footer from "../CharacterSheet/Footer";
+import Footer from "./Footer";
 
-const Form = ({ onSubmit, children, styled, hasButton = false }) => {
+const Form = ({ children }) => {
+	// Depois deixar o onSubmit as a prop. FIXME:
 	const {
 		handleSubmit,
-		register,
 		formState: { errors }
 	} = useForm({
-		mode: "onChange"
+		mode: "onSubmit"
 	});
-
-	const handleChanges = (data) => console.log(data);
+	const handleChanges = (data) => {
+		console.log("click");
+		console.log(data);
+	};
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={handleSubmit(handleChanges)}>
 			{children}
 			{errors === true && <p>An error has been found.</p>}
-			{hasButton && <Footer />}
+			{<Footer />}
 		</form>
 	);
 };

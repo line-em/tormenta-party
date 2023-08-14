@@ -4,7 +4,6 @@ import { useState } from "react";
 import Pericias from "./Pericias/Pericias";
 import Sidebar from "./Sidebar";
 import Geral from "./Geral/Geral";
-import Footer from "./Footer";
 import Form from "../Form/Form";
 
 export default function CharacterSheet({ data }) {
@@ -25,7 +24,7 @@ export default function CharacterSheet({ data }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
-			<Form hasButton>{getContent()}</Form>
+			<Form>{getContent()}</Form>
 		</div>
 	);
 }
