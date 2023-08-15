@@ -325,7 +325,8 @@ textarea {
 		var(--white-alpha-50) 75%,
 		var(--white-alpha-50) 100%
 	);
-	background-size: 85px 85px;
+	background-size: 90px 90px;
+	padding: 1rem;
 	border: 1px solid var(--warm-grey);
 }
 
