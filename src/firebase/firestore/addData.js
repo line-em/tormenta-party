@@ -15,3 +15,13 @@ export async function addData(colllection, id, data) {
 
     return { result, error };
 }
+
+	const updateCharacter = async (name, data) => {
+		const { error } = await addData("characters", name, {
+			...data,
+			user_uid: user.uid || "not loged",
+			charName: name,
+            lastUpdated: new Date()
+		});
+		error ? alert(error.message) : alert("Character created");
+	};

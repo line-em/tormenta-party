@@ -1,15 +1,26 @@
+'use client'
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { getDocOnSnapshot } from "@/firebase/firestore/getData";
 
-const Page = ({ params }) => {
-	return <CharacterSheet character={{ name: params.name }} />;
+const Page = () => {
+	const params = useParams();
+	const decodedCharName = decodeURIComponent(params.name);
+	const [charSheet, setCharSheet] = useState(null);
+
+	useEffect(() => {
+        const { unsubscribe } = getDocOnSnapshot("characters", decodedCharName, (result) => {
+            let res = result.data()
+            setCharSheet(res);
+        } );
+        return () => () => {unsubscribe()}
+    }, [decodedCharName]);
+
+	return (
+		charSheet ? <CharacterSheet character={charSheet} /> : <loading />
+	)
 };
 
 export default Page;
-
-export async function generateStaticParams() {
-	const characters = ["anisha", "howkin"];
-	return characters.map((character) => ({
-		slug: characters.slug
-	}));
-}

@@ -16,7 +16,7 @@ const Input = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
 
 	// FIXME: remove watch
 	const watchAllFields = watch();
-	// console.log(watchAllFields);
+	//  console.log(watchAllFields);
 
 	return (
 		<div className={`${rowCss} floating-label`}>
