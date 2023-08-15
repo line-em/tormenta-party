@@ -23,20 +23,15 @@ const BasicInfo = ({ isLocked, data }) => {
 				label={"Level"}
 				disabled={isLocked}
 				initialData={data?.level}
-				options={Array.from({ length: 10 }, (_, index) => index + 1)}
+				options={Array.from({ length: 20 }, (_, index) => index + 1)}
 			/>
 			<Input
-				rowCss={styles.span2}
-				id={"classe"}
-				initialData={data?.classes}
-				label={"Classe"}
+				id={"xp"}
+				initialData={data?.xp}
+				label={"XP"}
 				inputCss="big"
 				disabled={isLocked}
 			/>
-			<section className={`no-shadow no-padding grid ${styles.span3}`}>
-				<StatusBar isLocked={isLocked} type={"PV"} />
-				<StatusBar isLocked={isLocked} type={"PM"} />
-			</section>
 			<SelectInput
 				id="raca"
 				rowCss={styles.span2}
@@ -47,9 +42,10 @@ const BasicInfo = ({ isLocked, data }) => {
 				options={todasLinhagens}
 			/>
 			<Input
-				id={"xp"}
-				initialData={data?.xp}
-				label={"XP"}
+				rowCss={styles.span3}
+				id={"classe"}
+				initialData={data?.classes}
+				label={"Classe"}
 				inputCss="big"
 				disabled={isLocked}
 			/>
@@ -65,6 +61,13 @@ const BasicInfo = ({ isLocked, data }) => {
 				id={"religiao"}
 				initialData={data?.divindade}
 				label={"Religião"}
+				disabled={isLocked}
+			/>
+			<Input
+				rowCss={styles.span2}
+				id={"deslocamento"}
+				initialData={data?.divindade}
+				label={"Deslocamento"}
 				disabled={isLocked}
 			/>
 		</article>

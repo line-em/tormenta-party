@@ -1,38 +1,37 @@
 main.fichas {
 	padding: 0;
 	display: grid;
-	grid-template-columns: minmax(170px, auto) minmax(20vw, 1fr);
-	min-width: 70vw;
+	grid-template-columns: minmax(170px, auto) 1fr;
 	min-height: 80dvh;
-	/* max-height: 100dvh; */
 	overflow: hidden;
 	grid-template-areas: "sidebar content";
 	border-inline: none;
 	border-radius: var(--spacing-s);
 	background-color: rgba(245, 245, 245, 0.8);
-	/* background-color: transparent; */
 }
 
 aside.main-style,
 aside.main-style ~ main {
 	margin-block-start: var(--spacing-s);
-	padding: var(--spacing-s) var(--spacing-sm);
+	padding: var(--spacing-xs) var(--spacing-sm);
 	border-inline: none;
 	background-color: transparent;
+	max-width: 290px;
 }
 
-main.fichas main {
-	/* border-inline-start: 10px solid var(--black); */
+@media screen and (max-width: 800px) {
+	aside.main-style {
+		display: none;
+	}
 }
 
 aside.main-style section.grid {
 	grid-template-columns: 1fr;
-	place-items: center;
-	gap: var(--spacing-s);
+	gap: var(--spacing-xs);
 }
 
 aside.main-style section.big {
-	padding: var(--spacing-s);
+	padding: var(--spacing-xs);
 }
 
 aside.main-style section.grid section.row h3 {

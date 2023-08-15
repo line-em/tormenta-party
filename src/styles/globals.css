@@ -164,6 +164,10 @@ section.grid {
 	gap: var(--spacing-m);
 }
 
+section.auto-grid {
+	grid-template-columns: auto 1fr;
+}
+
 section + section:not(.row),
 header + section:not(.row),
 section:not(.row) + header {
@@ -182,7 +186,7 @@ section header {
 
 input,
 select {
-	padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-s);
+	padding: var(--spacing-s) var(--spacing-xs) var(--spacing-xs);
 	font-size: var(--regular);
 	font-weight: 700;
 	border: none;

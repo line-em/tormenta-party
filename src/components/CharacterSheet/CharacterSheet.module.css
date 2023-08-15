@@ -1,9 +1,11 @@
 .characterSheet {
+	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-areas: "content";
 	margin: var(--spacing-s) auto;
-	padding-block: var(--spacing-s);
-	max-width: 80ch;
+	padding: var(--spacing-xs) var(--spacing-sm);
+	max-width: 90ch;
+	gap: var(--spacing-m);
 }
 
 /* .characterSheet > aside {
@@ -23,7 +25,6 @@
 	justify-content: center;
 	align-items: center;
 	gap: var(--spacing-s);
-	margin-block: var(--spacing-s);
 	width: 100%;
 }
 
@@ -39,7 +40,7 @@
 .characterSheet > form {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-s);
+	gap: var(--spacing-l);
 }
 
 .characterSheet footer {
