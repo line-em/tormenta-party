@@ -1,6 +1,6 @@
 .list {
 	display: grid;
-	grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: auto auto;
 	row-gap: var(--spacing-xs);
 	grid-auto-flow: dense;
@@ -47,6 +47,7 @@
 	width: 100%;
 	display: flex;
 	border-bottom: 1px solid var(--warm-grey-light);
+	align-items: center;
 }
 
 /* .list > li:nth-child(2n) {
@@ -55,4 +56,10 @@
 
 .list input {
 	width: auto;
+}
+
+.list strong {
+	color: var(--red);
+	font-size: var(--medium);
+	margin-inline: var(--spacing-xxs);
 }

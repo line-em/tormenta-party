@@ -54,3 +54,11 @@ button.headless {
 button.headless:not(:disabled):hover {
 	color: var(--red);
 }
+
+button.fit {
+	width: fit-content;
+}
+
+button.center {
+	margin: auto;
+}

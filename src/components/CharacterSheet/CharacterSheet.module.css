@@ -40,7 +40,7 @@
 .characterSheet > form {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-l);
+	gap: var(--spacing-m);
 }
 
 .characterSheet footer {

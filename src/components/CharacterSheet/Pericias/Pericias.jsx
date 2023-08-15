@@ -1,9 +1,11 @@
 import { pericias, periciasCols } from "@/data/pericias";
+import { useEffect, useState } from "react";
 import styles from "./Pericias.module.css";
-import { useState } from "react";
 import React from "react";
-import { calculateModifier } from "@/app/utils";
 import Input from "@/components/Form/Input";
+import EditMode from "./EditMode";
+import ViewMode from "./ViewMode";
+import { calculateModifier } from "@/app/utils";
 
 const Pericias = ({ data }) => {
 	const tempData = {
@@ -20,89 +22,84 @@ const Pericias = ({ data }) => {
 	const halfLevel = Math.floor(tempData.lvl / 2);
 	const [treinadas, setTreinadas] = useState({});
 	const [outros, setOutros] = useState({});
+	const [selectedModifiers, setSelectedModifiers] = useState({});
 
-	const [total, setTotal] = useState({}); // Total state for each skill
+	const [total, setTotal] = useState({});
+	const [editMode, setEditMode] = useState(false);
 
-	const toggleTreinada = (skill, defaultModifier) => {
+	const toggleTreinada = (skill, modifier) => {
 		setTreinadas((prevTreinadas) => ({
 			...prevTreinadas,
 			[skill]: !prevTreinadas[skill]
 		}));
-		updateTotal(skill, defaultModifier);
+		updateTotal(skill, modifier);
 	};
 
-	const handleOutros = (e, skill, defaultModifier) => {
+	const handleModifierChange = (e, skill) => {
+		const selectedModifier = e.target.value;
+		setSelectedModifiers((prevSelectedModifiers) => ({
+			...prevSelectedModifiers,
+			[skill]: selectedModifier
+		}));
+		updateTotal(skill, selectedModifier);
+	};
+
+	const handleOutros = (change, skill, modifier) => {
 		setOutros((prevOutros) => ({
 			...prevOutros,
-			[skill]: Number(e.target.value)
+			[skill]: Number((prevOutros[skill] ?? 0) + change)
 		}));
-		updateTotal(skill, defaultModifier);
+		updateTotal(skill, modifier);
 	};
 
-	const updateTotal = (skill, defaultModifier) => {
+	const updateTotal = (skill, modifier) => {
 		setTotal((prevTotal) => ({
 			...prevTotal,
 			[skill]:
-				halfLevel +
+				Number(halfLevel) +
 				(treinadas[skill] ? 2 : 0) +
-				calculateModifier(tempData[defaultModifier]) +
-				(outros[skill] || 0)
+				Number(calculateModifier(tempData[modifier])) +
+				(Number(outros[skill]) || 0)
 		}));
 	};
 
+	useEffect(() => {
+		pericias.forEach((item) => {
+			updateTotal(
+				item.skill,
+				selectedModifiers[item.skill] || item.defaultModifier
+			);
+		});
+	}, [total]);
+
 	return (
-		<ul className={`no-shadow no-padding ${styles.list}`}>
-			{periciasCols.map((item, index) => {
-				return (
-					<li role="columnheader" key={crypto.randomUUID()}>
-						{item}
-					</li>
-				);
-			})}
-
-			{pericias.map((item, i) => (
-				<React.Fragment key={item.skill}>
-					{/* Render "Total" */}
-					<li className={styles.total}>{total[item.skill]}</li>
-
-					{/* Render pericia */}
-					<li className={styles.pericia}>{item.skill}</li>
-
-					{/* Render "LEVEL" */}
-					<li className={styles.nivel}>{halfLevel}</li>
-
-					{/* Render "Modificador" */}
-					<li className={styles.modificador}>
-						{calculateModifier(tempData[item.defaultModifier])}
-					</li>
-
-					{/* Render treinada */}
-					<li className={styles.treinada}>
-						<input
-							type="checkbox"
-							id={item.skill}
-							checked={treinadas[item.skill]}
-							onChange={() =>
-								toggleTreinada(item.skill, item.defaultModifier)
-							}
-						/>
-					</li>
-
-					{/* Render "Outros" */}
-					<li className={styles.outros}>
-						<input
-							type="number"
-							id={item.skill}
-							value={outros[item.skill]}
-							onChange={(e) =>
-								handleOutros(e, item.skill, item.defaultModifier)
-							}
-							style={{ width: "60px", padding: "5px", textAlign: "center" }}
-						/>
-					</li>
-				</React.Fragment>
-			))}
-		</ul>
+		<>
+			<button
+				onClick={() => setEditMode(!editMode)}
+				className="fit center secondary"
+			>
+				Switch to {editMode ? "View" : "Edit"} Mode
+			</button>
+			<ul className={`no-shadow no-padding ${styles.list}`}>
+				{editMode ? (
+					<EditMode
+						pericias={pericias}
+						periciasCols={periciasCols}
+						treinadas={treinadas}
+						outros={outros}
+						toggleTreinada={toggleTreinada}
+						handleOutros={handleOutros}
+						halfLevel={halfLevel}
+						tempData={tempData}
+						total={total}
+						selectedModifiers={selectedModifiers}
+						handleModifierChange={handleModifierChange}
+					/>
+				) : (
+					<ViewMode pericias={pericias} total={total} />
+				)}
+			</ul>
+		</>
 	);
 };
 

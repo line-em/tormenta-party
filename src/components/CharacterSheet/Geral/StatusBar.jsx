@@ -9,8 +9,8 @@ import ModifierButton from "@/components/ModifierButton.tsx";
 const StatusBar = ({ isLocked, type }) => {
 	const [category, setCategory] = useState("current");
 	const [status, setStatus] = useState({
-		PV: { total: 80, current: 75 },
-		PM: { total: 40, current: 25 }
+		PV: { total: 20, current: 19 },
+		PM: { total: 10, current: 6 }
 	});
 
 	const { current, total } = status[type];
