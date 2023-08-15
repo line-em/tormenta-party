@@ -59,15 +59,16 @@ const BasicInfo = ({ isLocked, data }) => {
 			/>
 			<Input
 				id={"religiao"}
+				rowCss={styles.span2}
 				initialData={data?.divindade}
 				label={"Religião"}
 				disabled={isLocked}
 			/>
 			<Input
-				rowCss={styles.span2}
+				// rowCss={styles.span2}
 				id={"deslocamento"}
 				initialData={data?.divindade}
-				label={"Deslocamento"}
+				label={"Movimento"}
 				disabled={isLocked}
 			/>
 		</article>

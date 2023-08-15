@@ -7,10 +7,14 @@
 	font-weight: 700;
 	position: absolute;
 	pointer-events: none;
-	left: var(--spacing-s);
+	left: var(--spacing-xs);
 	top: var(--spacing-s);
 	background: white;
 	transition: var(--transition);
+}
+
+.floating-text.big {
+	left: var(--spacing-s);
 }
 
 .floating-input:disabled ~ .floating-text {

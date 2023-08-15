@@ -26,6 +26,8 @@ const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
 				placeholder=" "
 				disabled={disabled}
 				{...register(id)}
+				rows={25}
+				cols={40}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}
