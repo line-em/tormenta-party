@@ -1,10 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
+const Textarea = ({
+	rowCss,
+	inputCss,
+	id,
+	label,
+	disabled,
+	initialData,
+	cols = 40,
+	...props
+}) => {
 	// FIXME: remove watch
 	const {
-		register,
+		// register,
 		watch,
 		formState: { errors }
 	} = useForm({
@@ -25,9 +34,10 @@ const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData }) => {
 				className={`${inputCss} floating-input`}
 				placeholder=" "
 				disabled={disabled}
-				{...register(id)}
+				// {...register(id)}
 				rows={10}
-				cols={40}
+				cols={cols}
+				{...props}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}

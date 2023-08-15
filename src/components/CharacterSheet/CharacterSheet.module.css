@@ -1,11 +1,12 @@
 .characterSheet {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-areas: "content";
+	/* grid-template-areas: "content"; */
 	margin: var(--spacing-s) auto;
 	padding: var(--spacing-xs) var(--spacing-sm);
 	max-width: 90ch;
 	gap: var(--spacing-m);
+	align-content: start;
 }
 
 /* .characterSheet > aside {
@@ -26,11 +27,17 @@
 	align-items: center;
 	gap: var(--spacing-s);
 	width: 100%;
+	margin-block-start: 0;
 }
 
-.characterSheet nav {
-	flex-direction: row;
-	margin-block-start: 0;
+@media screen and (min-width: 1100px) {
+	.characterSheet {
+		min-width: 80ch;
+	}
+
+	.characterSheet nav {
+		align-items: start;
+	}
 }
 
 .characterSheet > aside {

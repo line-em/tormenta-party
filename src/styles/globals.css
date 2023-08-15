@@ -122,6 +122,10 @@ main.center-align {
 	align-self: start; /*used to center an only child in the main container */
 }
 
+.place-center {
+	place-items: center;
+}
+
 section,
 .section-style {
 	display: flex;

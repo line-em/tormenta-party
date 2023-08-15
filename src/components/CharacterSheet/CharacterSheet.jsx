@@ -8,6 +8,7 @@ import Pericias from "./Pericias/Pericias";
 import Sidebar from "./Sidebar";
 import Geral from "./Geral/Geral";
 import Form from "../Form/Form";
+import Notas from "./Notas/Notas";
 
 export default function CharacterSheet({ character }) {
 	const [isLocked, setIsLocked] = useState(false);
@@ -18,8 +19,10 @@ export default function CharacterSheet({ character }) {
 				return <Geral isLocked={isLocked} data={character} />;
 			case "pericias":
 				return <Pericias />;
+			case "notas":
+				return <Notas />;
 			default:
-				return "Conteúdo não disponível";
+				return <section>"Conteúdo não disponível</section>;
 		}
 	};
 
