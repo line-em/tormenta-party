@@ -1,5 +1,4 @@
-import Circle from "../Circle/Circle";
-import Clips from "@/assets/svgs/Clips";
+import ProfileImage from "./ProfileImage";
 
 const Sidebar = ({ currentTab, setCurrentTab }) => {
 	const tabs = [
@@ -11,23 +10,21 @@ const Sidebar = ({ currentTab, setCurrentTab }) => {
 	];
 
 	return (
-		<aside>
-			<Circle>
-				<Clips width={40} height={40} />
-			</Circle>
-			<nav>
-				{tabs.map((tab) => (
-					<button
-						key={crypto.randomUUID()}
-						disabled={currentTab === tab.id}
-						className="secondary"
-						onClick={() => setCurrentTab(tab.id)}
-					>
-						{tab.label}
-					</button>
-				))}
-			</nav>
-		</aside>
+		// <aside>
+		<nav>
+			{/* <ProfileImage /> */}
+			{tabs.map((tab) => (
+				<button
+					key={crypto.randomUUID()}
+					disabled={currentTab === tab.id}
+					className="secondary"
+					onClick={() => setCurrentTab(tab.id)}
+				>
+					{tab.label}
+				</button>
+			))}
+		</nav>
+		// </aside>
 	);
 };
 

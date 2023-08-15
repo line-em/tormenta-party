@@ -1,6 +1,6 @@
 .attrGrid {
 	display: grid;
-	grid-template-columns: 300px 1fr;
+	/* grid-template-columns: 300px 1fr; */
 	gap: var(--spacing-m);
 	align-items: center;
 	margin-block: var(--spacing-s);
@@ -8,7 +8,7 @@
 
 .attrGrid ul {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(95px, auto));
+	grid-template-columns: repeat(6, minmax(108px, auto));
 	gap: var(--spacing-m);
 }
 
@@ -30,7 +30,7 @@
 .attrGrid li {
 	display: grid;
 	grid-template-columns: 18px 1fr;
-	max-width: 110px;
+	max-width: 130px;
 	min-width: 95px;
 	height: 110px;
 	justify-items: baseline;

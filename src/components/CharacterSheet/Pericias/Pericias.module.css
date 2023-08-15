@@ -1,13 +1,12 @@
 .list {
 	display: grid;
-
 	grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: auto auto;
 	row-gap: var(--spacing-xs);
 	grid-auto-flow: dense;
 	grid-template-areas: "total pericia treinada nivel modificador outros";
-	height: 50vh;
-	overflow-y: auto;
+	/* height: 50vh; */
+	/* overflow-y: auto; */
 }
 
 .list [role="columnheader"] {

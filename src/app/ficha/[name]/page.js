@@ -2,11 +2,7 @@ import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 import React from "react";
 
 const Page = ({ params }) => {
-	return (
-		<div>
-			<CharacterSheet character={{ name: params.name }} />
-		</div>
-	);
+	return <CharacterSheet character={{ name: params.name }} />;
 };
 
 export default Page;

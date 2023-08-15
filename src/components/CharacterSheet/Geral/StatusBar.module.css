@@ -3,7 +3,7 @@
 	width: 100%;
 	border: 1px solid var(--warm-grey);
 	margin: 0 auto;
-	height: 17px;
+	height: 15px;
 	content: " ";
 	border-radius: var(--spacing-s);
 }

@@ -1,30 +1,28 @@
 main.fichas {
 	padding: 0;
 	display: grid;
-	grid-template-columns: minmax(auto, 20%) 1fr;
-	min-height: 100dvh;
+	grid-template-columns: minmax(170px, auto) minmax(20vw, 1fr);
+	min-width: 70vw;
+	min-height: 80dvh;
+	/* max-height: 100dvh; */
+	overflow: hidden;
+	grid-template-areas: "sidebar content";
+	border-inline: none;
+	border-radius: var(--spacing-s);
+	background-color: rgba(245, 245, 245, 0.8);
+	/* background-color: transparent; */
 }
 
 aside.main-style,
 aside.main-style ~ main {
-	padding: 0 var(--spacing-s);
+	margin-block-start: var(--spacing-s);
+	padding: var(--spacing-s) var(--spacing-sm);
 	border-inline: none;
+	background-color: transparent;
 }
 
 main.fichas main {
-	border-inline-start: 10px solid var(--black);
-}
-
-aside.main-style header {
-	margin-block-end: var(--spacing-s);
-}
-
-aside.main-style h1.title {
-	font-size: var(--header);
-}
-
-aside.main-style h1 {
-	font-size: var(--big);
+	/* border-inline-start: 10px solid var(--black); */
 }
 
 aside.main-style section.grid {

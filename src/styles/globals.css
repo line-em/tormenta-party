@@ -21,7 +21,7 @@
 	--medium: 1.5rem;
 	--big: 2rem;
 	--header: clamp(2.7rem, 1rem + 2vw, 3rem);
-	--title: clamp(3.75rem, 1.5rem + 3vw, 4.8rem);
+	--title: clamp(3.6rem, 1rem + 3vw, 4.3rem);
 
 	--spacing-xxs: 5px;
 	--spacing-xs: 10px;
@@ -76,6 +76,10 @@ a {
 	color: var(--red);
 }
 
+header {
+	margin-block-end: var(--spacing-m);
+}
+
 body {
 	background-image: var(--bg-image);
 	backdrop-filter: grayscale(0.8);
@@ -94,7 +98,7 @@ body {
 main,
 .main-style {
 	background-color: var(--white-alpha);
-	padding: var(--spacing-m) var(--spacing-l);
+	padding: var(--spacing-xs) var(--spacing-m);
 	backdrop-filter: blur(3px);
 	border-inline: 10px solid var(--black);
 }

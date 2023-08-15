@@ -1,4 +1,61 @@
 .characterSheet {
+	grid-template-columns: 1fr;
+	grid-template-areas: "content";
+	margin: var(--spacing-s) auto;
+	padding-block: var(--spacing-s);
+	max-width: 80ch;
+}
+
+/* .characterSheet > aside {
+	grid-column: content;
+	display: flex;
+	gap: var(--spacing-s);
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-block-end: 1rem;
+} */
+
+.characterSheet nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-s);
+	margin-block: var(--spacing-s);
+	width: 100%;
+}
+
+.characterSheet nav {
+	flex-direction: row;
+	margin-block-start: 0;
+}
+
+.characterSheet > aside {
+	margin-inline: auto;
+}
+
+.characterSheet > form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-s);
+}
+
+.characterSheet footer {
+	grid-column: span 2;
+	display: flex;
+	gap: var(--spacing-s);
+	margin-top: auto;
+	place-items: flex-end;
+	place-content: flex-end;
+	margin-inline-end: 0;
+}
+
+/* backup */
+/* 
+
+.characterSheet {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto;
@@ -61,3 +118,5 @@
 		margin-block-start: 0;
 	}
 }
+
+*/
