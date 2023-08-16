@@ -6,6 +6,8 @@ import Input from "@/components/Form/Input";
 import EditMode from "./EditMode";
 import ViewMode from "./ViewMode";
 import { calculateModifier } from "@/app/utils";
+import Eye from "@/assets/svgs/Eye";
+import Quill from "@/assets/svgs/Quill";
 
 const Pericias = ({ data }) => {
 	const tempData = {
@@ -18,7 +20,6 @@ const Pericias = ({ data }) => {
 		CAR: 15
 	};
 
-	const rowNumber = pericias.length;
 	const halfLevel = Math.floor(tempData.lvl / 2);
 	const [treinadas, setTreinadas] = useState({});
 	const [outros, setOutros] = useState({});
@@ -78,7 +79,12 @@ const Pericias = ({ data }) => {
 				onClick={() => setEditMode(!editMode)}
 				className="fit center secondary"
 			>
-				Switch to {editMode ? "View" : "Edit"} Mode
+				{editMode ? "Visualizar" : "Editar"}
+				{editMode ? (
+					<Eye width={19} height={19} style={{ marginTop: 1 }} />
+				) : (
+					<Quill width={17} height={17} />
+				)}
 			</button>
 			<ul className={`no-shadow no-padding ${styles.list}`}>
 				{editMode ? (
@@ -104,51 +110,3 @@ const Pericias = ({ data }) => {
 };
 
 export default Pericias;
-
-{
-	/* 		{Array.from({ length: rowNumber }).map((_, i) => (
-				<li className={styles.total} key={i}>
-					{halfLevel + (treinada ? 2 : 0) + calculateModifier(tempData.FOR)}
-				</li>
-			))}
-
-			{pericias.map((item) => (
-				<li className={styles.pericia} key={crypto.randomUUID()}>
-					{item.skill}
-				</li>
-			))}
-
-			{pericias.map((item) => (
-				<li className={styles.treinada} key={crypto.randomUUID()}>
-					<input
-						type="checkbox"
-						id={item.skill}
-						checked={treinada}
-						onClick={() => setTreinada(!treinada)}
-					/>
-				</li>
-			))}
-
-			{Array.from({ length: rowNumber }).map((_, i) => (
-				<>
-					<li className={styles.modificador} key={crypto.randomUUID()}>
-						x
-					</li>
-
-					<li className={styles.total}>
-						{halfLevel + (treinada ? 2 : 0) + tempData[pericias[i].skill]}
-					</li>
-
-					<li className={styles.pericia}>{pericias[i].skill}</li>
-
-					<li className={styles.treinada}>
-						<input
-							type="checkbox"
-							checked={treinada}
-							onClick={() => setTreinada(!treinada)}
-						/>
-					</li>
-				</>
-			))}
-		</ul> */
-}

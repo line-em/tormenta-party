@@ -1,6 +1,6 @@
 // For the user to write extra info on their character, a quill
 
-export default function Notes(props) {
+export default function Quill(props) {
 	return (
 		<svg
 			width="1em"

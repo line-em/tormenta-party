@@ -11,6 +11,7 @@ button {
 	display: flex;
 	gap: var(--spacing-xs);
 	max-width: 40ch;
+	align-items: center;
 }
 
 button:hover {
