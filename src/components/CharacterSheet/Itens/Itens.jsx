@@ -14,8 +14,7 @@ const Itens = ({ data }) => {
 			mochila_item: getValues("mochila_item"),
 			mochila_peso:
 				getValues("mochila_peso") === "" ? "—" : getValues("mochila_peso"),
-			mochila_qntd:
-				getValues("mochila_qntd") === "" ? "—" : getValues("mochila_qntd")
+			mochila_qntd: getValues("mochila_qntd") === "" ? 1 : getValues("mochila_qntd")
 		};
 		if (!newItem.mochila_item) {
 			alert("Preencha o campo de item!");
@@ -70,12 +69,14 @@ const Itens = ({ data }) => {
 				<strong>Quantidade</strong>
 			</section>
 			{items?.map((item, index) => (
-				<ul className={`section-style ${styles.itemGrid} no-padding no-shadow`}>
+				<ul
+					className={`section-style ${styles.itemGrid} no-padding no-shadow`}
+					key={item.mochila_item + index}
+				>
 					<li>
 						<strong>{item.mochila_item}</strong>
 					</li>
 					<li>{item.mochila_peso}</li>
-					{/* <li>{item.mochila_qntd}</li> */}
 					<li className={styles.withModifier}>
 						{" "}
 						<ModifierButton

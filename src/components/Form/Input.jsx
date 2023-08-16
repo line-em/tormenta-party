@@ -1,14 +1,21 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-// import { useForm } from "react-hook-form";
 
-const Input = ({ rowCss = "", inputCss = "", id, label, disabled, initialData }) => {
+const Input = ({
+	rowCss = "",
+	inputCss = "",
+	id,
+	label,
+	disabled,
+	initialData,
+	type = "text"
+}) => {
 	const { register } = useFormContext();
 
 	return (
 		<div className={`${rowCss} floating-label`}>
 			<input
-				type="text"
+				type={type}
 				id={id}
 				className={`${inputCss} floating-input`}
 				placeholder=" "

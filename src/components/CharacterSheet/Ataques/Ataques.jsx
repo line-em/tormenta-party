@@ -49,6 +49,7 @@ const Attacks = ({ data }) => {
 			</section>
 			{attacks?.map((attack, index) => (
 				<ul
+					key={attack.ataque + index}
 					className={`section-style ${styles.addAttackGrid} no-padding no-shadow`}
 				>
 					<li>

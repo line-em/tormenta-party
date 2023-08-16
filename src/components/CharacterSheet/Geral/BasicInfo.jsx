@@ -1,8 +1,6 @@
-import NumberInput from "@/components/Form/NumberInput";
 import Input from "../../Form/Input";
 import styles from "./BasicInfo.module.css";
 import SelectInput from "@/components/Form/SelectInput";
-import StatusBar from "./StatusBar";
 import { todasOrigens } from "@/data/origens";
 import { todasLinhagens } from "@/data/linhagens";
 

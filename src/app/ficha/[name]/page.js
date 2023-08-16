@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -11,16 +11,20 @@ const Page = () => {
 	const [charSheet, setCharSheet] = useState(null);
 
 	useEffect(() => {
-        const { unsubscribe } = getDocOnSnapshot("characters", decodedCharName, (result) => {
-            let res = result.data()
-            setCharSheet(res);
-        } );
-        return () => () => {unsubscribe()}
-    }, [decodedCharName]);
+		const { unsubscribe } = getDocOnSnapshot(
+			"characters",
+			decodedCharName,
+			(result) => {
+				let res = result.data();
+				setCharSheet(res);
+			}
+		);
+		return () => () => {
+			unsubscribe();
+		};
+	}, [decodedCharName]);
 
-	return (
-		charSheet ? <CharacterSheet character={charSheet} /> : <loading />
-	)
+	return charSheet ? <CharacterSheet character={charSheet} /> : <Loading />;
 };
 
 export default Page;

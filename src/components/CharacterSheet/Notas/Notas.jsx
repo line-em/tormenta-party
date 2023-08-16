@@ -37,40 +37,38 @@ const Notas = ({ data }) => {
 		setFields((prevFields) => prevFields.filter((field) => field.id !== id));
 	};
 
-	const onSubmit = () => {
-		const values = getValues();
-		const updatedFields = fields.map((field) => ({
-			...field,
-			content: values[field.id]
-		}));
-		console.log(updatedFields);
-	};
+	// const onSubmit = () => {
+	// 	const values = getValues();
+	// 	const updatedFields = fields.map((field) => ({
+	// 		...field,
+	// 		content: values[field.id]
+	// 	}));
+	// 	console.log(updatedFields);
+	// };
 
 	return (
 		<>
 			<button className="fit center secondary" onClick={handleAddField}>
 				Adicionar Notas <Actions />
 			</button>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<section className="no-padding no-shadow grid place-center">
-					{fields.map((field) => (
-						<div key={field.id}>
-							<Textarea
-								id={field.id}
-								initialData={field.content}
-								label={field.label}
-								cols={25}
-							/>
-							<button
-								onClick={() => handleRemoveField(field.id)}
-								className="fit center secondary"
-							>
-								Remover
-							</button>
-						</div>
-					))}
-				</section>
-			</form>
+			<section className="no-padding no-shadow grid place-center">
+				{fields.map((field) => (
+					<div key={field.id}>
+						<Textarea
+							id={field.id}
+							initialData={field.content}
+							label={field.label}
+							cols={25}
+						/>
+						<button
+							onClick={() => handleRemoveField(field.id)}
+							className="fit center secondary"
+						>
+							Remover
+						</button>
+					</div>
+				))}
+			</section>
 		</>
 	);
 };

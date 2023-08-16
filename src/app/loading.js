@@ -1,6 +1,6 @@
 import React from "react";
 
-const loading = () => {
+const Loading = () => {
 	return (
 		<section className="align-start">
 			<div className="spinner"></div>
@@ -9,4 +9,4 @@ const loading = () => {
 	);
 };
 
-export default loading;
+export default Loading;

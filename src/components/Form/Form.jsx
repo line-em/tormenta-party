@@ -23,7 +23,6 @@ const Form = ({ children }) => {
 		try {
 			await FormSchema.validate(data, { abortEarly: false });
 			console.log("Validation succeeded:", data);
-			// console.log({ data });
 		} catch (error) {
 			if (error.name === "ValidationError") {
 				const validationErrors = error.inner.reduce((errors, err) => {
@@ -36,24 +35,18 @@ const Form = ({ children }) => {
 			}
 		}
 	};
-	// await new Promise((resolve) => {
-	// 	setTimeout(() => {
-	// 		alert(JSON.stringify(data));
-	// 		resolve(undefined);
-	// 	}, 3000);
-	// });
 
-	const watchAllFields = methods.watch();
-	console.log(watchAllFields);
+	// const watchAllFields = methods.watch();
+	// console.log(watchAllFields);
 
 	return (
 		<FormProvider {...methods}>
 			<form onSubmit={methods.handleSubmit(handleChanges)}>
 				{children}
 				{/* {errors === true && <p>An error has been found.</p>} */}
-				{/* {<Footer isLocked={isLocked} setIsLocked={setIsLocked} />} */}
-				<input type="submit" />
+				{/* {<Footer />} */}
 				{/* <button type="submit">Save</button> */}
+				<input type="submit" />
 			</form>
 		</FormProvider>
 	);
