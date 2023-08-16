@@ -9,6 +9,7 @@ import Sidebar from "./Sidebar";
 import Geral from "./Geral/Geral";
 import Form from "../Form/Form";
 import Notas from "./Notas/Notas";
+import Attacks from "./Ataques/Ataques";
 
 export default function CharacterSheet({ character }) {
 	const [isLocked, setIsLocked] = useState(false);
@@ -19,6 +20,8 @@ export default function CharacterSheet({ character }) {
 				return <Geral isLocked={isLocked} data={character} />;
 			case "pericias":
 				return <Pericias />;
+			case "attacks":
+				return <Attacks />;
 			case "notas":
 				return <Notas />;
 			default:

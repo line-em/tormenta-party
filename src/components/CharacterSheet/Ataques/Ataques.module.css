@@ -1,0 +1,33 @@
+.addAttackGrid {
+	display: grid;
+	grid-template-columns: 2fr repeat(5, 1fr) 0.5fr;
+	gap: var(--spacing-xxs);
+	margin-block: var(--spacing-m);
+	align-items: stretch;
+	padding-inline: var(--spacing-xxs);
+}
+
+.addAttackGrid button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--medium);
+}
+
+ul.addAttackGrid {
+	padding-inline: var(--spacing-s);
+	margin-block: var(--spacing-xs);
+	border-bottom: transparent;
+}
+
+ul.addAttackGrid:not(:last-of-type) {
+	border-bottom: 1px solid var(--warm-grey);
+}
+
+ul.addAttackGrid button {
+	top: -5px;
+}
+
+ul.addAttackGrid strong {
+	color: var(--red);
+}

@@ -23,7 +23,7 @@ const Form = ({ children }) => {
 		try {
 			await FormSchema.validate(data, { abortEarly: false });
 			console.log("Validation succeeded:", data);
-			console.log({ data });
+			// console.log({ data });
 		} catch (error) {
 			if (error.name === "ValidationError") {
 				const validationErrors = error.inner.reduce((errors, err) => {

@@ -3,7 +3,7 @@ import ProfileImage from "./ProfileImage";
 const Sidebar = ({ currentTab, setCurrentTab }) => {
 	const tabs = [
 		{ id: "geral", label: "Geral" },
-		{ id: "magias", label: "Ataques & Magias" },
+		{ id: "attacks", label: "Ataques & Magias" },
 		{ id: "pericias", label: "Perícias" },
 		{ id: "equipamento", label: "Itens" },
 		{ id: "notas", label: "Notas" }
@@ -13,7 +13,7 @@ const Sidebar = ({ currentTab, setCurrentTab }) => {
 		// <aside>
 		<nav>
 			{/* <ProfileImage /> */}
-			{tabs.map((tab) => (
+			{tabs.map((tab, index) => (
 				<button
 					key={crypto.randomUUID()}
 					disabled={currentTab === tab.id}
