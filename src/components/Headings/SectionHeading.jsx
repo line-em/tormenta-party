@@ -2,6 +2,8 @@ import Armor from "@/assets/svgs/Armor";
 // import Clips from "@/assets/svgs/Clips";
 import DefaultUser from "@/assets/svgs/DefaultUser";
 import Dices from "@/assets/svgs/Dices.jsx";
+import Items from "@/assets/svgs/Items";
+import Money from "@/assets/svgs/Money";
 import MajesticonsScrollText from "@/assets/svgs/Scroll";
 import RiSwordFill from "@/assets/svgs/Swords";
 const SectionHeading = ({ icon = "none", small = false, children }) => {
@@ -16,8 +18,10 @@ const SectionHeading = ({ icon = "none", small = false, children }) => {
 						return <Dices {...iconProps} />;
 					case "scroll":
 						return <MajesticonsScrollText {...iconProps} />;
-					// case "clips":
-					// 	return <Clips {...iconProps} />;
+					case "items":
+						return <Items {...iconProps} />;
+					case "dinheiro":
+						return <Money {...iconProps} />;
 					case "sword":
 						return <RiSwordFill {...iconProps} />;
 					case "armor":

@@ -1,7 +1,7 @@
 import Input from "@/components/Form/Input";
 import SectionHeading from "@/components/Headings/SectionHeading";
 import { useFormContext } from "react-hook-form";
-import styles from "./Ataques.module.css";
+import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
 
 const Attacks = ({ data }) => {

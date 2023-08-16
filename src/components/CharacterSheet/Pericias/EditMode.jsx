@@ -93,15 +93,6 @@ const EditMode = ({
 								)
 							}
 						/>
-						{/* <input
-							type="number"
-							id={item.skill}
-							value={outros[item.skill]}
-							onChange={(e) =>
-								handleOutros(e, item.skill, item.defaultModifier)
-							}
-							style={{ width: "60px", padding: "5px", textAlign: "center" }}
-						/> */}
 					</li>
 				</React.Fragment>
 			))}

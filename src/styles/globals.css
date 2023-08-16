@@ -20,8 +20,8 @@
 	--regular: 1.1rem;
 	--medium: 1.5rem;
 	--big: 2rem;
-	--header: clamp(2.7rem, 1rem + 2vw, 3rem);
-	--title: clamp(3.6rem, 1rem + 3vw, 4.3rem);
+	--header: clamp(2.16rem, 0.8rem + 1.6vw, 3.44rem);
+	--title: clamp(2.88rem, 0.8rem + 2.4vw, 3.44rem);
 
 	--spacing-xxs: 5px;
 	--spacing-xs: 10px;
@@ -162,7 +162,8 @@ section.big {
 	padding: 0;
 }
 
-section.grid {
+section.grid,
+.section-style.grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--spacing-m);
@@ -170,6 +171,10 @@ section.grid {
 
 section.auto-grid {
 	grid-template-columns: auto 1fr;
+}
+
+ul.section-style {
+	margin-block: var(--spacing-m);
 }
 
 section + section:not(.row),

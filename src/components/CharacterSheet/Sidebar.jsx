@@ -5,7 +5,7 @@ const Sidebar = ({ currentTab, setCurrentTab }) => {
 		{ id: "geral", label: "Geral" },
 		{ id: "attacks", label: "Ataques & Magias" },
 		{ id: "pericias", label: "Perícias" },
-		{ id: "equipamento", label: "Itens" },
+		{ id: "itens", label: "Itens" },
 		{ id: "notas", label: "Notas" }
 	];
 
