@@ -33,7 +33,8 @@ const Attacks = ({ data }) => {
 	const removeAttack = (index) => {
 		const updatedAttacks = attacks.filter((_, i) => i !== index);
 		setValue("attacks", updatedAttacks);
-	};
+    };
+    
 	return (
 		<div>
 			<SectionHeading icon="sword" small>

@@ -1,9 +1,8 @@
 import LockButton from "../LockButton/LockButton";
 
-const Footer = ({ isLocked, setIsLocked, onSubmit }) => {
+const Footer = () => {
 	return (
 		<footer>
-			{/* <LockButton isLocked={isLocked} setIsLocked={setIsLocked} /> */}
 			<button type="submit">Save</button>
 		</footer>
 	);

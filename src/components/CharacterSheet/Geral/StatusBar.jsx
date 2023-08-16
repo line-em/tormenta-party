@@ -6,7 +6,7 @@ import { useState } from "react";
 import { getPercent, updateStatus } from "@/app/utils";
 import ModifierButton from "@/components/ModifierButton.tsx";
 
-const StatusBar = ({ isLocked, type }) => {
+const StatusBar = ({ type }) => {
 	const [category, setCategory] = useState("current");
 	const [status, setStatus] = useState({
 		PV: { total: 20, current: 19 },

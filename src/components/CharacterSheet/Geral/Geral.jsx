@@ -5,7 +5,7 @@ import Armor from "./Armor";
 import ProfileImage from "../ProfileImage";
 import StatusBar from "./StatusBar";
 
-const Geral = ({ isLocked, data }) => {
+const Geral = ({ data }) => {
 	return (
 		<>
 			<section className={`no-shadow no-padding grid auto-grid`}>
@@ -15,13 +15,13 @@ const Geral = ({ isLocked, data }) => {
 						className={`no-shadow no-padding grid`}
 						style={{ width: "90%" }}
 					>
-						<StatusBar isLocked={isLocked} type={"PV"} />
-						<StatusBar isLocked={isLocked} type={"PM"} />
+						<StatusBar type={"PV"} />
+						<StatusBar type={"PM"} />
 					</section>
 				</section>
-				<BasicInfo isLocked={isLocked} data={data} />
+				<BasicInfo data={data} />
 			</section>
-			<Attributes isLocked={isLocked} />
+			<Attributes />
 
 			<section className="grid no-shadow no-padding">
 				<Armor />

@@ -5,19 +5,9 @@ import { FormSchema } from "./schema";
 
 const Form = ({ children }) => {
 	const methods = useForm({
-		mode: "onSubmit"
-		// resolver: yupResolver(FormSchema)
+		mode: "onSubmit",
+		resolver: yupResolver(FormSchema)
 	});
-
-	// const handleChanges = (data) => {
-	// 	console.log("click");
-	// 	try {
-	// 		console.log(data);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
-
 	const handleChanges = async (data) => {
 		console.log("click");
 		try {
@@ -36,17 +26,17 @@ const Form = ({ children }) => {
 		}
 	};
 
-	// const watchAllFields = methods.watch();
-	// console.log(watchAllFields);
+	const watchAllFields = methods.watch();
+	console.log(watchAllFields);
 
 	return (
 		<FormProvider {...methods}>
 			<form onSubmit={methods.handleSubmit(handleChanges)}>
 				{children}
 				{/* {errors === true && <p>An error has been found.</p>} */}
-				{/* {<Footer />} */}
+				<Footer />
 				{/* <button type="submit">Save</button> */}
-				<input type="submit" />
+				{/* <input type="submit" /> */}
 			</form>
 		</FormProvider>
 	);

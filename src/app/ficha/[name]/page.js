@@ -4,6 +4,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { getDocOnSnapshot } from "@/firebase/firestore/getData";
+import Loading from "@/app/loading";
 
 const Page = () => {
 	const params = useParams();

@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import Actions from "@/assets/svgs/Actions";
 
 const Notas = ({ data }) => {
-	const { getValues, handleSubmit, setValue, register } = useForm();
-
 	const [fields, setFields] = useState(
 		data?.notas || [
 			{

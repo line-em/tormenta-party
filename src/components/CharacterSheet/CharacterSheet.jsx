@@ -13,7 +13,6 @@ import Attacks from "./Ataques/Ataques";
 import Itens from "./Itens/Itens";
 
 export default function CharacterSheet({ character }) {
-	const [isLocked, setIsLocked] = useState(false);
 	const [currentTab, setCurrentTab] = useState("geral");
 	const getContent = () => {
 		switch (currentTab) {
@@ -35,9 +34,7 @@ export default function CharacterSheet({ character }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar currentTab={currentTab} setCurrentTab={setCurrentTab} />
-			<Form isLocked={isLocked} setIsLocked={setIsLocked}>
-				{getContent()}
-			</Form>
+			<Form>{getContent()}</Form>
 		</div>
 	);
 }

@@ -7,7 +7,6 @@ const SmallNotes = ({ data, isLocked }) => {
 			id="notas"
 			initialData={data?.smallNotes}
 			label={"Notas & Outras Características"}
-			disabled={isLocked}
 		/>
 	);
 };
