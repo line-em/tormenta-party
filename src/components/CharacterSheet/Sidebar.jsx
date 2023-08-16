@@ -3,7 +3,8 @@ import ProfileImage from "./ProfileImage";
 const Sidebar = ({ currentTab, setCurrentTab }) => {
 	const tabs = [
 		{ id: "geral", label: "Geral" },
-		{ id: "attacks", label: "Ataques & Magias" },
+		{ id: "attacks", label: "Ataques" },
+		{ id: "magias", label: "Magias" },
 		{ id: "pericias", label: "Perícias" },
 		{ id: "itens", label: "Itens" },
 		{ id: "notas", label: "Notas" }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Textarea from "@/components/Form/Textarea";
 import { useForm } from "react-hook-form";
+import Actions from "@/assets/svgs/Actions";
 
 const Notas = ({ data }) => {
 	const { getValues, handleSubmit, setValue, register } = useForm();
@@ -48,7 +49,7 @@ const Notas = ({ data }) => {
 	return (
 		<>
 			<button className="fit center secondary" onClick={handleAddField}>
-				Adicionar Notas
+				Adicionar Notas <Actions />
 			</button>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<section className="no-padding no-shadow grid place-center">
@@ -59,8 +60,6 @@ const Notas = ({ data }) => {
 								initialData={field.content}
 								label={field.label}
 								cols={25}
-								// register={register}
-								// setValue={setValue}
 							/>
 							<button
 								onClick={() => handleRemoveField(field.id)}
@@ -70,7 +69,6 @@ const Notas = ({ data }) => {
 							</button>
 						</div>
 					))}
-					<button type="submit">Submit</button>
 				</section>
 			</form>
 		</>

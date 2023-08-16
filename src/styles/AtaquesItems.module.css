@@ -8,6 +8,10 @@
 	padding-inline: var(--spacing-s);
 }
 
+.addAttackGrid:last-child {
+	padding-inline: var(--spacing-xxs);
+}
+
 .itemGrid {
 	grid-template-columns: 1fr repeat(3, minmax(70px, 130px));
 }
