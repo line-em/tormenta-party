@@ -59,8 +59,8 @@ const Notas = ({ data }) => {
 								initialData={field.content}
 								label={field.label}
 								cols={25}
-								register={register}
-								setValue={setValue}
+								// register={register}
+								// setValue={setValue}
 							/>
 							<button
 								onClick={() => handleRemoveField(field.id)}

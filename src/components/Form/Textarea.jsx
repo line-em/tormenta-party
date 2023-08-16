@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 const Textarea = ({
 	rowCss,
@@ -8,24 +9,29 @@ const Textarea = ({
 	label,
 	disabled,
 	initialData,
-	cols = 40,
-	...props
+	cols = 40
+	// ...props
 }) => {
 	// FIXME: remove watch
-	const {
-		// register,
-		watch,
-		formState: { errors }
-	} = useForm({
-		mode: "onChange",
-		defaultValues: {
-			[id]: initialData
-		}
-	});
+	// const {
+	// 	// register,
+	// 	watch,
+	// 	formState: { errors }
+	// } = useForm({
+	// 	mode: "onChange",
+	// 	defaultValues: {
+	// 		[id]: initialData
+	// 	}
+	// });
 
 	// FIXME: remove watch
-	const watchAllFields = watch();
+	// const watchAllFields = watch();
 	// console.log(watchAllFields);
+
+	const {
+		register
+		// formState: { errors }
+	} = useFormContext();
 
 	return (
 		<div className={`${rowCss} floating-label`}>
@@ -37,7 +43,10 @@ const Textarea = ({
 				// {...register(id)}
 				rows={10}
 				cols={cols}
-				{...props}
+				// {...props}
+				{...register(id, {
+					value: initialData || ""
+				})}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}

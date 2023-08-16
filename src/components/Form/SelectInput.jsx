@@ -1,15 +1,7 @@
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+
 const SelectInput = ({ rowCss, inputCss, id, label, disabled, initialData, options }) => {
-	// FIXME: remove watch
-	const { register, watch } = useForm({
-		mode: "onChange",
-		defaultValues: {
-			[id]: options.find((option) => option === initialData)
-		}
-	});
-	// FIXME: remove watch
-	const watchAllFields = watch();
-	// console.log(watchAllFields);
+	const { register } = useFormContext();
 
 	return (
 		<div className={`${rowCss} floating-label`}>
@@ -18,7 +10,9 @@ const SelectInput = ({ rowCss, inputCss, id, label, disabled, initialData, optio
 				className={`${inputCss} floating-select`}
 				placeholder=" "
 				disabled={disabled}
-				{...register(id)}
+				{...register(id, {
+					value: options.find((option) => option === initialData) || options[0]
+				})}
 			>
 				{options.map((value) => (
 					<option key={value} value={value}>

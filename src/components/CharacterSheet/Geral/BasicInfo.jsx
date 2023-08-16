@@ -58,7 +58,7 @@ const BasicInfo = ({ isLocked, data }) => {
 				options={todasOrigens}
 			/>
 			<Input
-				id={"religiao"}
+				id={"divindade"}
 				rowCss={styles.span2}
 				initialData={data?.divindade}
 				label={"Religião"}
