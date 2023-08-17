@@ -12,10 +12,12 @@ import CircleAndTextButton from "./Circle/CircleAndTextButton";
 
 const CharacterList = () => {
 	const [charList, setCharList] = useState([]);
-	const { user } = useAuthContext()
+	const { user } = useAuthContext();
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	useEffect(() => {getCharacterList()}, []);
+	useEffect(() => {
+		getCharacterList();
+	}, []);
 
 	const getCharacterList = React.cache(async () => {
 		const { result, error } = await getCollection("characters");
@@ -36,7 +38,7 @@ const CharacterList = () => {
 	};
 
 	return (
-		<section className="grid big">
+		<section className="grid big no-shadow">
 			{charList.map((character) => (
 				<CharacterButton key={character} currentCharacter={character} />
 			))}

@@ -3,11 +3,13 @@ main.fichas {
 	display: grid;
 	grid-template-columns: minmax(170px, auto) 1fr;
 	min-height: 80dvh;
+	min-width: 65vw;
+	/* min-width: 65vw; */
 	overflow: hidden;
 	grid-template-areas: "sidebar content";
 	border-inline: none;
-	border-radius: var(--spacing-s);
-	background-color: rgba(245, 245, 245, 0.8);
+	/* border-radius: var(--spacing-s);*/
+	background-color: transparent;
 }
 
 aside.main-style,

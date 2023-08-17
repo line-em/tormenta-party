@@ -1,18 +1,27 @@
 import "@/styles/sidebar-styles.css";
 import CharacterList from "@/components/CharacterList";
 import SectionHeading from "@/components/Headings/SectionHeading";
-import TitleHeading from "@/components/Headings/TitleHeading";
+import DiceRolls from "@/components/DiceRolls/DiceRolls";
+import Accordion from "@/components/Accordion";
 import Referencias from "@/components/Referencias";
 
 const Layout = ({ children }) => {
 	return (
 		<main className="fichas">
 			<aside className="main-style">
-				<SectionHeading icon={"sword"} small>
-					Aventureiros
-				</SectionHeading>
-				<CharacterList />
-				<Referencias />
+				<Accordion
+					header={<SectionHeading small>Aventureiros</SectionHeading>}
+					content={<CharacterList />}
+					open
+				/>
+				<Accordion
+					header={<SectionHeading small>Dados</SectionHeading>}
+					content={<DiceRolls />}
+				/>
+				<Accordion
+					header={<SectionHeading small>Recursos</SectionHeading>}
+					content={<Referencias />}
+				/>
 			</aside>
 			{children}
 		</main>
@@ -20,3 +29,11 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+// 		<SectionHeading
+// icon={"sword"}
+// 	small
+// >
+// 	Recursos
+// </SectionHeading>
+// <Referencias />

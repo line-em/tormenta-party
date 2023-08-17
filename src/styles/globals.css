@@ -144,6 +144,10 @@ section.row,
 	flex-direction: row;
 }
 
+section.row.wrap {
+	flex-wrap: wrap;
+}
+
 :not(section.row, .section-style.row) h1 {
 	text-align: center;
 }
@@ -179,7 +183,9 @@ ul.section-style {
 
 section + section:not(.row),
 header + section:not(.row),
-section:not(.row) + header {
+section:not(.row) + header,
+.accordion + header,
+.accordion + .accordion {
 	margin-block-start: var(--spacing-s);
 }
 

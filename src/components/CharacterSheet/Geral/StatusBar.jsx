@@ -5,8 +5,10 @@ import styles from "./StatusBar.module.css";
 import { useState } from "react";
 import { getPercent, updateStatus } from "@/app/utils";
 import ModifierButton from "@/components/ModifierButton.tsx";
+import { useFormContext } from "react-hook-form";
 
-const StatusBar = ({ type }) => {
+const StatusBar = ({ type, data }) => {
+	const { setValue } = useFormContext();
 	const [category, setCategory] = useState("current");
 	const [status, setStatus] = useState({
 		PV: { total: 20, current: 19 },
@@ -23,6 +25,7 @@ const StatusBar = ({ type }) => {
 	const handleStatus = ({ newValue, action }) => {
 		const updatedStatus = updateStatus(status, type, category, newValue, action);
 		setStatus(updatedStatus);
+		setValue("status", { ...status, ...updatedStatus });
 	};
 
 	const renderValue = (value, tab) => {

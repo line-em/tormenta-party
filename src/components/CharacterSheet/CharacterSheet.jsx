@@ -17,7 +17,7 @@ export default function CharacterSheet({ character }) {
 	const getContent = () => {
 		switch (currentTab) {
 			case "geral":
-				return <Geral isLocked={isLocked} data={character} />;
+				return <Geral data={character} />;
 			case "pericias":
 				return <Pericias />;
 			case "attacks":

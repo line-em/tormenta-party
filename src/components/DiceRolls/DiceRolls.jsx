@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { DiceRoller } from "@dice-roller/rpg-dice-roller";
 import styles from "./DiceRolls.module.css";
@@ -16,17 +17,24 @@ export default function DiceRolls() {
 	};
 
 	return (
-		<section>
-			<SectionHeading type={"dice"} text="Rolagem de Dados" />
+		<section className="row wrap">
+			<button onClick={() => rollDice("1d4")} className="secondary fit">
+				1d4
+			</button>
+			<button onClick={() => rollDice("1d6")} className="secondary fit">
+				1d6
+			</button>
+			<button onClick={() => rollDice("1d8")} className="secondary fit">
+				1d8
+			</button>
+			<button onClick={() => rollDice("1d12")} className="secondary fit">
+				1d12
+			</button>
+			<button onClick={() => rollDice("1d20")} className="secondary fit">
+				1d20
+			</button>
 			<h2 className={`${styles.dice}`}>{dice}</h2>
-			<p>{results}</p>
-			<section className="row">
-				<button onClick={() => rollDice("1d4")}>1d4</button>
-				<button onClick={() => rollDice("1d6")}>1d6</button>
-				<button onClick={() => rollDice("1d8")}>1d8</button>
-				<button onClick={() => rollDice("1d12")}>1d12</button>
-				<button onClick={() => rollDice("1d20")}>1d20</button>
-			</section>
+			{/* <p>{results}</p> */}
 			<input
 				type="text"
 				placeholder="2D6"

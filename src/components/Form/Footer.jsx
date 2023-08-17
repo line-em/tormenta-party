@@ -1,5 +1,3 @@
-import LockButton from "../LockButton/LockButton";
-
 const Footer = () => {
 	return (
 		<footer>

@@ -6,7 +6,11 @@ import { FormSchema } from "./schema";
 const Form = ({ children }) => {
 	const methods = useForm({
 		mode: "onSubmit",
-		resolver: yupResolver(FormSchema)
+		resolver: yupResolver(FormSchema),
+		resetOptions: {
+			keepDirtyValues: true
+		},
+		shouldUnregister: true
 	});
 	const handleChanges = async (data) => {
 		console.log("click");

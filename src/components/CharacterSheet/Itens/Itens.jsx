@@ -5,23 +5,29 @@ import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
 
 const Itens = ({ data }) => {
-	// FIXME: mesmo problema do Attacks.
-	const { setValue, getValues } = useFormContext();
+	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const items = getValues("mochila") || [];
 
 	const addItem = () => {
 		const newItem = {
-			mochila_item: getValues("mochila_item"),
-			mochila_peso:
-				getValues("mochila_peso") === "" ? "—" : getValues("mochila_peso"),
-			mochila_qntd: getValues("mochila_qntd") === "" ? 1 : getValues("mochila_qntd")
+			item: getValues("new_item"),
+			peso: getValues("new_peso") === "" ? "—" : getValues("new_peso"),
+			qntd: getValues("new_qntd") === "" ? 1 : getValues("new_qntd")
 		};
-		if (!newItem.mochila_item) {
+		if (!newItem.item) {
 			alert("Preencha o campo de item!");
 			return;
 		} else {
 			setValue("mochila", [...items, newItem]);
 			console.log({ items });
+
+			const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
+
+			fieldsToReset.forEach((field) => {
+				resetField(field);
+			});
+
+			unregister(fieldsToReset);
 		}
 	};
 
@@ -29,14 +35,23 @@ const Itens = ({ data }) => {
 		const quantityChange = action === "add" ? 1 : -1;
 
 		const updatedItems = items.map((item, i) => {
-			let currentQuantity = parseInt(item.mochila_qntd) || 0;
+			let currentQuantity = parseInt(item.qntd) || 0;
 			const newQuantity = currentQuantity + quantityChange;
 			if (i === index) {
 				return {
 					...item,
-					mochila_qntd: newQuantity
+					qntd: newQuantity
 				};
 			}
+
+			const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
+
+			fieldsToReset.forEach((field) => {
+				resetField(field);
+			});
+
+			unregister(fieldsToReset);
+
 			return item;
 		});
 
@@ -46,6 +61,14 @@ const Itens = ({ data }) => {
 	const removeItem = (index) => {
 		const updateItems = items.filter((_, i) => i !== index);
 		setValue("mochila", updateItems);
+
+		const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
+
+		fieldsToReset.forEach((field) => {
+			resetField(field);
+		});
+
+		unregister(fieldsToReset);
 	};
 	return (
 		<div>
@@ -71,19 +94,19 @@ const Itens = ({ data }) => {
 			{items?.map((item, index) => (
 				<ul
 					className={`section-style ${styles.itemGrid} no-padding no-shadow`}
-					key={item.mochila_item + index}
+					key={item.item + index}
 				>
 					<li>
-						<strong>{item.mochila_item}</strong>
+						<strong>{item.item}</strong>
 					</li>
-					<li>{item.mochila_peso}</li>
+					<li>{item.peso}</li>
 					<li className={styles.withModifier}>
 						{" "}
 						<ModifierButton
 							type={"remove"}
 							func={() => editItemQuantity(index, "remove")}
 						/>
-						{item.mochila_qntd}
+						{item.qntd}
 						<ModifierButton
 							type={"add"}
 							func={() => editItemQuantity(index, "add")}
@@ -93,9 +116,9 @@ const Itens = ({ data }) => {
 				</ul>
 			))}
 			<section className={`${styles.itemGrid} no-padding no-shadow`}>
-				<Input id={"mochila_item"} label={"Item"} />
-				<Input id={"mochila_peso"} label={"Peso"} />
-				<Input id={"mochila_qntd"} label={"Quantidade"} />
+				<Input id={"new_item"} label={"Item"} />
+				<Input id={"new_peso"} label={"Peso"} />
+				<Input id={"new_qntd"} label={"Quantidade"} />
 				<ModifierButton func={addItem} type="add" />
 			</section>
 		</div>

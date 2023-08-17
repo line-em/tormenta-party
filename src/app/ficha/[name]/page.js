@@ -1,7 +1,6 @@
 "use client";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { getDocOnSnapshot } from "@/firebase/firestore/getData";
 import Loading from "@/app/loading";
@@ -10,6 +9,7 @@ const Page = () => {
 	const params = useParams();
 	const decodedCharName = decodeURIComponent(params.name);
 	const [charSheet, setCharSheet] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const { unsubscribe } = getDocOnSnapshot(
@@ -17,13 +17,21 @@ const Page = () => {
 			decodedCharName,
 			(result) => {
 				let res = result.data();
-				setCharSheet(res);
+				setTimeout(() => {
+					setCharSheet(res);
+					setLoading(false);
+				}, 300); // Adjust the delay time as needed
 			}
 		);
+
 		return () => () => {
 			unsubscribe();
 		};
 	}, [decodedCharName]);
+
+	if (loading) {
+		return <Loading />;
+	}
 
 	return charSheet ? <CharacterSheet character={charSheet} /> : <Loading />;
 };

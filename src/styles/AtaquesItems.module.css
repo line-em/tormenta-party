@@ -31,6 +31,11 @@ ul.itemGrid {
 	border-bottom: transparent;
 }
 
+section.addAttackGrid:last-of-type,
+section.itemGrid:last-of-type {
+	margin-block-end: 0;
+}
+
 ul.addAttackGrid:not(:last-of-type),
 ul.itemGrid:not(:last-of-type) {
 	border-bottom: 1px solid var(--warm-grey);
@@ -49,6 +54,8 @@ ul.itemGrid strong {
 .withModifier {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+
 	gap: var(--spacing-xxs);
 }
 
