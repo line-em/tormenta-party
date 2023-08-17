@@ -8,21 +8,23 @@ import Referencias from "@/components/Referencias";
 const Layout = ({ children }) => {
 	return (
 		<main className="fichas">
-			<aside className="main-style">
+			<nav className="main-style">
 				<Accordion
 					header={<SectionHeading small>Aventureiros</SectionHeading>}
 					content={<CharacterList />}
-					open
+					absolute
 				/>
 				<Accordion
 					header={<SectionHeading small>Dados</SectionHeading>}
 					content={<DiceRolls />}
+					absolute
 				/>
 				<Accordion
 					header={<SectionHeading small>Recursos</SectionHeading>}
 					content={<Referencias />}
+					absolute
 				/>
-			</aside>
+			</nav>
 			{children}
 		</main>
 	);

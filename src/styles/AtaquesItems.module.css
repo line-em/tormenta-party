@@ -14,7 +14,7 @@
 }
 
 .itemGrid {
-	grid-template-columns: 1fr repeat(3, minmax(70px, 130px));
+	grid-template-columns: 1fr repeat(2, minmax(70px, 130px)) 50px;
 }
 
 .addGrid {

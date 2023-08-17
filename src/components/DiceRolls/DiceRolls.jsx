@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { DiceRoller } from "@dice-roller/rpg-dice-roller";
 import styles from "./DiceRolls.module.css";
-import SectionHeading from "../Headings/SectionHeading";
 
 export default function DiceRolls() {
 	const [dice, setDice] = useState("");
@@ -17,7 +16,7 @@ export default function DiceRolls() {
 	};
 
 	return (
-		<section className="row wrap">
+		<section className="row wrap no-shadow grid place-center">
 			<button onClick={() => rollDice("1d4")} className="secondary fit">
 				1d4
 			</button>
@@ -35,12 +34,12 @@ export default function DiceRolls() {
 			</button>
 			<h2 className={`${styles.dice}`}>{dice}</h2>
 			{/* <p>{results}</p> */}
-			<input
+			{/* <input
 				type="text"
 				placeholder="2D6"
 				onChange={(e) => setCurrValue(e.target.value)}
 			/>
-			<button onClick={() => rollDice(currValue)}>Click</button>
+			<button onClick={() => rollDice(currValue)}>Click</button> */}
 		</section>
 	);
 }

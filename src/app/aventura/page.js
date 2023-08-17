@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function Home() {
 	return (
-		<div>
+		<section>
 			<SectionHeading icon={"sword"}>Aventureiros</SectionHeading>
 			<CharacterList />
 			{/* <Link href="/ficha/anisha">xx</Link> */}
 			{/* <SectionHeading icon={"clips"}>Recursos Adicionais</SectionHeading>
 			<Referencias /> */}
-		</div>
+		</section>
 	);
 }

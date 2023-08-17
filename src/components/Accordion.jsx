@@ -2,7 +2,7 @@
 import "@/styles/accordion.css";
 import { useState } from "react";
 
-const Accordion = ({ header, content, open = false }) => {
+const Accordion = ({ header, content, open = false, absolute = false }) => {
 	const [isOpen, setIsOpen] = useState(open);
 
 	const handleAccordionClick = (event) => {
@@ -16,7 +16,10 @@ const Accordion = ({ header, content, open = false }) => {
 	return (
 		<div className="accordion" onClick={handleAccordionClick}>
 			{header}
-			<article className="accordion-content" aria-expanded={isOpen}>
+			<article
+				className={`accordion-content ${absolute ? "absolute" : ""}`}
+				aria-expanded={isOpen}
+			>
 				{content}
 			</article>
 		</div>

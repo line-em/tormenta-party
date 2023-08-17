@@ -1,43 +1,35 @@
 main.fichas {
 	padding: 0;
 	display: grid;
-	grid-template-columns: 290px minmax(50vw, 1fr);
-	/* grid-template-columns: minmax(170px, auto) 1fr; */
+	grid-template: auto 1fr / 1fr;
 	min-height: 90dvh;
-	min-width: 50vw;
-	/* min-width: 65vw; */
-	overflow: hidden;
-	grid-template-areas: "sidebar content";
+	min-width: 60vw;
+	/* overflow: hidden; */
 	border-inline: none;
-	/* border-radius: var(--spacing-s);*/
 	background-color: transparent;
 	margin-block-start: var(--spacing-s);
 }
 
-aside.main-style,
-aside.main-style ~ main {
-	margin-block-start: var(--spacing-s);
+nav.main-style {
+	margin-block-start: var(--spacing-xs);
 	padding: var(--spacing-xs) var(--spacing-sm);
 	border-inline: none;
 	background-color: transparent;
-	max-width: 290px;
+	display: flex;
+	z-index: 1;
+	gap: var(--spacing-sm);
+	justify-content: space-evenly;
 }
 
-@media screen and (max-width: 800px) {
-	aside.main-style {
-		display: none;
-	}
-}
-
-aside.main-style section.grid {
+nav.main-style section.grid:not(.place-center) {
 	grid-template-columns: 1fr;
 	gap: var(--spacing-xs);
 }
 
-aside.main-style section.big {
+nav.main-style section.big {
 	padding: var(--spacing-xs);
 }
 
-aside.main-style section.grid section.row h3 {
+nav.main-style section.grid section.row h3 {
 	font-size: var(--regular);
 }

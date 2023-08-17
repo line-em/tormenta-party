@@ -183,9 +183,7 @@ ul.section-style {
 
 section + section:not(.row),
 header + section:not(.row),
-section:not(.row) + header,
-.accordion + header,
-.accordion + .accordion {
+section:not(.row) + header {
 	margin-block-start: var(--spacing-m);
 }
 
@@ -350,4 +348,8 @@ textarea {
 textarea:focus {
 	outline: white 2px solid;
 	border: 1px solid white;
+}
+
+.span2 {
+	grid-column: span 2;
 }
