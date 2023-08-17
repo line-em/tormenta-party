@@ -76,9 +76,9 @@ a {
 	color: var(--red);
 }
 
-header {
+/* header {
 	margin-block-end: var(--spacing-m);
-}
+} */
 
 body {
 	background-image: var(--bg-image);

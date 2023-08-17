@@ -1,9 +1,10 @@
 main.fichas {
 	padding: 0;
 	display: grid;
-	grid-template-columns: minmax(170px, auto) 1fr;
-	min-height: 80dvh;
-	min-width: 65vw;
+	grid-template-columns: 290px 60vw;
+	/* grid-template-columns: minmax(170px, auto) 1fr; */
+	min-height: 90dvh;
+	min-width: 60vw;
 	/* min-width: 65vw; */
 	overflow: hidden;
 	grid-template-areas: "sidebar content";
