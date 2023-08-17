@@ -36,7 +36,6 @@ const Magias = () => {
 			<input type="text" onChange={handleSearch} placeholder="Search…" />
 
 			<ol>
-				<h3>Results:</h3>
 				{searchResults &&
 					searchResults.map((result, i) => {
 						return <li key={i}>{result.nome}</li>;

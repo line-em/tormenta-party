@@ -53,7 +53,7 @@ function Page() {
 						Password
 					</label>
 				</div>
-				<button type="submit">Sign up</button>
+				<button type="submit">Sign in</button>
 			</form>
 		</section>
 	);

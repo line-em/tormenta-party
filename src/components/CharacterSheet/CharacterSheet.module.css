@@ -4,7 +4,7 @@
 	/* grid-template-areas: "content"; */
 	margin: var(--spacing-s);
 	/* margin: var(--spacing-s) auto; */
-	padding: var(--spacing-xs) var(--spacing-sm);
+	padding: var(--spacing-xs) 0;
 	max-width: 80ch;
 	gap: var(--spacing-m);
 	align-content: start;

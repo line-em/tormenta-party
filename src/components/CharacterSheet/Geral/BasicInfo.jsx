@@ -54,7 +54,7 @@ const BasicInfo = ({ data }) => {
 				// rowCss={styles.span2}
 				id={"deslocamento"}
 				initialData={data?.divindade}
-				label={"Movimento"}
+				label={"Desloc."}
 			/>
 		</article>
 	);

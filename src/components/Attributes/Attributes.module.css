@@ -3,7 +3,7 @@
 	/* grid-template-columns: 300px 1fr; */
 	gap: var(--spacing-m);
 	align-items: center;
-	/* margin-block: var(--spacing-s); */
+	margin-block: var(--spacing-s);
 }
 
 .attrGrid ul {

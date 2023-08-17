@@ -1,7 +1,7 @@
 main.fichas {
 	padding: 0;
 	display: grid;
-	grid-template-columns: 290px 50vw;
+	grid-template-columns: 290px minmax(50vw, 1fr);
 	/* grid-template-columns: minmax(170px, auto) 1fr; */
 	min-height: 90dvh;
 	min-width: 50vw;
