@@ -1,5 +1,5 @@
-export const magias = {
-	1: {
+export const magias = [
+	{
 		"Abençoar Alimentos": {
 			nome: "Abençoar Alimentos",
 			tipo: "Divina 1 (Transmutação)",
@@ -703,7 +703,7 @@ export const magias = {
 				"Você suga energia vital da terra, recebendo 2d8 pontos de vida temporários. Os PV temporários desaparecem ao final da cena.\n\n+2 PM: aumenta os PV temporários recebidos em +1d8. Caso a magia cause dano, ao invés disso, aumenta o dano causado em +1d8.\n\n+5 PM: muda o alvo para área: esfera com 6m de raio centrada em você e a resistência para Fortitude reduz à metade. Em vez do normal, você suga energia das criaturas vivas na área, causando 1d8 pontos de dano de trevas e recebendo PV temporários iguais ao dano total causado. Os PV temporários desaparecem ao final da cena. Requer 2º círculo."
 		}
 	},
-	2: {
+	{
 		"Aliado Animal": {
 			nome: "Aliado Animal",
 			tipo: "Divina 2 (Encantamento)",
@@ -1329,7 +1329,7 @@ export const magias = {
 				"Você pode conversar com criaturas de qualquer raça e tipo: animal, construto, espírito, humanoide, monstro ou morto-vivo. Pode fazer perguntas e entende suas respostas, mesmo sem um idioma em comum ou se a criatura não for capaz de falar, mas respeitando os limites da Inteligência dela. A atitude dessas criaturas não é alterada, mas você pode usar a perícia Diplomacia para tentar mudar sua atitude.\n\n+1 PM: você concede um pouco de vida a um cadáver, suficiente para que ele responda a suas perguntas. O conhecimento do corpo é limitado ao que ele tinha enquanto vivo e suas respostas são curtas e enigmáticas. Um corpo só pode ser alvo desta magia uma vez. Ela também não funciona em um corpo cuja cabeça tenha sido destruída.\n\n+1 PM: você pode falar com plantas (normais ou monstruosas) e rochas.\n\nPlantas e rochas têm percepção limitada de seus arredores e normalmente fornecem respostas simplórias."
 		}
 	},
-	5: {
+	{
 		"Alterar Destino": {
 			nome: "Alterar Destino",
 			tipo: "Arcana 5 (Adivinhação)",
@@ -1669,7 +1669,7 @@ export const magias = {
 				"Sua mão exala energias letais. Se a criatura tocada falhar no teste de Fortitude, seus PV são reduzidos a –10; se passar, sofre 10d8 pontos de dano de trevas.\n\n+2 PM: muda o alcance para curto.\n\nEm vez de tocar no alvo, você dispara um raio púrpura da ponta de seu dedo indicador.\n\n+10 PM: muda o alcance para curto e o alvo para inimigos no alcance. Em vez de tocar no alvo, você dispara raios púrpuras da ponta de seus dedos."
 		}
 	},
-	4: {
+	{
 		"Alterar Memória": {
 			nome: "Alterar Memória",
 			tipo: "Arcana 4 (Encantamento)",
@@ -2061,7 +2061,7 @@ export const magias = {
 				"Você enxerga a forma real das coisas.\n\nVocê pode ver através de camuflagem (normal e total), escuridão (normal e mágica) e efeitos de ilusão e transmutação (enxergando a verdade como formas translúcidas ou sobrepostas).\n\n+1 PM: muda o alcance para toque e o alvo para 1 criatura.\n\n+1 PM: além do normal, o alvo fica com sentidos apurados; ele recebe +10 em todos os testes de Percepção.\n\n+2 PM: além do normal, o alvo escuta falsidades; ele recebe +10 em todos os testes de Intuição.\n\n+4 PM: além do normal, o alvo enxerga através de paredes e barreiras com 30cm de espessura ou menos (as paredes e barreiras parecem translúcidas)."
 		}
 	},
-	3: {
+	{
 		"Âncora Dimensional": {
 			nome: "Âncora Dimensional",
 			tipo: "Arcana 3 (Abjuração)",
@@ -2583,4 +2583,4 @@ export const magias = {
 				"Você recebe deslocamento de voo 12m.\n\nVoar por meio desta magia é simples como andar — você pode atacar e lançar magias normalmente enquanto voa. Quando a magia termina, você desce lentamente até o chão, como se estivesse sob efeito de Queda Suave.\n\n+1 PM: muda o alcance para toque e o alvo para 1 criatura.\n\n+4 PM: muda a duração para 1 dia.\nRequer 4º círculo.\n\n+4 PM: muda o alcance para curto e o alvo para até 10 criaturas. Requer 4° círculo."
 		}
 	}
-};
+];

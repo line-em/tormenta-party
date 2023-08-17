@@ -186,7 +186,7 @@ header + section:not(.row),
 section:not(.row) + header,
 .accordion + header,
 .accordion + .accordion {
-	margin-block-start: var(--spacing-s);
+	margin-block-start: var(--spacing-m);
 }
 
 section.grid > article {

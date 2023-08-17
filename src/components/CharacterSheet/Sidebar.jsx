@@ -18,7 +18,7 @@ const Sidebar = ({ currentTab, setCurrentTab }) => {
 				<button
 					key={crypto.randomUUID()}
 					disabled={currentTab === tab.id}
-					className="secondary"
+					className="smaller-padding"
 					onClick={() => setCurrentTab(tab.id)}
 				>
 					{tab.label}

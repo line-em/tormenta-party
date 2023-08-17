@@ -5,6 +5,7 @@ import Dices from "@/assets/svgs/Dices.jsx";
 import Items from "@/assets/svgs/Items";
 import Money from "@/assets/svgs/Money";
 import MajesticonsScrollText from "@/assets/svgs/Scroll";
+import Spells from "@/assets/svgs/Spells";
 import RiSwordFill from "@/assets/svgs/Swords";
 const SectionHeading = ({ icon = "none", small = false, children }) => {
 	return (
@@ -24,6 +25,8 @@ const SectionHeading = ({ icon = "none", small = false, children }) => {
 						return <Money {...iconProps} />;
 					case "sword":
 						return <RiSwordFill {...iconProps} />;
+					case "spells":
+						return <Spells {...iconProps} />;
 					case "armor":
 						return <Armor {...iconProps} />;
 					case "user":

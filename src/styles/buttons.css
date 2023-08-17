@@ -14,13 +14,17 @@ button {
 	align-items: center;
 }
 
-button:hover {
+button.smaller-padding {
+	padding: var(--spacing-xxs) var(--spacing-xs);
+}
+
+button:not(:disabled):hover {
 	background-color: var(--red-dark);
 	color: var(--golden-dark);
 }
 
-button:active {
-	border: 1px var(--golden) solid;
+button:not(:disabled):active {
+	transform: translateY(2px);
 }
 
 button:disabled {
@@ -39,9 +43,11 @@ button.secondary:not(:disabled):hover {
 	color: var(--black);
 }
 
-button.secondary:disabled {
-	background-color: var(--white);
+button.secondary:disabled,
+button:disabled {
+	background-color: var(--warm-grey-light);
 	border: 1px solid var(--red);
+	color: var(--red);
 }
 
 button.headless {
