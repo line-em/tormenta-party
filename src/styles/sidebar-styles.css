@@ -1,16 +1,17 @@
 main.fichas {
 	padding: 0;
 	display: grid;
-	grid-template-columns: 290px 60vw;
+	grid-template-columns: 290px 50vw;
 	/* grid-template-columns: minmax(170px, auto) 1fr; */
 	min-height: 90dvh;
-	min-width: 60vw;
+	min-width: 50vw;
 	/* min-width: 65vw; */
 	overflow: hidden;
 	grid-template-areas: "sidebar content";
 	border-inline: none;
 	/* border-radius: var(--spacing-s);*/
 	background-color: transparent;
+	margin-block-start: var(--spacing-s);
 }
 
 aside.main-style,

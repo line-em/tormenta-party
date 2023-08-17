@@ -3,6 +3,7 @@ import SectionHeading from "@/components/Headings/SectionHeading";
 import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
+import Accordion from "@/components/Accordion";
 
 const Itens = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
@@ -75,7 +76,7 @@ const Itens = ({ data }) => {
 			<SectionHeading icon="dinheiro" small>
 				Riqueza
 			</SectionHeading>
-			<ul className="section-style grid no-shadow">
+			<ul className="section-style grid no-shadow no-padding">
 				<li>
 					<Input id={"tibares_ouro"} label={"Tibares Ouro"} />
 				</li>
@@ -115,12 +116,19 @@ const Itens = ({ data }) => {
 					<ModifierButton func={() => removeItem(index)} type="remove" />
 				</ul>
 			))}
-			<section className={`${styles.itemGrid} no-padding no-shadow`}>
-				<Input id={"new_item"} label={"Item"} />
-				<Input id={"new_peso"} label={"Peso"} />
-				<Input id={"new_qntd"} label={"Quantidade"} />
-				<ModifierButton func={addItem} type="add" />
-			</section>
+			<Accordion
+				header={<button className="secondary fit center">Adicionar Item</button>}
+				content={
+					<section
+						className={`${styles.itemGrid} ${styles.addGrid} no-shadow no-padding`}
+					>
+						<Input id={"new_item"} label={"Item"} />
+						<Input id={"new_peso"} label={"Peso"} />
+						<Input id={"new_qntd"} label={"Quantidade"} />
+						<ModifierButton func={addItem} type="add" />
+					</section>
+				}
+			/>
 		</div>
 	);
 };

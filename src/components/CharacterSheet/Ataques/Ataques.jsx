@@ -3,6 +3,7 @@ import SectionHeading from "@/components/Headings/SectionHeading";
 import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
+import Accordion from "@/components/Accordion";
 
 const Attacks = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
@@ -69,7 +70,7 @@ const Attacks = ({ data }) => {
 			<SectionHeading icon="sword" small>
 				Ataques
 			</SectionHeading>
-			<section className={`${styles.addAttackGrid}`}>
+			<section className={`${styles.attackGrid}`}>
 				<strong>Ataques</strong>
 				<strong>Bonus</strong>
 				<strong>Dano</strong>
@@ -80,7 +81,7 @@ const Attacks = ({ data }) => {
 			{attacks?.map((attack, index) => (
 				<ul
 					key={attack.ataque + index}
-					className={`section-style ${styles.addAttackGrid} no-padding no-shadow`}
+					className={`section-style ${styles.attackGrid} no-padding no-shadow`}
 				>
 					<li>
 						<strong>{attack.ataque}</strong>
@@ -96,15 +97,22 @@ const Attacks = ({ data }) => {
 				</ul>
 			))}
 
-			<section className={`${styles.addAttackGrid} no-padding no-shadow`}>
-				<Input id={"new_ataque"} label={"Ataques"} />
-				<Input id={"new_bonus"} label={"Bonus"} />
-				<Input id={"new_dano"} label={"Dano"} />
-				<Input id={"new_critico"} label={"Crítico"} />
-				<Input id={"new_tipo"} label={"Tipo"} />
-				<Input id={"new_alcance"} label={"Alcance"} />
-				<ModifierButton func={addAttack} type="add" />
-			</section>
+			<Accordion
+				header={
+					<button className="secondary fit center">Adicionar Ataque</button>
+				}
+				content={
+					<section className={`${styles.addGrid} no-shadow no-padding`}>
+						<Input id={"new_ataque"} label={"Ataques"} />
+						<Input id={"new_bonus"} label={"Bonus"} />
+						<Input id={"new_dano"} label={"Dano"} />
+						<Input id={"new_critico"} label={"Crítico"} />
+						<Input id={"new_tipo"} label={"Tipo"} />
+						<Input id={"new_alcance"} label={"Alcance"} />
+						<ModifierButton func={addAttack} type="add" />
+					</section>
+				}
+			/>
 		</div>
 	);
 };

@@ -11,6 +11,7 @@
 	overflow: hidden;
 	max-height: 1000px;
 	transition: max-height 1s ease-in-out;
+	margin-block-start: var(--spacing-xs);
 	z-index: 99;
 }
 

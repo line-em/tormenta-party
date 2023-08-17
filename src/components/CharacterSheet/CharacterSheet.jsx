@@ -11,6 +11,7 @@ import Form from "../Form/Form";
 import Notas from "./Notas/Notas";
 import Attacks from "./Ataques/Ataques";
 import Itens from "./Itens/Itens";
+import Magias from "./Magias/Magias";
 
 export default function CharacterSheet({ character }) {
 	const [currentTab, setCurrentTab] = useState("geral");
@@ -22,6 +23,8 @@ export default function CharacterSheet({ character }) {
 				return <Pericias />;
 			case "attacks":
 				return <Attacks />;
+			case "magias":
+				return <Magias />;
 			case "itens":
 				return <Itens />;
 			case "notas":
