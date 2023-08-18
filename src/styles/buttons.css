@@ -68,5 +68,9 @@ button.fit {
 }
 
 button.center {
-	margin: auto;
+	margin: 0 auto;
+}
+
+button.extra-mt {
+	margin-block-start: var(--spacing-xs);
 }

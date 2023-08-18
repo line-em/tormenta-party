@@ -1,14 +1,15 @@
 import Input from "@/components/Form/Input";
-import SectionHeading from "@/components/Headings/SectionHeading";
 import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
 import Accordion from "@/components/Accordion";
-import { ColumnHeaders } from "../TableComponents";
+import { ColumnHeaders, DataTable, RemovableRow } from "../TableComponents";
+import Money from "@/assets/svgs/Money";
+import Remove from "@/assets/svgs/Remove";
 
 const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 
-const Itens = ({ data }) => {
+const Itens = () => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const items = getValues("mochila") || [];
 
@@ -37,7 +38,6 @@ const Itens = ({ data }) => {
 
 	const editItemQuantity = (index, action) => {
 		const quantityChange = action === "add" ? 1 : -1;
-
 		const updatedItems = items.map((item, i) => {
 			let currentQuantity = parseInt(item.qntd) || 0;
 			const newQuantity = currentQuantity + quantityChange;
@@ -60,72 +60,81 @@ const Itens = ({ data }) => {
 	};
 
 	return (
-		<section className="no-padding no-shadow grid">
-			<div className="align-start">
-				<SectionHeading icon="dinheiro" small>
-					Riqueza
-				</SectionHeading>
-				<ul className="section-style grid no-shadow no-padding">
-					<li>
-						<Input id={"tibares_ouro"} label={"Tibares Ouro"} />
-					</li>
-					<li>
-						<Input id={"tibares"} label={"Tibares"} />
-					</li>
-				</ul>
-			</div>
-			<div>
-				<SectionHeading icon="items" small>
-					Inventário
-				</SectionHeading>
+		<DataTable title="Inventário" icon="items">
+			{Coins}
+			<section className={`grid no-padding no-shadow`}>
 				<ColumnHeaders
-					styles={styles.itemGrid}
-					columns={["Item", "Peso", "Quantidade"]}
+					styles={`${styles.itemGrid} + ${styles.marginNull} ${styles.center} margin-null`}
+					columns={[
+						"Item",
+						"Peso",
+						"Quantidade",
+						<Remove width={22} height={22} />
+					]}
 				/>
-				{items?.map((item, index) => (
-					<ul
-						className={`section-style ${styles.itemGrid} no-padding no-shadow`}
-						key={item.item + index}
-					>
-						<li>
-							<strong>{item.item}</strong>
-						</li>
-						<li>{item.peso}</li>
-						<li className={styles.withModifier}>
-							{" "}
-							<ModifierButton
-								type={"remove"}
-								func={() => editItemQuantity(index, "remove")}
-							/>
-							{item.qntd}
-							<ModifierButton
-								type={"add"}
-								func={() => editItemQuantity(index, "add")}
-							/>
-						</li>
-						<ModifierButton func={() => removeItem(index)} type="remove" />
-					</ul>
+				<ColumnHeaders
+					styles={`${styles.itemGrid} + ${styles.marginNull} ${styles.center} margin-null`}
+					columns={[
+						"Item",
+						"Peso",
+						"Quantidade",
+						<Remove width={22} height={22} />
+					]}
+				/>
+			</section>
+			<section className={`grid no-padding no-shadow ${styles.smallGap}`}>
+				{items.map((item, index) => (
+					<RemovableRow
+						styles={styles.itemGrid}
+						data={[
+							{ label: item.item, isStrong: true },
+							{ label: item.peso, isStrong: false },
+							{
+								label: item.qntd,
+								hasCounter: true,
+								counterFunc: [
+									() => editItemQuantity(index, "remove"),
+									() => editItemQuantity(index, "add")
+								],
+								hasStyle: styles.withModifier
+							}
+						]}
+						removeFunc={() => removeItem(index)}
+					/>
 				))}
-			</div>{" "}
-			<div className="span2">
-				<Accordion
-					header={
-						<button className="secondary fit center">Adicionar Item</button>
-					}
-					content={
-						<section
-							className={`${styles.itemGrid} ${styles.addGrid} no-shadow no-padding`}
-						>
-							<Input id={"new_item"} label={"Item"} />
-							<Input id={"new_peso"} label={"Peso"} />
-							<Input id={"new_qntd"} label={"Quantidade"} />
-							<ModifierButton func={addItem} type="add" />
-						</section>
-					}
-				/>
-			</div>
-		</section>
+			</section>
+			<Accordion
+				header={
+					<button className={`center extra-mt smaller-padding`}>
+						Adicionar Item
+					</button>
+				}
+				content={
+					<section
+						className={`${styles.itemGrid} ${styles.addGrid} no-shadow no-padding`}
+					>
+						<Input id={"new_item"} label={"Item"} />
+						<Input id={"new_peso"} label={"Peso"} />
+						<Input id={"new_qntd"} label={"Qntd"} />
+						<ModifierButton func={addItem} type="add" />
+					</section>
+				}
+			/>
+		</DataTable>
 	);
 };
+
+const Coins = (
+	<ul className="section-style grid no-shadow no-padding">
+		<li className="section-style grid auto-grid  no-shadow no-padding">
+			<Money width={35} height={35} />
+			<Input id={"tibares_ouro"} label={"Tibares Ouro"} />
+		</li>
+		<li className="section-style grid auto-grid  no-shadow no-padding">
+			<Money width={35} height={35} />
+			<Input id={"tibares"} label={"Tibares"} />
+		</li>
+	</ul>
+);
 
 export default Itens;

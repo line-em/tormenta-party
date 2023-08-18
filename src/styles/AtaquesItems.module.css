@@ -14,11 +14,20 @@
 }
 
 .itemGrid {
-	grid-template-columns: 1fr repeat(2, minmax(70px, 130px)) 50px;
+	grid-template-columns: 1fr repeat(2, minmax(50px, 90px)) 30px;
+	gap: var(--spacing-s);
 }
 
 .addGrid {
 	margin-block: var(--spacing-xs);
+}
+
+.marginNull {
+	margin-block: 0;
+}
+
+.center {
+	align-items: center;
 }
 
 .attackGrid button,
@@ -47,6 +56,11 @@ ul.itemGrid:not(:last-of-type) {
 	border-bottom: 1px solid var(--warm-grey);
 }
 
+ul.attackGrid:nth-last-child(-n + 2):nth-child(odd),
+ul.itemGrid:nth-last-child(-n + 2):nth-child(odd) {
+	border-bottom: transparent;
+}
+
 ul.attackGrid button,
 ul.itemGrid button {
 	top: -5px;
@@ -66,4 +80,8 @@ ul.itemGrid strong {
 
 .withModifier button {
 	font-size: inherit;
+}
+
+section.smallGap {
+	gap: var(--spacing-xxs);
 }

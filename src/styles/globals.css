@@ -173,15 +173,17 @@ section.grid,
 	gap: var(--spacing-m);
 }
 
-section.auto-grid {
+section.auto-grid,
+.section-style.auto-grid {
 	grid-template-columns: auto 1fr;
+	gap: var(--spacing-xs);
 }
 
 ul.section-style {
 	margin-block: var(--spacing-m);
 }
 
-section + section:not(.row),
+section + section:not(.row, .margin-null),
 header + section:not(.row),
 section:not(.row) + header {
 	margin-block-start: var(--spacing-m);
@@ -348,8 +350,4 @@ textarea {
 textarea:focus {
 	outline: white 2px solid;
 	border: 1px solid white;
-}
-
-.span2 {
-	grid-column: span 2;
 }
