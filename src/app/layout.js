@@ -49,9 +49,8 @@ export default function RootLayout({ children }) {
 		<html
 			lang="en"
 			className={`${tormentaFont.variable} ${loraFont.variable}`}
-			suppressHydrationWarning
 		>
-			<body>
+			<body suppressHydrationWarning={true}>
 				<main className="center-align">
 					<TitleHeading>A ameaça purista</TitleHeading>
 					<AuthContextProvider>{children}</AuthContextProvider>

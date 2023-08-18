@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import signIn from "@/firebase/auth/signin";
+import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import SectionHeading from "@/components/Headings/SectionHeading";
 import "@/styles/floating-input.css";
@@ -8,18 +9,19 @@ import "@/styles/floating-input.css";
 function Page() {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
+	const { user } = useAuthContext()
 	const router = useRouter();
+
+	React.useEffect(() => {
+        if (user) router.push("/aventura")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user])
 
 	const handleForm = async (event) => {
 		event.preventDefault();
-		const { result, error } = await signIn(email, password);
+		const { error } = await signIn(email, password);
 
-		if (error) {
-			return console.log(error);
-		}
-
-		console.log(result);
-		return router.push("/aventura");
+		error && alert(error.message);
 	};
 	return (
 		<section className="no-shadow align-start">

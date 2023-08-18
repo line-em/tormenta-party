@@ -9,14 +9,15 @@ import { useAuthContext } from "@/context/AuthContext";
 import Plus from "@/assets/svgs/Plus";
 import CharacterButton from "@/components/Modal/CharacterButton";
 import CircleAndTextButton from "./Circle/CircleAndTextButton";
+import Loading from "@/app/loading";
 
 const CharacterList = () => {
 	const [charList, setCharList] = useState([]);
 	const { user } = useAuthContext();
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => {
 		getCharacterList();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const getCharacterList = React.cache(async () => {
@@ -28,6 +29,10 @@ const CharacterList = () => {
 
 	const newCharacter = async () => {
 		let newCharName = prompt("Nome do personagem: ");
+		if (charList.includes(newCharName)) {
+			alert("Personagem já existe!");
+			return;
+		}
 		const { error } = await addData("characters", newCharName, {
 			user_uid: user.uid,
 			charName: newCharName,
@@ -39,6 +44,7 @@ const CharacterList = () => {
 
 	return (
 		<section className="grid big no-shadow">
+			{charList.length == 0 && <Loading />}
 			{charList.map((character) => (
 				<CharacterButton key={character} currentCharacter={character} />
 			))}
