@@ -12,9 +12,9 @@ import Money from "@/assets/svgs/Money";
 
 const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 
-const Itens = () => {
+const Itens = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
-	const items = getValues("mochila") || [];
+	const itens = getValues("itens") || data.itens || [];
 	const columns = ["Item", "Peso", "Quantidade"];
 
 	const resetForm = (fields) => {
@@ -34,15 +34,15 @@ const Itens = () => {
 			alert("Preencha o campo de item!");
 			return;
 		} else {
-			setValue("mochila", [...items, newItem]);
-			console.log({ items });
+			setValue("itens", [...itens, newItem]);
+			console.log({ itens });
 			resetForm(fieldsToReset);
 		}
 	};
 
 	const editItemQuantity = (index, action) => {
 		const quantityChange = action === "add" ? 1 : -1;
-		const updatedItems = items.map((item, i) => {
+		const updatedItens = itens.map((item, i) => {
 			let currentQuantity = parseInt(item.qntd) || 0;
 			const newQuantity = currentQuantity + quantityChange;
 			if (i === index) {
@@ -53,13 +53,13 @@ const Itens = () => {
 			}
 			return item;
 		});
-		setValue("mochila", updatedItems);
+		setValue("itens", updatedItens);
 		resetForm(fieldsToReset);
 	};
 
 	const removeItem = (index) => {
-		const updateItems = items.filter((_, i) => i !== index);
-		setValue("mochila", updateItems);
+		const updateItens = itens.filter((_, i) => i !== index);
+		setValue("itens", updateItens);
 		resetForm(fieldsToReset);
 	};
 
@@ -79,8 +79,9 @@ const Itens = () => {
 			<section
 				className={`grid no-padding no-shadow ${styles.smallGap} margin-half`}
 			>
-				{items.map((item, index) => (
+				{itens.map((item, index) => (
 					<RemovableRow
+						key={index}
 						styles={styles.itemGrid}
 						data={[
 							{ label: item.item, isStrong: true },

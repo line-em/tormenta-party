@@ -20,7 +20,7 @@ const fieldsToReset = [
 
 const Attacks = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
-	const attacks = getValues("attacks") || [];
+	const attacks = getValues("attacks") || data.attacks || [];
 	const columns = ["Ataque", "Bonus", "Dano", "Crítico", "Tipo", "Alcance"];
 
 	const resetForm = (fields) => {
@@ -62,6 +62,7 @@ const Attacks = ({ data }) => {
 			<ColumnHeaders styles={styles.attackGrid} columns={columns} />
 			{attacks.map((attack, index) => (
 				<RemovableRow
+					key={index}
 					styles={styles.attackGrid}
 					data={[
 						{ label: attack.ataque, isStrong: true },

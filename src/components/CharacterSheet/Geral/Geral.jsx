@@ -22,7 +22,7 @@ const Geral = ({ data }) => {
 				</section>
 				<BasicInfo data={data} />
 			</section>
-			<Attributes />
+			<Attributes data={data}/>
 
 			<section className="grid no-shadow no-padding">
 				<Armor />

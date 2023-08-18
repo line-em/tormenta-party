@@ -1,17 +1,27 @@
 import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
-import { baseAttributes } from "@/data/base";
-import { useState } from "react";
-import StatusBar from "../CharacterSheet/Geral/StatusBar";
+import { useFormContext } from "react-hook-form";
 
-export default function Attributes({ characterSheet, isLocked }) {
-	const [attributes, setAttributes] = useState(baseAttributes);
+export default function Attributes({ data, isLocked }) {
+	const baseAttributes = {
+	FOR: { value: 10, modifier: 0 },
+	DES: { value: 10, modifier: 0 },
+	CON: { value: 10, modifier: 0 },
+	INT: { value: 10, modifier: 0 },
+	SAB: { value: 10, modifier: 0 },
+	CAR: { value: 10, modifier: 0 }
+	};
+	const { setValue, getValues } = useFormContext();
+
+	let sortedDatabaseResult = data.attributes ? sortObjectBasedOnObject(data.attributes, baseAttributes) : null;
+
+	const attributes = getValues('attributes') || sortedDatabaseResult || baseAttributes;
 
 	const updateAttribute = (attribute, newValue, newModifier) => {
-		setAttributes((prevAttributes) => ({
-			...prevAttributes,
+		setValue('attributes', {
+			...attributes,
 			[attribute]: { value: newValue, modifier: newModifier }
-		}));
+		});
 	};
 
 	return (
@@ -30,4 +40,12 @@ export default function Attributes({ characterSheet, isLocked }) {
 			</ul>
 		</div>
 	);
+}
+
+function sortObjectBasedOnObject(obj, baseObj) {
+	const sortedObj = {};
+	Object.keys(baseObj).forEach((key) => {
+		sortedObj[key] = obj[key];
+	});
+	return sortedObj;
 }
