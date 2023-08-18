@@ -1,8 +1,8 @@
+"use client";
 import { pericias, periciasCols } from "@/data/pericias";
 import { useEffect, useState } from "react";
 import styles from "./Pericias.module.css";
 import React from "react";
-import Input from "@/components/Form/Input";
 import EditMode from "./EditMode";
 import ViewMode from "./ViewMode";
 import { calculateModifier } from "@/app/utils";

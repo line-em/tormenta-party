@@ -1,31 +1,35 @@
-import ProfileImage from "./ProfileImage";
+"use client";
+import { useParams, usePathname } from "next/navigation";
+import Link from "next/link";
 
-const Sidebar = ({ currentTab, setCurrentTab }) => {
+const Sidebar = () => {
+	const pathname = usePathname();
+	const params = useParams();
 	const tabs = [
-		{ id: "geral", label: "Geral" },
-		{ id: "attacks", label: "Ataques" },
-		{ id: "magias", label: "Magias" },
-		{ id: "pericias", label: "Perícias" },
-		{ id: "itens", label: "Itens" },
-		{ id: "notas", label: "Notas" }
+		{ id: `/ficha/${params.name}/geral`, label: "Geral" },
+		{ id: `/ficha/${params.name}/attacks`, label: "Ataques" },
+		{ id: `/ficha/${params.name}/magic`, label: "Magias" },
+		{ id: `/ficha/${params.name}/skills`, label: "Perícias" },
+		{ id: `/ficha/${params.name}/itens`, label: "Itens" },
+		{ id: `/ficha/${params.name}/notes`, label: "Notas" }
 	];
-
 	return (
-		// <aside>
 		<nav>
-			{/* <ProfileImage /> */}
-			{tabs.map((tab, index) => (
-				<button
-					key={crypto.randomUUID()}
-					disabled={currentTab === tab.id}
-					className="smaller-padding"
-					onClick={() => setCurrentTab(tab.id)}
+			{tabs.map((tab) => (
+				<Link
+					href={tab.id}
+					key={tab.id}
+					prefetch={true}
+					className={
+						pathname === tab.id
+							? "link-button smaller-padding active"
+							: "link-button smaller-padding"
+					}
 				>
 					{tab.label}
-				</button>
+				</Link>
 			))}
 		</nav>
-		// </aside>
 	);
 };
 

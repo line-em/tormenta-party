@@ -1,5 +1,5 @@
+"use client";
 import { useForm, FormProvider } from "react-hook-form";
-import Footer from "./Footer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormSchema } from "./schema";
 import { addData } from "@/firebase/firestore/addData";
@@ -47,9 +47,10 @@ const Form = ({ children }) => {
 			<form onSubmit={methods.handleSubmit(handleChanges)}>
 				{children}
 				{/* {errors === true && <p>An error has been found.</p>} */}
-				<Footer />
-				{/* <button type="submit">Save</button> */}
-				{/* <input type="submit" /> */}
+
+				<footer>
+					<button type="submit">Save</button>
+				</footer>
 			</form>
 		</FormProvider>
 	);

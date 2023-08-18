@@ -5,7 +5,7 @@ import CircleAndTextButton from "../Circle/CircleAndTextButton";
 const CharacterButton = ({ currentCharacter }) => {
 	const router = useRouter();
 	const goToPage = () => {
-		router.push(`/ficha/${currentCharacter}`);
+		router.push(`/ficha/${currentCharacter}/geral`);
 	};
 
 	return (

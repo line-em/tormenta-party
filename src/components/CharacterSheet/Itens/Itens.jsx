@@ -1,3 +1,4 @@
+"use client";
 import { useFormContext } from "react-hook-form";
 import styles from "../TableComponents/TableComponents.module.css";
 import {

@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { magias } from "@/data/magias";
 import { useMiniSearch } from "react-minisearch";
 import SectionHeading from "@/components/Headings/SectionHeading";

@@ -1,3 +1,4 @@
+"use client";
 import Input from "@/components/Form/Input";
 import { useFormContext } from "react-hook-form";
 import styles from "../TableComponents/TableComponents.module.css";

@@ -1,3 +1,4 @@
+"use client";
 import Attributes from "@/components/Attributes/Attributes";
 import BasicInfo from "./BasicInfo";
 import SmallNotes from "./SmallNotes";

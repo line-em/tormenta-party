@@ -1,4 +1,5 @@
-button {
+button,
+.link-button {
 	padding: var(--spacing-xs) var(--spacing-s);
 	border: 1px transparent solid;
 	background-color: var(--red);
@@ -14,20 +15,24 @@ button {
 	align-items: center;
 }
 
-button.smaller-padding {
+button.smaller-padding,
+.link-button.smaller-padding {
 	padding: var(--spacing-xxs) var(--spacing-xs);
 }
 
-button:not(:disabled):hover {
+button:not(:disabled):hover,
+.link-button:hover {
 	background-color: var(--red-dark);
 	color: var(--golden-dark);
 }
 
-button:not(:disabled):active {
+button:not(:disabled):active,
+.link-button:active {
 	transform: translateY(2px);
 }
 
-button:disabled {
+button:disabled,
+.link-button.active {
 	cursor: default;
 }
 

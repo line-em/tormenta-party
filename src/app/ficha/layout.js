@@ -4,6 +4,7 @@ import SectionHeading from "@/components/Headings/SectionHeading";
 import DiceRolls from "@/components/DiceRolls/DiceRolls";
 import Accordion from "@/components/Accordion";
 import Referencias from "@/components/Referencias";
+import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
 
 const Layout = ({ children }) => {
 	return (
@@ -25,7 +26,7 @@ const Layout = ({ children }) => {
 					absolute
 				/>
 			</nav>
-			{children}
+			<CharacterSheet>{children}</CharacterSheet>
 		</main>
 	);
 };
