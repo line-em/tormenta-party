@@ -1,9 +1,7 @@
-import Input from "@/components/Form/Input";
 import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
-import ModifierButton from "@/components/ModifierButton";
-import Accordion from "@/components/Accordion";
-import { ColumnHeaders, DataTable, RemovableRow } from "../TableComponents";
+import { AddRow, ColumnHeaders, DataTable, RemovableRow } from "../TableComponents";
+import Input from "@/components/Form/Input";
 import Money from "@/assets/svgs/Money";
 import Remove from "@/assets/svgs/Remove";
 
@@ -12,7 +10,8 @@ const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 const Itens = () => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const items = getValues("mochila") || [];
-	const columns = ["Item", "Peso", "Quantidade", <Remove width={22} height={22} />];
+	const columns = ["Item", "Peso", "Quantidade"];
+
 	const resetForm = (fields) => {
 		fields.forEach((field) => {
 			resetField(field);
@@ -64,15 +63,17 @@ const Itens = () => {
 			{Coins}
 			<section className={`grid no-padding no-shadow`}>
 				<ColumnHeaders
-					styles={`${styles.itemGrid} + ${styles.marginNull} ${styles.center} margin-null`}
+					styles={`${styles.itemGrid} + ${styles.center} margin-null`}
 					columns={columns}
 				/>
 				<ColumnHeaders
-					styles={`${styles.itemGrid} + ${styles.marginNull} ${styles.center} margin-null`}
+					styles={`${styles.itemGrid} + ${styles.center} margin-null`}
 					columns={columns}
 				/>
 			</section>
-			<section className={`grid no-padding no-shadow ${styles.smallGap}`}>
+			<section
+				className={`grid no-padding no-shadow ${styles.smallGap} margin-half`}
+			>
 				{items.map((item, index) => (
 					<RemovableRow
 						styles={styles.itemGrid}
@@ -93,23 +94,11 @@ const Itens = () => {
 					/>
 				))}
 			</section>
-			<Accordion
-				header={
-					<button className={`center extra-mt smaller-padding`}>
-						Adicionar Item
-					</button>
-				}
-				content={
-					<section
-						className={`${styles.itemGrid} ${styles.addGrid} no-shadow no-padding`}
-					>
-						<Input id={"new_item"} label={"Item"} />
-						<Input id={"new_peso"} label={"Peso"} />
-						<Input id={"new_qntd"} label={"Qntd"} />
-						<ModifierButton func={addItem} type="add" />
-					</section>
-				}
-			/>
+			<AddRow styles={`${styles.itemGrid} + ${styles.addGrid}`} func={addItem}>
+				<Input id={"new_item"} label={"Item"} />
+				<Input id={"new_peso"} label={"Peso"} />
+				<Input id={"new_qntd"} label={"Qntd"} />
+			</AddRow>
 		</DataTable>
 	);
 };

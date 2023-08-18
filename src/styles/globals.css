@@ -183,10 +183,18 @@ ul.section-style {
 	margin-block: var(--spacing-m);
 }
 
-section + section:not(.row, .margin-null),
+section + section:not(.row, .margin-null, .margin-half),
 header + section:not(.row),
 section:not(.row) + header {
 	margin-block-start: var(--spacing-m);
+}
+
+section.margin-null {
+	margin-block: 0;
+}
+
+section + section.margin-half {
+	margin-block-start: var(--spacing-xs);
 }
 
 section.grid > article {
@@ -312,23 +320,6 @@ dialog::backdrop {
 html:has(dialog[open]) {
 	overflow: hidden;
 }
-
-/* dialog > button {
-	top: var(--spacing-s);
-	right: var(--spacing-s);
-	width: fit-content;
-	position: absolute;
-	padding: var(--spacing-xxs);
-	background-color: var(--warm-grey-light);
-}
-
-dialog > button:hover {
-	background-color: var(--warm-grey);
-} */
-
-/* dialog svg {
-	flex-shrink: 0;
-} */
 
 textarea {
 	resize: none;

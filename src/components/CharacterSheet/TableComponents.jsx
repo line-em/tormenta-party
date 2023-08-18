@@ -1,3 +1,5 @@
+import Plus from "@/assets/svgs/Plus";
+import Accordion from "../Accordion";
 import ModifierButton from "../ModifierButton";
 import SectionHeading from "@/components/Headings/SectionHeading";
 
@@ -40,7 +42,25 @@ export const RemovableRow = ({ styles, data, removeFunc }) => {
 					)}
 				</li>
 			))}
-			<ModifierButton func={removeFunc} type="remove" />
+			<ModifierButton func={removeFunc} type="remove-alt" />
 		</ul>
+	);
+};
+
+export const AddRow = ({ styles, func, children }) => {
+	return (
+		<Accordion
+			header={
+				<button className={`center extra-mt smaller-padding`}>
+					Adicionar <Plus />
+				</button>
+			}
+			content={
+				<section className={`${styles} no-shadow no-padding`}>
+					{children}
+					<ModifierButton func={func} type="add" />
+				</section>
+			}
+		/>
 	);
 };

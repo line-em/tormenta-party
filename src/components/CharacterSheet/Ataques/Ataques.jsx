@@ -1,9 +1,8 @@
 import Input from "@/components/Form/Input";
-import SectionHeading from "@/components/Headings/SectionHeading";
 import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
-import ModifierButton from "@/components/ModifierButton";
-import Accordion from "@/components/Accordion";
+import Remove from "@/assets/svgs/Remove";
+import { AddRow, ColumnHeaders, DataTable, RemovableRow } from "../TableComponents";
 
 const fieldsToReset = [
 	"new_ataque",
@@ -17,6 +16,7 @@ const fieldsToReset = [
 const Attacks = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const attacks = getValues("attacks") || [];
+	const columns = ["Ataque", "Bonus", "Dano", "Crítico", "Tipo", "Alcance"];
 
 	const resetForm = (fields) => {
 		fields.forEach((field) => {
@@ -53,54 +53,34 @@ const Attacks = ({ data }) => {
 	};
 
 	return (
-		<div>
-			<SectionHeading icon="sword" small>
-				Ataques
-			</SectionHeading>
-			<section className={`${styles.attackGrid}`}>
-				<strong>Ataques</strong>
-				<strong>Bonus</strong>
-				<strong>Dano</strong>
-				<strong>Crítico</strong>
-				<strong>Tipo</strong>
-				<strong>Alcance</strong>
-			</section>
-			{attacks?.map((attack, index) => (
-				<ul
-					key={attack.ataque + index}
-					className={`section-style ${styles.attackGrid} no-padding no-shadow`}
-				>
-					<li>
-						<strong>{attack.ataque}</strong>
-					</li>
-					<li>{attack.bonus}</li>
-					<li>
-						<strong>{attack.dano}</strong>
-					</li>
-					<li>{attack.critico}</li>
-					<li>{attack.tipo}</li>
-					<li>{attack.alcance}</li>
-					<ModifierButton func={() => removeAttack(index)} type="remove" />
-				</ul>
+		<DataTable title="Ataques" icon="sword">
+			<ColumnHeaders styles={styles.attackGrid} columns={columns} />
+			{attacks.map((attack, index) => (
+				<RemovableRow
+					styles={styles.attackGrid}
+					data={[
+						{ label: attack.ataque, isStrong: true },
+						{ label: attack.bonus },
+						{
+							label: attack.dano,
+							isStrong: true
+						},
+						{ label: attack.critico },
+						{ label: attack.tipo },
+						{ label: attack.alcance }
+					]}
+					removeFunc={() => removeAttack(index)}
+				/>
 			))}
-
-			<Accordion
-				header={
-					<button className="secondary fit center">Adicionar Ataque</button>
-				}
-				content={
-					<section className={`${styles.addGrid} no-shadow no-padding`}>
-						<Input id={"new_ataque"} label={"Ataques"} />
-						<Input id={"new_bonus"} label={"Bonus"} />
-						<Input id={"new_dano"} label={"Dano"} />
-						<Input id={"new_critico"} label={"Crítico"} />
-						<Input id={"new_tipo"} label={"Tipo"} />
-						<Input id={"new_alcance"} label={"Alcance"} />
-						<ModifierButton func={addAttack} type="add" />
-					</section>
-				}
-			/>
-		</div>
+			<AddRow styles={styles.addGrid} func={addAttack}>
+				<Input id={"new_ataque"} label={"Ataques"} />
+				<Input id={"new_bonus"} label={"Bonus"} />
+				<Input id={"new_dano"} label={"Dano"} />
+				<Input id={"new_critico"} label={"Crítico"} />
+				<Input id={"new_tipo"} label={"Tipo"} />
+				<Input id={"new_alcance"} label={"Alcance"} />
+			</AddRow>
+		</DataTable>
 	);
 };
 
