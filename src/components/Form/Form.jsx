@@ -2,8 +2,11 @@ import { useForm, FormProvider } from "react-hook-form";
 import Footer from "./Footer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormSchema } from "./schema";
+import { addData } from "@/firebase/firestore/addData";
+import { useAuthContext } from "@/context/AuthContext";
 
 const Form = ({ children }) => {
+	const { user } = useAuthContext();
 	const methods = useForm({
 		mode: "onSubmit",
 		resolver: yupResolver(FormSchema),
@@ -17,6 +20,12 @@ const Form = ({ children }) => {
 		try {
 			await FormSchema.validate(data, { abortEarly: false });
 			console.log("Validation succeeded:", data);
+			const { error } = await addData("characters", data.charName, {
+				user_uid: user.uid,
+				lastUpdate: new Date(),
+				...data
+			});
+			error ? alert(error.message) : alert("Ficha salva!");
 		} catch (error) {
 			if (error.name === "ValidationError") {
 				const validationErrors = error.inner.reduce((errors, err) => {

@@ -3,7 +3,7 @@
 import styles from "./CharacterSheet.module.css";
 import "@/styles/floating-input.css";
 import "@/styles/checkbox.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Pericias from "./Pericias/Pericias";
 import Sidebar from "./Sidebar";
 import Geral from "./Geral/Geral";
@@ -20,17 +20,17 @@ export default function CharacterSheet({ character }) {
 			case "geral":
 				return <Geral data={character} />;
 			case "pericias":
-				return <Pericias />;
+				return <Pericias data={character}/>;
 			case "attacks":
-				return <Attacks />;
+				return <Attacks data={character}/>;
 			case "magias":
 				return <Magias />;
 			case "itens":
-				return <Itens />;
+				return <Itens data={character}/>;
 			case "notas":
-				return <Notas />;
+				return <Notas data={character}/>;
 			default:
-				return <section>"Conteúdo não disponível</section>;
+				return <section>Conteúdo não disponível</section>;
 		}
 	};
 
