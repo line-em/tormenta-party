@@ -12,7 +12,7 @@ const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 const Itens = () => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const items = getValues("mochila") || [];
-
+	const columns = ["Item", "Peso", "Quantidade", <Remove width={22} height={22} />];
 	const resetForm = (fields) => {
 		fields.forEach((field) => {
 			resetField(field);
@@ -65,21 +65,11 @@ const Itens = () => {
 			<section className={`grid no-padding no-shadow`}>
 				<ColumnHeaders
 					styles={`${styles.itemGrid} + ${styles.marginNull} ${styles.center} margin-null`}
-					columns={[
-						"Item",
-						"Peso",
-						"Quantidade",
-						<Remove width={22} height={22} />
-					]}
+					columns={columns}
 				/>
 				<ColumnHeaders
 					styles={`${styles.itemGrid} + ${styles.marginNull} ${styles.center} margin-null`}
-					columns={[
-						"Item",
-						"Peso",
-						"Quantidade",
-						<Remove width={22} height={22} />
-					]}
+					columns={columns}
 				/>
 			</section>
 			<section className={`grid no-padding no-shadow ${styles.smallGap}`}>
@@ -88,7 +78,7 @@ const Itens = () => {
 						styles={styles.itemGrid}
 						data={[
 							{ label: item.item, isStrong: true },
-							{ label: item.peso, isStrong: false },
+							{ label: item.peso },
 							{
 								label: item.qntd,
 								hasCounter: true,
