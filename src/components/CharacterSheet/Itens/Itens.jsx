@@ -1,9 +1,13 @@
 import { useFormContext } from "react-hook-form";
-import styles from "@/styles/AtaquesItems.module.css";
-import { AddRow, ColumnHeaders, DataTable, RemovableRow } from "../TableComponents";
+import styles from "../TableComponents/TableComponents.module.css";
+import {
+	AddRow,
+	ColumnHeaders,
+	DataTable,
+	RemovableRow
+} from "../TableComponents/TableComponents";
 import Input from "@/components/Form/Input";
 import Money from "@/assets/svgs/Money";
-import Remove from "@/assets/svgs/Remove";
 
 const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 

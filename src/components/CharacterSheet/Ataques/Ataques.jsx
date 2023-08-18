@@ -1,8 +1,14 @@
 import Input from "@/components/Form/Input";
 import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
-import Remove from "@/assets/svgs/Remove";
-import { AddRow, ColumnHeaders, DataTable, RemovableRow } from "../TableComponents";
+import styles from "../TableComponents/TableComponents.module.css";
+
+import {
+	AddRow,
+	ColumnHeaders,
+	DataTable,
+	RemovableRow
+} from "../TableComponents/TableComponents";
 
 const fieldsToReset = [
 	"new_ataque",
