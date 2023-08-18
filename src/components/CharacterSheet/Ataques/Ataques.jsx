@@ -5,9 +5,25 @@ import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
 import Accordion from "@/components/Accordion";
 
+const fieldsToReset = [
+	"new_ataque",
+	"new_bonus",
+	"new_dano",
+	"new_critico",
+	"new_tipo",
+	"new_alcance"
+];
+
 const Attacks = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const attacks = getValues("attacks") || [];
+
+	const resetForm = (fields) => {
+		fields.forEach((field) => {
+			resetField(field);
+		});
+		unregister(fields);
+	};
 
 	const addAttack = () => {
 		const newAttack = {
@@ -26,43 +42,14 @@ const Attacks = ({ data }) => {
 			return;
 		} else {
 			setValue("attacks", [...attacks, newAttack]);
-			console.log({ attacks });
-
-			const fieldsToReset = [
-				"new_ataque",
-				"new_bonus",
-				"new_dano",
-				"new_critico",
-				"new_tipo",
-				"new_alcance"
-			];
-
-			fieldsToReset.forEach((field) => {
-				resetField(field);
-			});
-
-			unregister(fieldsToReset);
+			resetForm(fieldsToReset);
 		}
 	};
 
 	const removeAttack = (index) => {
 		const updatedAttacks = attacks.filter((_, i) => i !== index);
 		setValue("attacks", updatedAttacks);
-
-		const fieldsToReset = [
-			"new_ataque",
-			"new_bonus",
-			"new_dano",
-			"new_critico",
-			"new_tipo",
-			"new_alcance"
-		];
-
-		fieldsToReset.forEach((field) => {
-			resetField(field);
-		});
-
-		unregister(fieldsToReset);
+		resetForm(fieldsToReset);
 	};
 
 	return (

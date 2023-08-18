@@ -4,10 +4,20 @@ import { useFormContext } from "react-hook-form";
 import styles from "@/styles/AtaquesItems.module.css";
 import ModifierButton from "@/components/ModifierButton";
 import Accordion from "@/components/Accordion";
+import { ColumnHeaders } from "../TableComponents";
+
+const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 
 const Itens = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const items = getValues("mochila") || [];
+
+	const resetForm = (fields) => {
+		fields.forEach((field) => {
+			resetField(field);
+		});
+		unregister(fields);
+	};
 
 	const addItem = () => {
 		const newItem = {
@@ -21,14 +31,7 @@ const Itens = ({ data }) => {
 		} else {
 			setValue("mochila", [...items, newItem]);
 			console.log({ items });
-
-			const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
-
-			fieldsToReset.forEach((field) => {
-				resetField(field);
-			});
-
-			unregister(fieldsToReset);
+			resetForm(fieldsToReset);
 		}
 	};
 
@@ -44,33 +47,18 @@ const Itens = ({ data }) => {
 					qntd: newQuantity
 				};
 			}
-
-			const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
-
-			fieldsToReset.forEach((field) => {
-				resetField(field);
-			});
-
-			unregister(fieldsToReset);
-
 			return item;
 		});
-
 		setValue("mochila", updatedItems);
+		resetForm(fieldsToReset);
 	};
 
 	const removeItem = (index) => {
 		const updateItems = items.filter((_, i) => i !== index);
 		setValue("mochila", updateItems);
-
-		const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
-
-		fieldsToReset.forEach((field) => {
-			resetField(field);
-		});
-
-		unregister(fieldsToReset);
+		resetForm(fieldsToReset);
 	};
+
 	return (
 		<section className="no-padding no-shadow grid">
 			<div className="align-start">
@@ -90,11 +78,10 @@ const Itens = ({ data }) => {
 				<SectionHeading icon="items" small>
 					Inventário
 				</SectionHeading>
-				<section className={`${styles.itemGrid}`}>
-					<strong>Item</strong>
-					<strong>Peso</strong>
-					<strong>Quantidade</strong>
-				</section>
+				<ColumnHeaders
+					styles={styles.itemGrid}
+					columns={["Item", "Peso", "Quantidade"]}
+				/>
 				{items?.map((item, index) => (
 					<ul
 						className={`section-style ${styles.itemGrid} no-padding no-shadow`}
