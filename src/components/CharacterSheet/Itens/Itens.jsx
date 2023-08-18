@@ -11,9 +11,9 @@ import Money from "@/assets/svgs/Money";
 
 const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
 
-const Itens = () => {
+const Itens = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
-	const itens = getValues("itens") || [];
+	const itens = getValues("itens") || data.itens || [];
 	const columns = ["Item", "Peso", "Quantidade"];
 
 	const resetForm = (fields) => {
