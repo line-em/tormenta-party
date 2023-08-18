@@ -1,0 +1,84 @@
+.attackGrid,
+.itemGrid,
+.addGrid {
+	display: grid;
+	grid-template-columns: 2fr repeat(5, 1fr) 0.5fr;
+	gap: var(--spacing-xxs);
+	margin-block: var(--spacing-m);
+	align-items: stretch;
+	padding-inline: var(--spacing-s);
+}
+
+.attackGrid:last-child {
+	padding-inline: var(--spacing-xxs);
+}
+
+.itemGrid {
+	grid-template-columns: 1fr 50px minmax(80px, 90px) 30px;
+	gap: var(--spacing-s);
+}
+
+.addGrid {
+	margin-block: var(--spacing-xs);
+}
+
+/* .marginNull {
+	margin-block: 0;
+} */
+
+.center {
+	align-items: center;
+}
+
+.attackGrid button,
+.itemGrid button,
+.addGrid button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* font-size: var(--medium); */
+	font-size: inherit;
+}
+
+ul.attackGrid,
+ul.itemGrid {
+	padding-inline: var(--spacing-s);
+	margin-block: var(--spacing-xs);
+	border-bottom: transparent;
+}
+
+ul.attackGrid:not(:last-of-type),
+ul.itemGrid:not(:last-of-type) {
+	border-bottom: 1px solid var(--warm-grey);
+}
+
+ul.attackGrid:nth-last-child(-n + 2):nth-child(odd),
+ul.itemGrid:nth-last-child(-n + 2):nth-child(odd) {
+	border-bottom: transparent;
+}
+
+ul.attackGrid strong,
+ul.itemGrid strong {
+	color: var(--red);
+}
+
+.withModifier {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-xxs);
+}
+
+:is(.attackGrid, .itemGrid) li {
+	hyphens: auto;
+	overflow-wrap: break-word;
+	/* overflow-wrap: anywhere; */
+	word-break: break-all;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+section.smallGap {
+	gap: var(--spacing-xxs) var(--spacing-m);
+}
