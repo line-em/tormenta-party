@@ -1,6 +1,5 @@
 import Input from "@/components/Form/Input";
 import { useFormContext } from "react-hook-form";
-import styles from "@/styles/AtaquesItems.module.css";
 import styles from "../TableComponents/TableComponents.module.css";
 import {
 	AddRow,
