@@ -4,21 +4,23 @@ import { useFormContext } from "react-hook-form";
 
 export default function Attributes({ data, isLocked }) {
 	const baseAttributes = {
-	FOR: { value: 10, modifier: 0 },
-	DES: { value: 10, modifier: 0 },
-	CON: { value: 10, modifier: 0 },
-	INT: { value: 10, modifier: 0 },
-	SAB: { value: 10, modifier: 0 },
-	CAR: { value: 10, modifier: 0 }
+		FOR: { value: 10, modifier: 0 },
+		DES: { value: 10, modifier: 0 },
+		CON: { value: 10, modifier: 0 },
+		INT: { value: 10, modifier: 0 },
+		SAB: { value: 10, modifier: 0 },
+		CAR: { value: 10, modifier: 0 }
 	};
 	const { setValue, getValues } = useFormContext();
 
-	let sortedDatabaseResult = data.attributes ? sortObjectBasedOnObject(data.attributes, baseAttributes) : null;
+	let sortedDatabaseResult = data?.attributes
+		? sortObjectBasedOnObject(data.attributes, baseAttributes)
+		: null;
 
-	const attributes = getValues('attributes') || sortedDatabaseResult || baseAttributes;
+	const attributes = getValues("attributes") || sortedDatabaseResult || baseAttributes;
 
 	const updateAttribute = (attribute, newValue, newModifier) => {
-		setValue('attributes', {
+		setValue("attributes", {
 			...attributes,
 			[attribute]: { value: newValue, modifier: newModifier }
 		});

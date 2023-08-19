@@ -14,7 +14,7 @@
 }
 
 .itemGrid {
-	grid-template-columns: 1fr 50px minmax(80px, 90px) 30px;
+	grid-template-columns: 1fr 80px minmax(80px, 90px) 30px;
 	gap: var(--spacing-s);
 }
 

@@ -25,15 +25,15 @@ export default function AttributeCell({
 			<div>
 				<input
 					type="text"
-					value={attributeValue}
-					min={0}
-					max={25}
+					value={attributeModifier}
+					min={-10}
+					max={10}
 					className="big"
 					onChange={handleValueChange}
 					disabled={isLocked}
 					onKeyDown={(e) => isNumberKey(e)}
 				/>
-				<p>{attributeModifier}</p>
+				<p>{attributeValue}</p>
 			</div>
 		</li>
 	);
