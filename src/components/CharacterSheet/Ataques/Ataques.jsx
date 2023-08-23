@@ -20,7 +20,7 @@ const fieldsToReset = [
 
 const Attacks = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
-	const attacks = getValues("attacks") || data.attacks || [];
+	const attacks = getValues("attacks") || data?.attacks || [];
 	const columns = ["Ataque", "Bonus", "Dano", "Crítico", "Tipo", "Alcance"];
 
 	const resetForm = (fields) => {
