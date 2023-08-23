@@ -1,4 +1,4 @@
-export const poderes = [
+export const poderesConcedidos = [
     {
         "Afinidade com a Tormenta": {
             nome: "Afinidade com a Tormenta",
