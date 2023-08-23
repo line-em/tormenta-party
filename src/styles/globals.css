@@ -152,6 +152,10 @@ section.row.wrap {
 	text-align: center;
 }
 
+section.smaller {
+	gap: var(--spacing-xxs);
+}
+
 section.big {
 	padding-block: var(--spacing-l);
 }
@@ -176,6 +180,18 @@ section.grid,
 section.auto-grid,
 .section-style.auto-grid {
 	grid-template-columns: auto 1fr;
+	gap: var(--spacing-xs);
+}
+
+section.fit-grid,
+.section-style.fit-grid {
+	grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+	gap: var(--spacing-xs);
+}
+
+section.item-3-grid,
+.section-style.item-3-grid {
+	grid-template-columns: auto repeat(2, minmax(50px, 1fr));
 	gap: var(--spacing-xs);
 }
 
@@ -235,9 +251,12 @@ input.small,
 label.small,
 select.small {
 	font-size: var(--small);
-	width: fit-content;
-	padding: 0;
-	padding-inline-start: var(--spacing-s);
+	/* width: fit-content;
+	padding-inline-start: var(--spacing-s); */
+}
+
+input.small {
+	padding: var(--spacing-s) var(--spacing-xs) var(--spacing-xxs);
 }
 
 input.medium,
@@ -341,4 +360,8 @@ textarea {
 textarea:focus {
 	outline: white 2px solid;
 	border: 1px solid white;
+}
+
+.span2 {
+	grid-column: span 2;
 }

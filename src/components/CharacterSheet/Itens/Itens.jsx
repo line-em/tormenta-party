@@ -9,12 +9,12 @@ import {
 import Input from "@/components/Form/Input";
 import Money from "@/assets/svgs/Money";
 
-const fieldsToReset = ["new_item", "new_peso", "new_qntd"];
+const fieldsToReset = ["new_item", "new_space", "new_qntd"];
 
 const Itens = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
-	const itens = getValues("itens") || data.itens || [];
-	const columns = ["Item", "Peso", "Quantidade"];
+	const itens = getValues("itens") || data?.itens || [];
+	const columns = ["Item", "Espaço", "Quantidade"];
 
 	const resetForm = (fields) => {
 		fields.forEach((field) => {
@@ -26,7 +26,7 @@ const Itens = ({ data }) => {
 	const addItem = () => {
 		const newItem = {
 			item: getValues("new_item"),
-			peso: getValues("new_peso") === "" ? "—" : getValues("new_peso"),
+			espaco: getValues("new_space") === "" ? "—" : getValues("new_space"),
 			qntd: getValues("new_qntd") === "" ? 1 : getValues("new_qntd")
 		};
 		if (!newItem.item) {
@@ -84,7 +84,7 @@ const Itens = ({ data }) => {
 						styles={styles.itemGrid}
 						data={[
 							{ label: item.item, isStrong: true },
-							{ label: item.peso },
+							{ label: item.espaco },
 							{
 								label: item.qntd,
 								hasCounter: true,
@@ -101,7 +101,7 @@ const Itens = ({ data }) => {
 			</section>
 			<AddRow styles={`${styles.itemGrid} + ${styles.addGrid}`} func={addItem}>
 				<Input id={"new_item"} label={"Item"} />
-				<Input id={"new_peso"} label={"Peso"} />
+				<Input id={"new_space"} label={"Espaço"} />
 				<Input id={"new_qntd"} label={"Qntd"} />
 			</AddRow>
 		</DataTable>
