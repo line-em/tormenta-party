@@ -1,24 +1,35 @@
 "use client";
 import { useForm, FormProvider } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { FormSchema } from "./schema";
 import { addData } from "@/firebase/firestore/addData";
-import { useAuthContext } from "@/context/AuthContext";
+import { useParams } from "next/navigation";
+import useDataStore from "@/store/useDataStore";
 
-const Form = ({ children }) => {
-	const { user } = useAuthContext();
+const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) => {
+	const { charData } = useDataStore();
+	const params = useParams();
+	let currentChar;
+	const decodedCharName = decodeURIComponent(params.name);
+
+	if (charData) {
+		currentChar = charData.find((char) => char.charName === decodedCharName);
+		console.log(currentChar);
+	} else {
+		alert("Character not found.");
+	}
+
 	const methods = useForm({
 		mode: "onSubmit",
-		resolver: yupResolver(FormSchema),
 		resetOptions: {
 			keepDirtyValues: true
 		},
-		shouldUnregister: true
+		shouldUnregister: true,
+		defaultValues: {
+			currentChar
+		}
 	});
 	const handleChanges = async (data) => {
 		console.log("click");
 		try {
-			await FormSchema.validate(data, { abortEarly: false });
 			console.log("Validation succeeded:", data);
 			const { error } = await addData("characters", data.charName, {
 				user_uid: user.uid,
@@ -40,16 +51,17 @@ const Form = ({ children }) => {
 	};
 
 	const watchAllFields = methods.watch();
-	console.log(watchAllFields);
+	console.log({ watchForm: watchAllFields });
 
 	return (
 		<FormProvider {...methods}>
-			<form onSubmit={methods.handleSubmit(handleChanges)}>
+			<form
+				onSubmit={methods.handleSubmit(onSubmit ? onSubmit : handleChanges)}
+				{...props}
+			>
 				{children}
-				{/* {errors === true && <p>An error has been found.</p>} */}
-
 				<footer>
-					<button type="submit">Save</button>
+					<button type="submit">{buttonText}</button>
 				</footer>
 			</form>
 		</FormProvider>

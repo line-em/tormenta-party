@@ -55,7 +55,8 @@ button:disabled {
 	color: var(--red);
 }
 
-button.headless {
+button.headless,
+.link-button.headless {
 	padding: 0;
 	border: 1px transparent solid;
 	background-color: transparent;
@@ -63,7 +64,8 @@ button.headless {
 	align-items: center;
 }
 
-button.headless:not(:disabled):hover {
+button.headless:not(:disabled):hover,
+.link-button.headless:not(:disabled):hover {
 	color: var(--red);
 	background-color: transparent;
 }

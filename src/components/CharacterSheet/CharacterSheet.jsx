@@ -1,8 +1,8 @@
 import styles from "./CharacterSheet.module.css";
-import "@/styles/floating-input.css";
-import "@/styles/checkbox.css";
 import Sidebar from "./Sidebar";
 import Form from "../Form/Form";
+import "@/styles/floating-input.css";
+import "@/styles/checkbox.css";
 
 export default function CharacterSheet({ children, data }) {
 	return (

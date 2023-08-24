@@ -2,39 +2,37 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { getCollection } from "@/firebase/firestore/getData";
+// import { getCollection } from "@/firebase/firestore/getData";
 import { addData } from "@/firebase/firestore/addData";
-import { useAuthContext } from "@/context/AuthContext";
+// import { useAuthContext } from "@/context/AuthContext";
+
+import useDataStore from "@/store/useDataStore";
+import useAuth from "@/store/useAuth";
 
 import Plus from "@/assets/svgs/Plus";
-import CharacterButton from "@/components/Modal/CharacterButton";
+
 import CircleAndTextButton from "./Circle/CircleAndTextButton";
 import Loading from "@/app/loading";
+import DefaultUser from "@/assets/svgs/DefaultUser";
 
 const CharacterList = () => {
 	const [charList, setCharList] = useState([]);
-	const { user } = useAuthContext();
+	const { uid } = useAuth();
+	const { charNames } = useDataStore();
 
 	useEffect(() => {
-		getCharacterList();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-
-	const getCharacterList = React.cache(async () => {
-		const { result, error } = await getCollection("characters");
-		let list = result.docs.map((doc) => doc.id);
-		error && alert(error.message);
-		setCharList(list);
-	});
+		setCharList(charNames);
+	}, [charNames]);
 
 	const newCharacter = async () => {
 		let newCharName = prompt("Nome do personagem: ");
-		if (charList.includes(newCharName)) {
+		if (charList?.includes(newCharName)) {
 			alert("Personagem já existe!");
 			return;
 		}
 		const { error } = await addData("characters", newCharName, {
-			user_uid: user.uid,
+			// user_uid: user.uid,
+			user_uid: uid + newCharName,
 			charName: newCharName,
 			createdAt: new Date()
 		});
@@ -44,11 +42,18 @@ const CharacterList = () => {
 
 	return (
 		<section className="grid big no-shadow">
-			{charList.length == 0 && <Loading />}
 			{charList.map((character) => (
-				<CharacterButton key={character} currentCharacter={character} />
+				<section className="row">
+					<CircleAndTextButton
+						href={`/ficha/${character}/geral`}
+						asLink
+						icon={<DefaultUser width={25} height={25} />}
+					>
+						{character}
+					</CircleAndTextButton>
+				</section>
 			))}
-			{charList.length < 6 && (
+			{charList.length < 5 && (
 				<section className="row">
 					<CircleAndTextButton
 						func={() => newCharacter()}

@@ -3,7 +3,6 @@ import "../styles/globals.css";
 import "../styles/animation.css";
 import "../styles/buttons.css";
 import localFont from "next/font/local";
-import { AuthContextProvider } from "@/context/AuthContext";
 import TitleHeading from "@/components/Headings/TitleHeading";
 
 const tormentaFont = localFont({
@@ -46,14 +45,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html
-			lang="en"
-			className={`${tormentaFont.variable} ${loraFont.variable}`}
-		>
+		<html lang="en" className={`${tormentaFont.variable} ${loraFont.variable}`}>
 			<body suppressHydrationWarning={true}>
 				<main className="center-align">
 					<TitleHeading>A ameaça purista</TitleHeading>
-					<AuthContextProvider>{children}</AuthContextProvider>
+					{children}
 				</main>
 			</body>
 		</html>
