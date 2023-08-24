@@ -4,19 +4,25 @@ import { calculateModifier, isNumberKey } from "@/app/utils";
 export default function AttributeCell({
 	attribute,
 	attributeValue,
-	attributeModifier,
 	updateAttribute,
 	isLocked
 }) {
 	const handleValueChange = (e) => {
-		if (!isLocked) {
-			if (!e.target.value) {
-				e.target.value = 0;
-			}
-			const newValue = parseInt(e.target.value, 10);
-			const newModifier = calculateModifier(newValue);
-			updateAttribute(attribute, newValue, newModifier);
+		// check if isNumberKey is true. If not, set to 0.
+		// check value. if > 10, set to 10. if < -10, set to -10.
+		if (!e.target.value) {
+			e.target.value = 0;
 		}
+		let newValue = parseInt(e.target.value, 10);
+		// if (newValue > 10) {
+		// 	newValue = 10;
+		// } else if (newValue < -10) {
+		// 	newValue = -10;
+		// }
+		// if (!isNumberKey(e)) {
+		// 	newValue = 0;
+		// }
+		updateAttribute(attribute, newValue);
 	};
 
 	return (
@@ -24,16 +30,17 @@ export default function AttributeCell({
 			<span>{attribute}</span>
 			<div>
 				<input
-					type="text"
-					value={attributeModifier}
+					type="number"
+					value={attributeValue}
 					min={-10}
 					max={10}
 					className="big"
 					onChange={handleValueChange}
-					disabled={isLocked}
-					onKeyDown={(e) => isNumberKey(e)}
+					pattern="[0-9]{2}"
+					maxlength="4"
+					// onKeyDown={(e) => isNumberKey(e)}
 				/>
-				<p>{attributeValue}</p>
+				{/* <p>{attributeValue}</p> */}
 			</div>
 		</li>
 	);

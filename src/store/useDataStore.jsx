@@ -3,7 +3,8 @@ import { persist } from "zustand/middleware";
 import {
 	getFirestore,
 	collection,
-	getDocs, setDoc,
+	getDocs,
+	setDoc,
 	getDoc,
 	onSnapshot,
 	doc
@@ -40,17 +41,6 @@ const useDataStore = create(
 						...state,
 						error: e.message
 					}));
-				}
-			},
-
-			addCharacterToCollection: async (id, data) => {
-				try {
-					const result = await setDoc(doc(database, "characters", id), data, {
-						merge: true
-					});
-					return { result, error: null };
-				} catch (error) {
-					return { result: null, error };
 				}
 			},
 

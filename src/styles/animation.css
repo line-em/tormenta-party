@@ -49,3 +49,9 @@ dialog.close {
 	height: var(--spacing-l);
 	animation: spin 1s linear infinite;
 }
+
+.spinner-headless {
+	width: var(--spacing-l);
+	height: var(--spacing-l);
+	animation: spin 1s linear infinite;
+}

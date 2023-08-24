@@ -1,4 +1,4 @@
-export default function d20(props) {
+export default function D20(props) {
 	return (
 		<svg
 			width="0.94em"

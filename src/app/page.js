@@ -33,7 +33,7 @@ function Page() {
 			<SectionHeading icon="user">Login</SectionHeading>
 			<Form onSubmit={handleLogin} className="section-style" buttonText="Login">
 				<Input id="email" label={"Email"} />
-				<Input id="password" label={"Senha"} />
+				<Input id="password" label={"Senha"} type="password" />
 			</Form>
 			{error && (
 				<p>
