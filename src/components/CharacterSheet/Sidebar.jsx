@@ -9,6 +9,7 @@ const Sidebar = () => {
 		{ id: `/ficha/${params.name}/geral`, label: "Geral" },
 		{ id: `/ficha/${params.name}/attacks`, label: "Ataques" },
 		{ id: `/ficha/${params.name}/magic`, label: "Magias" },
+		{ id: `/ficha/${params.name}/powers`, label: "Poderes" },
 		{ id: `/ficha/${params.name}/skills`, label: "Perícias" },
 		{ id: `/ficha/${params.name}/itens`, label: "Itens" },
 		{ id: `/ficha/${params.name}/notes`, label: "Notas" }

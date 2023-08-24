@@ -7,8 +7,8 @@ import useDataStore from "@/store/useDataStore";
 const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) => {
 	const { charData } = useDataStore();
 	const params = useParams();
-	let currentChar;
 	const decodedCharName = decodeURIComponent(params.name);
+	let currentChar;
 
 	if (charData) {
 		currentChar = charData.find((char) => char.charName === decodedCharName);

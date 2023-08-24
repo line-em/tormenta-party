@@ -10,6 +10,9 @@ import {
 } from "firebase/firestore";
 import { database } from "../firebase/config";
 
+// TODO: Add all the functions that are missing from getData and addData
+// IF EVERYTHING WORKS, then delete the previous ones.
+
 const useDataStore = create(
 	persist(
 		(set, get) => ({
@@ -17,6 +20,13 @@ const useDataStore = create(
 			charData: [],
 			currentChar: null,
 			error: "",
+
+			// TODO: Implement this in the app
+			setCurrentChar: (char) =>
+				set((state) => ({
+					...state,
+					currentChar: char
+				})),
 
 			getCharacterCollection: async () => {
 				const colRef = collection(database, "characters");
@@ -47,6 +57,30 @@ const useDataStore = create(
 					...state,
 					currentChar: character
 				}));
+			}, // not using it right now, nor currentChar
+
+			// TODO: Check if this works in the form. Function to check if the data is up to date, might need to integrate onSnapshot somehow?
+			compareCharData: async (newData) => {
+				const character = get().currentChar;
+				const prevData = get().getCharacterByName(character.charName);
+
+				if (currentData && JSON.stringify(prevData) === JSON.stringify(newData)) {
+					return "equal";
+				} else {
+					return "notEqual";
+				}
+			},
+
+			// TODO: Check if this works in the form.
+			overwriteCharData: async (newData) => {
+				const character = get().currentChar;
+				const prevData = get().getCharacterByName(character.charName);
+				if (prevData) {
+					set((state) => ({
+						...state,
+						currentChar: newData
+					}));
+				}
 			}
 
 			// getDocument: async (collection, id) => {

@@ -41,6 +41,8 @@ const CharacterList = () => {
 	};
 
 	return (
+		// FIXME: Put this on the page component for clarity
+		// FIXME: ask fro the username/player name, and use that as reference instead of charname.
 		<section className="grid big no-shadow">
 			{charList.map((character) => (
 				<section className="row">

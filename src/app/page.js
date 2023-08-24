@@ -7,8 +7,8 @@ import Form from "@/components/Form/Form";
 import { useEffect } from "react";
 import "../styles/floating-input.css";
 import "../styles/checkbox.css";
-import { usePersist } from "@/store/usePersist";
 import useDataStore from "@/store/useDataStore";
+
 function Page() {
 	const { isLoggedIn, error, login, signOut } = useAuth();
 	const { getCharacterCollection } = useDataStore();
