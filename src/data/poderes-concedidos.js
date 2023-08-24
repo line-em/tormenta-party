@@ -10,7 +10,7 @@ export const poderesConcedidos = [
             nome: "Almejar o Impossível",
             descrição: "Quando faz um teste de perícia, um resultado de 19 ou mais no dado sempre é um sucesso, não importando o valor a ser alcançado.",
             tipo: "Normal",
-            deus: "Thwor, Valkaria"
+            deus: ["Thwor", "Valkaria"]
         },
         "Anfíbio": {
             nome: "Anfíbio",
@@ -46,7 +46,7 @@ export const poderesConcedidos = [
             nome: "Ataque Piedoso",
             descrição: "Você pode usar armas corpo a corpo para causar dano não letal sem sofrer a penalidade de –5 no teste de ataque.",
             tipo: "Normal",
-            deus: "Lena, Thyatis"
+            deus: ["Lena", "Thyatis"]
         },
         "Aura de Medo": {
             nome: "Aura de Medo",
@@ -106,7 +106,7 @@ export const poderesConcedidos = [
             nome: "Coragem Total",
             descrição: "Você é imune a efeitos de medo, mágicos ou não.",
             tipo: "Normal",
-            deus: "Arsenal, Khalmyr, Lin-Wu, Valkaria"
+            deus: ["Arsenal", "Khapmyr", "Lin Wu", "Valkarya"]
         },
         "Cura Gentil": {
             nome: "Cura Gentil",
@@ -190,7 +190,7 @@ export const poderesConcedidos = [
             nome: "Êxtase da Loucura",
             descrição: "Ganha 1 PM temporário cumulativo quando inimigos falham em teste de Vontade contra suas habilidades mágicas.",
             tipo: "Normal",
-            deus: "Aharadak, Nimb"
+            deus: ["Aharadak", "Nimb"]
         },
         "Familiar Ofídico": {
             nome: "Familiar Ofídico",
@@ -286,7 +286,7 @@ export const poderesConcedidos = [
             nome: "Olhar Amedrontador",
             descrição: "Aprende e pode lançar Amedrontar. Custo diminui em –1 PM se aprender novamente.",
             tipo: "Magica",
-            deus: "Megalokk, Thwor"
+            deus: ["Megalokk", "Thwor"]
         },
         "Palavras de Bondade": {
             nome: "Palavras de Bondade",
@@ -316,7 +316,7 @@ export const poderesConcedidos = [
             nome: "Presas Primordiais",
             descrição: "Pode gastar 1 PM para transformar seus dentes em presas afiadas e fazer ataque extra com mordida.",
             tipo: "Magica",
-            deus: "Kallyadranoch, Megalokk"
+            deus: ["Kallyadranoch", "Megalokk"]
         },
         "Presas venenosas": {
             nome: "Presas venenosas",
@@ -374,10 +374,10 @@ export const poderesConcedidos = [
         },
         "Teurgista Místico": {
             nome: "Teurgista Místico",
-            descrição: "Magias aprendidas podem ser escolhidas entre magias divinas (se for arcano) ou arcanas (se for divino).",
+            descrição: "Magias aprendidas podem ser escolhidas entre magias divinas (se for arcano) ou arcanas (se for divino). Pré-requisito: habilidade de classe Magias",
             tipo: "Normal",
             deus: "Wynna",
-            "pré-requisito": "habilidade de classe Magias"
+            //"pré-requisito": "habilidade de classe Magias"
         },
         "Tradição de Lin-Wu": {
             nome: "Tradição de Lin-Wu",
