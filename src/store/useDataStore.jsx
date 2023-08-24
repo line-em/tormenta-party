@@ -27,6 +27,8 @@ const useDataStore = create(
 					...state,
 					currentChar: char
 				})),
+			// Implementation example, at a component that will use it:   const setAuthUser = useAuth((s) => s.setAuthUser);
+			// in this casE: const setCurrentChar = useDataStore((s) => s.setCurrentChar);
 
 			getCharacterCollection: async () => {
 				const colRef = collection(database, "characters");
