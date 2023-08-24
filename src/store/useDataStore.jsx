@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import {
 	getFirestore,
 	collection,
-	getDocs,
+	getDocs, setDoc,
 	getDoc,
 	onSnapshot,
 	doc
@@ -21,20 +21,12 @@ const useDataStore = create(
 			currentChar: null,
 			error: "",
 
-			// TODO: Implement this in the app
-			setCurrentChar: (char) =>
-				set((state) => ({
-					...state,
-					currentChar: char
-				})),
-			// Implementation example, at a component that will use it:   const setAuthUser = useAuth((s) => s.setAuthUser);
-			// in this casE: const setCurrentChar = useDataStore((s) => s.setCurrentChar);
-
 			getCharacterCollection: async () => {
 				const colRef = collection(database, "characters");
 				try {
 					const result = await getDocs(colRef);
 					const list = result?.docs.map((doc) => doc.id);
+					// FIXME: agora que o usuário vai ser a base, esse list tem que mudar.
 					const obj = result?.docs.map((doc) => doc.data());
 					console.log("getcharactercollection run");
 					set((state) => ({
@@ -51,6 +43,17 @@ const useDataStore = create(
 				}
 			},
 
+			addCharacterToCollection: async (id, data) => {
+				try {
+					const result = await setDoc(doc(database, "characters", id), data, {
+						merge: true
+					});
+					return { result, error: null };
+				} catch (error) {
+					return { result: null, error };
+				}
+			},
+
 			getCharacterByName: async (charName) => {
 				const allData = get().charData;
 				const character = allData.find((char) => char.charName === charName);
@@ -59,7 +62,16 @@ const useDataStore = create(
 					...state,
 					currentChar: character
 				}));
-			}, // not using it right now, nor currentChar
+			}, // FIXME: not using it right now, nor currentChar, is there a better implementation?
+
+			// TODO: Implement this in the app
+			setCurrentChar: (char) =>
+				set((state) => ({
+					...state,
+					currentChar: char
+				})),
+			// Implementation example, at a component that will use it:   const setAuthUser = useAuth((s) => s.setAuthUser);
+			// in this casE: const setCurrentChar = useDataStore((s) => s.setCurrentChar);
 
 			// TODO: Check if this works in the form. Function to check if the data is up to date, might need to integrate onSnapshot somehow?
 			compareCharData: async (newData) => {

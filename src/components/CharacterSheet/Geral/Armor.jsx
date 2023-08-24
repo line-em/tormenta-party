@@ -65,7 +65,7 @@ const Armor = () => {
 					/>
 					<Input
 						id="defesa.escudo_bonus"
-						label={"Defesa"}
+						label={"Def."}
 						// inputCss="small"
 						onChange={updateArmorDB}
 					/>
@@ -82,7 +82,7 @@ const Armor = () => {
 					/>
 					<Input
 						id="defesa.armadura_bonus"
-						label={"Defesa"}
+						label={"Def."}
 						onChange={updateArmorDB}
 					/>
 					<Input

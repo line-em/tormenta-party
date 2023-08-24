@@ -15,7 +15,7 @@ const fieldsToReset = ["new_item", "new_space", "new_qntd"];
 const Itens = ({ data }) => {
 	const { setValue, getValues, resetField, unregister } = useFormContext();
 	const itens = getValues("itens") || data?.itens || [];
-	const columns = ["Item", "Espaço", "Quantidade"];
+	const columns = ["Item", "Slot", "Quantidade"];
 
 	const resetForm = (fields) => {
 		fields.forEach((field) => {
@@ -102,7 +102,7 @@ const Itens = ({ data }) => {
 			</section>
 			<AddRow styles={`${styles.itemGrid} + ${styles.addGrid}`} func={addItem}>
 				<Input id={"new_item"} label={"Item"} />
-				<Input id={"new_space"} label={"Espaço"} />
+				<Input id={"new_space"} label={"Slot"} />
 				<Input id={"new_qntd"} label={"Qntd"} />
 			</AddRow>
 		</DataTable>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
-const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData, cols = 45 }) => {
+const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData, cols = 37 }) => {
 	const { register } = useFormContext();
 
 	return (

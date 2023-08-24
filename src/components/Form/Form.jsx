@@ -32,7 +32,7 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 		try {
 			console.log("Validation succeeded:", data);
 			const { error } = await addData("characters", data.charName, {
-				user_uid: user.uid,
+				uid: 123,
 				lastUpdate: new Date(),
 				...data
 			});

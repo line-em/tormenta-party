@@ -25,14 +25,21 @@ const CharacterList = () => {
 	}, [charNames]);
 
 	const newCharacter = async () => {
-		let newCharName = prompt("Nome do personagem: ");
+		let newUser = prompt("Digite seu usuário: ");
+		let newCharName = prompt("Digite o nome do seu personagem: ");
+
 		if (charList?.includes(newCharName)) {
-			alert("Personagem já existe!");
+			alert("Usuário já existe!");
 			return;
 		}
-		const { error } = await addData("characters", newCharName, {
-			// user_uid: user.uid,
-			user_uid: uid + newCharName,
+
+		if (!newUser || !newCharName) {
+			alert("Preencha todos os campos!");
+			return;
+		}
+
+		const { error } = await addData("characters", newUser, {
+			user: newUser,
 			charName: newCharName,
 			createdAt: new Date()
 		});
