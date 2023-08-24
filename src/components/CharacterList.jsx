@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 
 import { getCollection } from "@/firebase/firestore/getData";
 import { addData } from "@/firebase/firestore/addData";
-import { useAuthContext } from "@/context/AuthContext";
+// import { useAuthContext } from "@/context/AuthContext";
+import { useFirestore, useSigninCheck, useFirestoreCollectionData } from 'reactfire';
 
 import Plus from "@/assets/svgs/Plus";
 import CharacterButton from "@/components/Modal/CharacterButton";
@@ -13,19 +14,33 @@ import Loading from "@/app/loading";
 
 const CharacterList = () => {
 	const [charList, setCharList] = useState([]);
-	const { user } = useAuthContext();
+	const firestore = useFirestore();
+	const { data: signinResult } = useSigninCheck();
+	// const { user } = useAuthContext();
 
 	useEffect(() => {
 		getCharacterList();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const getCharacterList = React.cache(async () => {
-		const { result, error } = await getCollection("characters");
-		let list = result.docs.map((doc) => doc.id);
-		error && alert(error.message);
-		setCharList(list);
-	});
+	// const getCharacterList = React.cache(async () => {
+	// 	const { result, error } = await getCollection("characters");
+	// 	let list = result.docs.map((doc) => doc.id);
+	// 	error && alert(error.message);
+	// 	setCharList(list);
+	// });
+
+	const getCharacterList = () => {
+		const charsCollection = collection(firestore, 'characters');
+		const charssQuery = query(charsCollection, orderBy('charName', 'asc'));
+		const { status, data: characters } = useFirestoreCollectionData(charssQuery, {
+		  idField: 'id',
+		});
+		console.log(status)
+		console.log(characters)
+		// error && alert(error.message);
+		// setCharList(list);
+	}
 
 	const newCharacter = async () => {
 		let newCharName = prompt("Nome do personagem: ");
@@ -34,7 +49,7 @@ const CharacterList = () => {
 			return;
 		}
 		const { error } = await addData("characters", newCharName, {
-			user_uid: user.uid,
+			user_uid: signinResult.user.uid,
 			charName: newCharName,
 			createdAt: new Date()
 		});

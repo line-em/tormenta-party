@@ -1,9 +1,10 @@
+'use client'
 import "../styles/reset.css";
 import "../styles/globals.css";
 import "../styles/animation.css";
 import "../styles/buttons.css";
 import localFont from "next/font/local";
-import { AuthContextProvider } from "@/context/AuthContext";
+import FirebaseProviderWrapper from "@/firebase/config";
 import TitleHeading from "@/components/Headings/TitleHeading";
 
 const tormentaFont = localFont({
@@ -39,7 +40,7 @@ const loraFont = localFont({
 	display: "swap"
 });
 
-export const metadata = {
+const metadata = {
 	title: "Aventura Tormenta 20",
 	description: "Website para ajudar na nossa campanha!"
 };
@@ -53,7 +54,9 @@ export default function RootLayout({ children }) {
 			<body suppressHydrationWarning={true}>
 				<main className="center-align">
 					<TitleHeading>A ameaça purista</TitleHeading>
-					<AuthContextProvider>{children}</AuthContextProvider>
+					<FirebaseProviderWrapper>
+						{children}
+					</FirebaseProviderWrapper>
 				</main>
 			</body>
 		</html>

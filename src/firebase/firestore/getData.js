@@ -1,7 +1,6 @@
-import { database } from "../config";
 import { doc, getDoc, getDocs, collection, onSnapshot } from "firebase/firestore";
 
-export async function getDocument(collection, id) {
+export async function getDocument(database, collection, id) {
     let docRef = doc(database, collection, id);
 
     let result = null;
@@ -16,7 +15,7 @@ export async function getDocument(collection, id) {
     return { result, error };
 }
 
-export async function getCollection(colName) {
+export async function getCollection(database, colName) {
     let result = null;
     let error = null;
 
@@ -29,14 +28,14 @@ export async function getCollection(colName) {
     return { result, error };
 }
 
-export async function getCollectionOnSnapshot (colName, callback) {
+export async function getCollectionOnSnapshot (database, colName, callback) {
     
     const {unsubscribe, error} = onSnapshot(collection(database, colName), callback);
 
     return { unsubscribe , error };
 }
 
-export async function getDocOnSnapshot (colName, id, callback) {
+export async function getDocOnSnapshot (database, colName, id, callback) {
     
     let docRef = doc(database, colName, id);
     const {unsubscribe, error} = onSnapshot(docRef, callback);

@@ -1,5 +1,4 @@
-import { initializeApp, getApps } from "firebase/app"
-import { getFirestore } from 'firebase/firestore'
+import { FirebaseAppProvider } from 'reactfire';
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,8 +10,10 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 }
 
-// Initialize Firebase
-let firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
-
-export const database = getFirestore(firebase_app);
-export default firebase_app
+export default function FirebaseProviderWrapper({ children }) {
+    return (
+        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+            {children}
+        </FirebaseAppProvider>
+    );
+}
