@@ -18,7 +18,7 @@ const useDataStore = create(
 	persist(
 		(set, get) => ({
 			charNames: [],
-			charData: [],
+			charData: {},
 			currentChar: null,
 			error: "",
 
@@ -28,11 +28,14 @@ const useDataStore = create(
 					const result = await getDocs(colRef);
 					const list = result?.docs.map((doc) => doc.id);
 					// FIXME: agora que o usuário vai ser a base, esse list tem que mudar.
-					const obj = result?.docs.map((doc) => doc.data());
+					const charObj = {};
+					result?.docs.forEach((doc) => {
+						charObj[doc.id] = doc.data();
+					});
 					console.log("getcharactercollection run");
 					set((state) => ({
 						...state,
-						charData: [...obj],
+						charData: charObj,
 						charNames: list,
 						error: ""
 					}));

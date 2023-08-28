@@ -17,11 +17,7 @@ function Page() {
 		await login(data.email, data.password);
 	};
 
-	useEffect(() => {
-		if (isLoggedIn) {
-			router.push("/aventura");
-		}
-	}, [isLoggedIn]);
+	isLoggedIn && router.push("/aventura");
 
 	useEffect(() => {
 		getCharacterCollection();

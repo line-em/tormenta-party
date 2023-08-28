@@ -52,7 +52,7 @@ const CharacterList = () => {
 		// FIXME: ask fro the username/player name, and use that as reference instead of charname.
 		<section className="grid big no-shadow">
 			{charList.map((character) => (
-				<section className="row">
+				<section key={character} className="row">
 					<CircleAndTextButton
 						href={`/ficha/${character}/geral`}
 						asLink

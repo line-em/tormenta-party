@@ -11,7 +11,7 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 	let currentChar;
 
 	if (charData) {
-		currentChar = charData.find((char) => char.charName === decodedCharName);
+		currentChar = charData[decodedCharName]
 		console.log(currentChar);
 	} else {
 		alert("Character not found.");
