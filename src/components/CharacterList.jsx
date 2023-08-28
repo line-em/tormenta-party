@@ -55,8 +55,10 @@ const CharacterList = () => {
 				<section className="row">
 					<CircleAndTextButton
 						href={`/ficha/${character}/geral`}
-						asLink
 						icon={<DefaultUser width={25} height={25} />}
+						asLink
+						hasImage
+						imgType="layla"
 					>
 						{character}
 					</CircleAndTextButton>

@@ -7,11 +7,12 @@ import ProfileImage from "../ProfileImage";
 import StatusBar from "./StatusBar";
 
 const Geral = ({ data }) => {
+	console.log({ geral: data });
 	return (
 		<>
 			<section className={`no-shadow no-padding grid auto-grid`}>
 				<section className={`no-shadow no-padding`}>
-					<ProfileImage />
+					<ProfileImage hasImage={true} />
 					<section
 						className={`no-shadow no-padding grid`}
 						style={{ width: "90%" }}
@@ -22,7 +23,7 @@ const Geral = ({ data }) => {
 				</section>
 				<BasicInfo data={data} />
 			</section>
-			<Attributes data={data}/>
+			<Attributes data={data} />
 
 			<section className="grid no-shadow no-padding">
 				<Armor />
