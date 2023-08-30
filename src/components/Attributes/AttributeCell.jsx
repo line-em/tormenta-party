@@ -37,7 +37,7 @@ export default function AttributeCell({
 					className="big"
 					onChange={handleValueChange}
 					pattern="[0-9]{2}"
-					maxlength="4"
+					maxLength="4"
 					// onKeyDown={(e) => isNumberKey(e)}
 				/>
 				{/* <p>{attributeValue}</p> */}

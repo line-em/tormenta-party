@@ -2,7 +2,13 @@
 import "@/styles/accordion.css";
 import { useState } from "react";
 
-const Accordion = ({ header, content, open = false, absolute = false }) => {
+const Accordion = ({
+	header,
+	content,
+	open = false,
+	absolute = false,
+	prefersClick = false
+}) => {
 	const [isOpen, setIsOpen] = useState(open);
 
 	const handleMouseOver = () => {

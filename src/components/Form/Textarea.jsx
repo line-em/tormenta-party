@@ -13,9 +13,7 @@ const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData, cols = 3
 				disabled={disabled}
 				rows={11}
 				cols={cols}
-				{...register(id, {
-					value: initialData || ""
-				})}
+				{...register(id)}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}

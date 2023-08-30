@@ -10,9 +10,7 @@ const SelectInput = ({ rowCss, inputCss, id, label, disabled, initialData, optio
 				className={`${inputCss} floating-select`}
 				placeholder=" "
 				disabled={disabled}
-				{...register(id, {
-					value: options.find((option) => option === initialData) || options[0]
-				})}
+				{...register(id)}
 			>
 				{options.map((value) => (
 					<option key={value} value={value}>

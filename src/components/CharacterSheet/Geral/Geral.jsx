@@ -7,7 +7,6 @@ import ProfileImage from "../ProfileImage";
 import StatusBar from "./StatusBar";
 
 const Geral = ({ data }) => {
-	console.log({ geral: data });
 	return (
 		<>
 			<section className={`no-shadow no-padding grid auto-grid`}>

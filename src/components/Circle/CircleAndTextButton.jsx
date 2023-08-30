@@ -8,18 +8,15 @@ const CircleAndTextButton = ({
 	children,
 	hasImage,
 	asLink = false,
-	href = "#"
+	href = "#",
+	...props
 }) => {
 	// FIXME: Use proper images
 	if (asLink) {
 		return (
-			<Link href={href} className="link-button headless">
+			<Link href={href} className="link-button headless" {...props}>
 				<Circle hasImage>
-					{hasImage ? (
-						<ImageCircle type={children} width={200} height={200} />
-					) : (
-						icon
-					)}
+					{hasImage ? <ImageCircle type={children} /> : icon}
 				</Circle>
 				<h3>{children}</h3>
 			</Link>

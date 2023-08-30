@@ -6,9 +6,12 @@ import { useState } from "react";
 import { getPercent, updateStatus } from "@/app/utils";
 import ModifierButton from "@/components/ModifierButton.tsx";
 import { useFormContext } from "react-hook-form";
+import useDataStore from "@/store/useDataStore";
 
 const StatusBar = ({ type, data }) => {
+	const { charData } = useDataStore();
 	const { setValue } = useFormContext();
+	// console.log({ status: charData });
 	const [category, setCategory] = useState("current");
 	const [status, setStatus] = useState({
 		PV: { total: 20, current: 19 },

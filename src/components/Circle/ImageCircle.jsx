@@ -4,13 +4,13 @@ import krom from "@/assets/profile/Small_Kroc2.webp";
 import kieran from "@/assets/profile/Small_kieran.webp";
 import aimon from "@/assets/profile/Small_aimon.webp";
 
-const ImageCircle = ({ type, text = "Character Image", width = 100, height = 100 }) => {
+const ImageCircle = ({ type, text = "Character Image", width = 200, height = 200 }) => {
 	const getImage = () => {
 		switch (type) {
 			case "Test new char":
-				return layla;
-			case "Layla Mahila":
 				return krom;
+			case "Layla Mahila":
+				return layla;
 			case "Test":
 				return kieran;
 			case "Howking Khan":

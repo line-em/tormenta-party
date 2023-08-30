@@ -1,11 +1,9 @@
 import styles from "./Circle.module.css";
 
-const Circle = ({ children, css, hasImage, ...props }) => {
+const Circle = ({ children, hasImage, ...props }) => {
 	return (
 		<div
-			className={`${styles.addCircle} ${css && css} ${
-				hasImage ? styles.imgWrapper : ""
-			}`}
+			className={`${styles.addCircle} ${hasImage ? styles.imgWrapper : ""}`}
 			style={{ ...props }}
 		>
 			{children}

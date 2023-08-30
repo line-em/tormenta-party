@@ -1,32 +1,42 @@
 "use client";
-import { useForm, FormProvider } from "react-hook-form";
+import { useEffect, useState } from "react";
+import React from "react";
 import { addData } from "@/firebase/firestore/addData";
 import { useParams } from "next/navigation";
 import useDataStore from "@/store/useDataStore";
+import { useForm, FormProvider } from "react-hook-form";
 
 const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) => {
-	const { charData } = useDataStore();
 	const params = useParams();
 	const decodedCharName = decodeURIComponent(params.name);
-	let currentChar;
-
-	if (charData) {
-		currentChar = charData.find((char) => char.charName === decodedCharName);
-		console.log(currentChar);
-	} else {
-		alert("Character not found.");
-	}
-
+	const { getCharacterByName, currentChar } = useDataStore();
 	const methods = useForm({
 		mode: "onSubmit",
 		resetOptions: {
 			keepDirtyValues: true
 		},
 		shouldUnregister: true,
-		defaultValues: {
-			currentChar
-		}
+		defaultValues: currentChar
 	});
+
+	useEffect(() => {
+		console.log(decodedCharName);
+		getCharacterByName(decodedCharName);
+	}, [decodedCharName, getCharacterByName]);
+
+	useEffect(() => {
+		methods.reset(currentChar);
+	}, [currentChar]);
+
+	// useEffect(() => {
+	// 	console.log(decodedCharName);
+	// 	getCharacterByName(decodedCharName);
+	// 	methods.reset(currentChar);
+	// }, [decodedCharName]);
+
+	const watchAllFields = methods.watch();
+	console.log({ watch: watchAllFields });
+
 	const handleChanges = async (data) => {
 		console.log("click");
 		try {
@@ -49,9 +59,6 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 			}
 		}
 	};
-
-	const watchAllFields = methods.watch();
-	console.log({ watchForm: watchAllFields });
 
 	return (
 		<FormProvider {...methods}>

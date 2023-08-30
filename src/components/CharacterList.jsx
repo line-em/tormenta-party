@@ -1,45 +1,35 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-
-// import { getCollection } from "@/firebase/firestore/getData";
 import { addData } from "@/firebase/firestore/addData";
-// import { useAuthContext } from "@/context/AuthContext";
-
-import useDataStore from "@/store/useDataStore";
-import useAuth from "@/store/useAuth";
-
+import { useAuthContext } from "@/context/AuthContext";
 import Plus from "@/assets/svgs/Plus";
-
 import CircleAndTextButton from "./Circle/CircleAndTextButton";
-import Loading from "@/app/loading";
 import DefaultUser from "@/assets/svgs/DefaultUser";
+import useDataStore from "@/store/useDataStore";
+import { usePathname } from "next/navigation";
 
 const CharacterList = () => {
-	const [charList, setCharList] = useState([]);
-	const { uid } = useAuth();
-	const { charNames } = useDataStore();
-
-	useEffect(() => {
-		setCharList(charNames);
-	}, [charNames]);
+	// const [charList, setCharList] = useState([]);
+	const { user } = useAuthContext();
+	const { charNames, currentChar } = useDataStore();
+	const page = usePathname();
 
 	const newCharacter = async () => {
-		let newUser = prompt("Digite seu usuário: ");
-		let newCharName = prompt("Digite o nome do seu personagem: ");
+		let newCharName = prompt("Nome do seu personagem: ");
 
 		if (charList?.includes(newCharName)) {
 			alert("Usuário já existe!");
 			return;
 		}
 
-		if (!newUser || !newCharName) {
+		if (!newCharName) {
 			alert("Preencha todos os campos!");
 			return;
 		}
 
-		const { error } = await addData("characters", newUser, {
-			user: newUser,
+		const { error } = await addData("characters", newCharName, {
+			user_uid: user.uid,
 			charName: newCharName,
 			createdAt: new Date()
 		});
@@ -47,24 +37,36 @@ const CharacterList = () => {
 		window.location.reload();
 	};
 
+	const getTargetPage = (character) => {
+		const pathParts = page.split("/");
+		if (pathParts.includes("magic")) return `/ficha/${character}/geral`;
+		if (pathParts.includes("attacks")) return `/ficha/${character}/attacks`;
+		if (pathParts.includes("itens")) return `/ficha/${character}/itens`;
+		if (pathParts.includes("skills")) return `/ficha/${character}/skills`;
+		if (pathParts.includes("notes")) return `/ficha/${character}/notes`;
+		if (pathParts.includes("powers")) return `/ficha/${character}/powers`;
+		else return `/ficha/${character}/geral`;
+	};
+
 	return (
-		// FIXME: Put this on the page component for clarity
 		// FIXME: ask fro the username/player name, and use that as reference instead of charname.
 		<section className="grid big no-shadow">
-			{charList.map((character) => (
+			{charNames.map((character) => (
 				<section className="row">
 					<CircleAndTextButton
-						href={`/ficha/${character}/geral`}
+						href={getTargetPage(character)}
 						icon={<DefaultUser width={25} height={25} />}
 						asLink
 						hasImage
-						imgType="layla"
+						style={{
+							opacity: currentChar?.charName === character ? 0.5 : 1
+						}}
 					>
 						{character}
 					</CircleAndTextButton>
 				</section>
 			))}
-			{charList.length < 5 && (
+			{charNames.length < 4 && (
 				<section className="row">
 					<CircleAndTextButton
 						func={() => newCharacter()}
