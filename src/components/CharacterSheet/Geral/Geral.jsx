@@ -1,3 +1,4 @@
+"use client";
 import Attributes from "@/components/Attributes/Attributes";
 import BasicInfo from "./BasicInfo";
 import SmallNotes from "./SmallNotes";
@@ -10,7 +11,7 @@ const Geral = ({ data }) => {
 		<>
 			<section className={`no-shadow no-padding grid auto-grid`}>
 				<section className={`no-shadow no-padding`}>
-					<ProfileImage />
+					<ProfileImage hasImage={true} />
 					<section
 						className={`no-shadow no-padding grid`}
 						style={{ width: "90%" }}
@@ -21,7 +22,7 @@ const Geral = ({ data }) => {
 				</section>
 				<BasicInfo data={data} />
 			</section>
-			<Attributes data={data}/>
+			<Attributes data={data} />
 
 			<section className="grid no-shadow no-padding">
 				<Armor />

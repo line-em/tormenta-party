@@ -11,7 +11,7 @@
 .accordion-content {
 	overflow: hidden;
 	max-height: 1000px;
-	transition: max-height 1s ease-in-out;
+	transition: max-height 500ms ease-in-out;
 	margin-block-start: var(--spacing-xs);
 	z-index: 99;
 }
@@ -26,5 +26,5 @@
 .accordion-content[aria-expanded="false"] {
 	max-height: 0px;
 	padding: 0px;
-	transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+	transition: max-height 250ms ease-in-out, padding 0.5s ease-in-out;
 }

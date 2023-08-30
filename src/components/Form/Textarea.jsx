@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
-const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData, cols = 45 }) => {
+const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData, cols = 37 }) => {
 	const { register } = useFormContext();
 
 	return (
@@ -13,9 +13,7 @@ const Textarea = ({ rowCss, inputCss, id, label, disabled, initialData, cols = 4
 				disabled={disabled}
 				rows={11}
 				cols={cols}
-				{...register(id, {
-					value: initialData || ""
-				})}
+				{...register(id)}
 			/>
 			<label htmlFor={id} className={`${inputCss} floating-text`}>
 				{label}

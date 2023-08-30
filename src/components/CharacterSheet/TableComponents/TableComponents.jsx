@@ -47,9 +47,10 @@ export const RemovableRow = ({ styles, data, removeFunc }) => {
 	);
 };
 
-export const AddRow = ({ styles, func, children }) => {
+export const AddRow = ({ styles, func, children, prefersClick = true }) => {
 	return (
 		<Accordion
+			prefersClick={prefersClick}
 			header={
 				<button className={`center extra-mt smaller-padding`}>
 					Adicionar <Plus />

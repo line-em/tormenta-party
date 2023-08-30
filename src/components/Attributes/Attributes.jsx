@@ -2,7 +2,7 @@ import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
 import { useFormContext } from "react-hook-form";
 
-export default function Attributes({ data, isLocked }) {
+export default function Attributes({ data }) {
 	const baseAttributes = {
 		FOR: { value: 10, modifier: 0 },
 		DES: { value: 10, modifier: 0 },
@@ -19,23 +19,21 @@ export default function Attributes({ data, isLocked }) {
 
 	const attributes = getValues("attributes") || sortedDatabaseResult || baseAttributes;
 
-	const updateAttribute = (attribute, newValue, newModifier) => {
+	const updateAttribute = (attribute, newValue) => {
 		setValue("attributes", {
 			...attributes,
-			[attribute]: { value: newValue, modifier: newModifier }
+			[attribute]: newValue
 		});
 	};
 
 	return (
 		<div className={styles.attrGrid}>
 			<ul>
-				{Object.entries(attributes).map(([attribute, { value, modifier }]) => (
+				{Object.entries(attributes).map(([attribute, { value }]) => (
 					<AttributeCell
 						key={attribute}
 						attribute={attribute}
-						isLocked={isLocked}
 						attributeValue={value}
-						attributeModifier={modifier}
 						updateAttribute={updateAttribute}
 					/>
 				))}

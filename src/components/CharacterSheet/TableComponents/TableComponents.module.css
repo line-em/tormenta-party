@@ -22,10 +22,6 @@
 	margin-block: var(--spacing-xs);
 }
 
-/* .marginNull {
-	margin-block: 0;
-} */
-
 .center {
 	align-items: center;
 }
@@ -36,14 +32,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* font-size: var(--medium); */
+	align-self: start;
 	font-size: inherit;
+}
+
+.addGrid button {
+	align-self: stretch;
 }
 
 ul.attackGrid,
 ul.itemGrid {
 	padding-inline: var(--spacing-s);
-	margin-block: var(--spacing-xs);
+	margin-block: var(--spacing-xxs);
 	border-bottom: transparent;
 }
 
@@ -77,6 +77,7 @@ ul.itemGrid strong {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	padding-block-end: var(--spacing-s);
 }
 
 section.smallGap {

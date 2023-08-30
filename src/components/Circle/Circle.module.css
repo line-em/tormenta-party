@@ -2,25 +2,55 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	border-radius: 50%;
 	background-color: var(--golden-dark);
 	transition: var(--transition);
 	aspect-ratio: 1/1;
 	cursor: pointer;
+	overflow: hidden;
 }
 
-section > .addCircle {
+.addCircle:not(.imgWrapper) {
+	width: 40px;
+	height: 40px;
+}
+
+.imgWrapper {
+	object-fit: cover;
+	overflow: hidden;
+	cursor: default;
+}
+
+.imgWrapper img {
+	object-fit: cover;
+}
+
+a > .imgWrapper img {
+	width: 150%;
+	height: 150%;
+	border: 1px solid var(--golden-dark);
+}
+
+section > .imgWrapper {
+	width: 200px;
+	height: auto;
+	box-shadow: var(--shadow);
+	border: 3px solid var(--golden-dark);
+}
+
+/* section > .addCircle {
 	width: 9vw;
 	height: auto;
-}
+} */
 
 .addCircle:hover,
 button:hover > .addCircle {
 	background-color: var(--warm-grey);
 }
-@media screen and (max-width: 1100px) {
+
+/* @media screen and (max-width: 1100px) {
 	.addCircle {
 		display: none;
 	}
@@ -28,4 +58,4 @@ button:hover > .addCircle {
 	section > .addCircle {
 		display: flex;
 	}
-}
+} */

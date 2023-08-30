@@ -11,18 +11,17 @@ const Input = ({
 	type = "text"
 }) => {
 	const { register } = useFormContext();
-
 	return (
-		<div className={`${rowCss} floating-label`}>
+		<div className={`${rowCss && rowCss} floating-label`}>
 			<input
 				type={type}
 				id={id}
-				className={`${inputCss} floating-input`}
+				className={`${inputCss && inputCss} floating-input`}
 				placeholder=" "
 				disabled={disabled}
-				{...register(id, { value: initialData || "" })}
+				{...register(id)}
 			/>
-			<label htmlFor={id} className={`${inputCss} floating-text`}>
+			<label htmlFor={id} className={`${inputCss && inputCss} floating-text`}>
 				{label}
 			</label>
 		</div>

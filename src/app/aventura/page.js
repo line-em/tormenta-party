@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
 	return (
-		<section>
+		<section className="align-start">
 			<SectionHeading icon={"sword"}>Aventureiros</SectionHeading>
 			<CharacterList />
 			{/* <Link href="/ficha/anisha">xx</Link> */}

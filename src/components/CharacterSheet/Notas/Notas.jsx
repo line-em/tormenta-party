@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 import Textarea from "@/components/Form/Textarea";
-import { useForm } from "react-hook-form";
 import Actions from "@/assets/svgs/Actions";
 
 const Notas = ({ data }) => {

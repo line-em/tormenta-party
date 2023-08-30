@@ -1,27 +1,48 @@
-import { useForm, FormProvider } from "react-hook-form";
-import Footer from "./Footer";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { FormSchema } from "./schema";
+"use client";
+import { useEffect, useState } from "react";
+import React from "react";
 import { addData } from "@/firebase/firestore/addData";
-import { useAuthContext } from "@/context/AuthContext";
+import { useParams } from "next/navigation";
+import useDataStore from "@/store/useDataStore";
+import { useForm, FormProvider } from "react-hook-form";
 
-const Form = ({ children }) => {
-	const { user } = useAuthContext();
+const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) => {
+	const params = useParams();
+	const decodedCharName = decodeURIComponent(params.name);
+	const { getCharacterByName, currentChar } = useDataStore();
 	const methods = useForm({
 		mode: "onSubmit",
-		resolver: yupResolver(FormSchema),
 		resetOptions: {
 			keepDirtyValues: true
 		},
-		shouldUnregister: true
+		shouldUnregister: true,
+		defaultValues: currentChar
 	});
+
+	useEffect(() => {
+		console.log(decodedCharName);
+		getCharacterByName(decodedCharName);
+	}, [decodedCharName, getCharacterByName]);
+
+	useEffect(() => {
+		methods.reset(currentChar);
+	}, [currentChar]);
+
+	// useEffect(() => {
+	// 	console.log(decodedCharName);
+	// 	getCharacterByName(decodedCharName);
+	// 	methods.reset(currentChar);
+	// }, [decodedCharName]);
+
+	const watchAllFields = methods.watch();
+	console.log({ watch: watchAllFields });
+
 	const handleChanges = async (data) => {
 		console.log("click");
 		try {
-			await FormSchema.validate(data, { abortEarly: false });
 			console.log("Validation succeeded:", data);
 			const { error } = await addData("characters", data.charName, {
-				user_uid: user.uid,
+				uid: 123,
 				lastUpdate: new Date(),
 				...data
 			});
@@ -39,17 +60,16 @@ const Form = ({ children }) => {
 		}
 	};
 
-	const watchAllFields = methods.watch();
-	console.log(watchAllFields);
-
 	return (
 		<FormProvider {...methods}>
-			<form onSubmit={methods.handleSubmit(handleChanges)}>
+			<form
+				onSubmit={methods.handleSubmit(onSubmit ? onSubmit : handleChanges)}
+				{...props}
+			>
 				{children}
-				{/* {errors === true && <p>An error has been found.</p>} */}
-				<Footer />
-				{/* <button type="submit">Save</button> */}
-				{/* <input type="submit" /> */}
+				<footer>
+					<button type="submit">{buttonText}</button>
+				</footer>
 			</form>
 		</FormProvider>
 	);

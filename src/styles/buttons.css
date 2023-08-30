@@ -1,4 +1,5 @@
-button {
+button,
+.link-button {
 	padding: var(--spacing-xs) var(--spacing-s);
 	border: 1px transparent solid;
 	background-color: var(--red);
@@ -14,20 +15,24 @@ button {
 	align-items: center;
 }
 
-button.smaller-padding {
+button.smaller-padding,
+.link-button.smaller-padding {
 	padding: var(--spacing-xxs) var(--spacing-xs);
 }
 
-button:not(:disabled):hover {
+button:not(:disabled):hover,
+.link-button:hover {
 	background-color: var(--red-dark);
 	color: var(--golden-dark);
 }
 
-button:not(:disabled):active {
+button:not(:disabled):active,
+.link-button:active {
 	transform: translateY(2px);
 }
 
-button:disabled {
+button:disabled,
+.link-button.active {
 	cursor: default;
 }
 
@@ -50,7 +55,8 @@ button:disabled {
 	color: var(--red);
 }
 
-button.headless {
+button.headless,
+.link-button.headless {
 	padding: 0;
 	border: 1px transparent solid;
 	background-color: transparent;
@@ -58,7 +64,8 @@ button.headless {
 	align-items: center;
 }
 
-button.headless:not(:disabled):hover {
+button.headless:not(:disabled):hover,
+.link-button.headless:not(:disabled):hover {
 	color: var(--red);
 	background-color: transparent;
 }
