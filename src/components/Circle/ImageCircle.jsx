@@ -7,18 +7,18 @@ import aimon from "@/assets/profile/Small_aimon.webp";
 const ImageCircle = ({ type, text = "Character Image", width = 200, height = 200 }) => {
 	const getImage = () => {
 		switch (type) {
-			case "Test new char":
+			case "Khron Arkenath":
 				return krom;
 			case "Layla Mahila":
 				return layla;
-			case "Test":
+			case "Kieran Anfalen ":
 				return kieran;
-			case "Howking Khan":
+			case "Kieran Anfalen":
+				return kieran;
+			case "Aimon Fortuna":
 				return aimon;
 		}
 	};
-
-	// FIXME: Use proper types
 
 	return <Image src={getImage()} alt={text} width={width} height={height} />;
 };

@@ -11,14 +11,14 @@ import { usePathname } from "next/navigation";
 
 const CharacterList = () => {
 	// const [charList, setCharList] = useState([]);
-	const { user } = useAuthContext();
+	// const { user } = useAuthContext();
 	const { charNames, currentChar } = useDataStore();
 	const page = usePathname();
 
 	const newCharacter = async () => {
 		let newCharName = prompt("Nome do seu personagem: ");
 
-		if (charList?.includes(newCharName)) {
+		if (charNames?.includes(newCharName)) {
 			alert("Usuário já existe!");
 			return;
 		}
@@ -29,7 +29,6 @@ const CharacterList = () => {
 		}
 
 		const { error } = await addData("characters", newCharName, {
-			user_uid: user.uid,
 			charName: newCharName,
 			createdAt: new Date()
 		});
