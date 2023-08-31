@@ -67,14 +67,14 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 
 	return (
 		<FormProvider {...methods}>
-			<form {...props}>
+			<form onSubmit={methods.handleSubmit(
+						onSubmit ? onSubmit : handleChanges
+					)} {...props}>
+					
 				{children}
 				<footer>
 					<button
 						type="submit"
-						onSubmit={methods.handleSubmit(
-							onSubmit ? onSubmit : handleChanges
-						)}
 					>
 						{buttonText}
 					</button>
