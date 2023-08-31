@@ -43,7 +43,6 @@ const CharacterList = ({ menu = false }) => {
 	};
 
 	return (
-		// FIXME: ask fro the username/player name, and use that as reference instead of charname.
 		<section className={`grid big no-shadow ${menu && "place-center"}`}>
 			{charNames.map((character) => (
 				<section

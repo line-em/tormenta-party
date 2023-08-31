@@ -8,6 +8,7 @@ main.fichas {
 	border-inline: none;
 	background-color: transparent;
 	margin-block-start: var(--spacing-s);
+	position: relative;
 }
 
 nav.main-style {
@@ -15,11 +16,13 @@ nav.main-style {
 	border-inline: none;
 	background-color: transparent;
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	z-index: 1;
 	gap: var(--spacing-xs);
 	/* justify-content: space-evenly; */
 	top: -85px;
+	left: -20px;
+	backdrop-filter: blur(0px);
 }
 
 nav.main-style section.grid:not(.place-center) {

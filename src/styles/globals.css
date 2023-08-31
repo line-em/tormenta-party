@@ -12,7 +12,7 @@
 	--black: hsla(0, 0%, 11%, 0.9);
 	--black-alpha: hsla(0, 0%, 11%, 0.5);
 	--white: hsl(60, 3%, 94%);
-	--white-alpha: hsla(60, 3%, 94%, 0.8);
+	--white-alpha: hsla(60, 3%, 94%, 0.82);
 	--white-alpha-50: hsla(60, 3%, 94%, 0.5);
 	--bg-image: url(../assets/bgTormenta2.jpg);
 
@@ -225,10 +225,11 @@ select {
 	width: 100%;
 	border: 1px solid var(--warm-grey);
 	border-radius: var(--spacing-s);
+	background-color: var(--white);
 }
 
 select {
-	background-color: white;
+	background-color: var(--white);
 }
 
 input:not(:disabled):focus,

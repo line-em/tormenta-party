@@ -9,7 +9,7 @@
 	pointer-events: none;
 	left: var(--spacing-xs);
 	top: var(--spacing-s);
-	background: white;
+	background: var(--white);
 	transition: var(--transition);
 }
 
@@ -50,6 +50,6 @@
 .floating-input:disabled:not(:placeholder-shown) ~ .floating-text,
 .floating-select:disabled:not([value=""]):valid ~ .floating-text,
 .floating-select:disabled:not([value]) ~ .floating-text {
-	background: white;
+	background: var(--white);
 	color: var(--red);
 }
