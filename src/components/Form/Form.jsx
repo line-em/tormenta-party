@@ -28,12 +28,6 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 		methods.reset(currentChar);
 	}, [currentChar]);
 
-	// useEffect(() => {
-	// 	console.log(decodedCharName);
-	// 	getCharacterByName(decodedCharName);
-	// 	methods.reset(currentChar);
-	// }, [decodedCharName]);
-
 	const watchAllFields = methods.watch();
 	console.log({ watch: watchAllFields });
 
@@ -46,7 +40,7 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 		try {
 			e.preventDefault();
 			console.log("Validation succeeded:", data);
-			const { error } = await addData("characters", data.charName, {
+			const { error } = await addData("characters", currentChar.charName, {
 				uid: 123,
 				lastUpdate: new Date(),
 				...data
@@ -67,15 +61,10 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 
 	return (
 		<FormProvider {...methods}>
-			<form onSubmit={methods.handleSubmit(
-						onSubmit ? onSubmit : handleChanges
-					)} {...props}>
-					
+			<form onSubmit={methods.handleSubmit(onSubmit ? onSubmit : handleChanges)} {...props}>
 				{children}
 				<footer>
-					<button
-						type="submit"
-					>
+					<button type="submit" disabled={Object.keys(watchAllFields).length === 0}>
 						{buttonText}
 					</button>
 				</footer>

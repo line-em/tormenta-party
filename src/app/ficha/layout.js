@@ -1,7 +1,5 @@
 import "@/styles/sidebar-styles.css";
 import CharacterList from "@/components/CharacterList";
-import SectionHeading from "@/components/Headings/SectionHeading";
-import DiceRolls from "@/components/DiceRolls/DiceRolls";
 import Accordion from "@/components/Accordion";
 import Referencias from "@/components/Referencias";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
@@ -18,7 +16,6 @@ const Layout = ({ children }) => {
 							<span className="icon-overlay">
 								<DefaultUser width={25} height={25} />
 							</span>{" "}
-							{/* Aventureiros */}
 						</button>
 					}
 					content={<CharacterList menu />}
@@ -29,7 +26,6 @@ const Layout = ({ children }) => {
 					header={
 						<button className="smaller-padding secondary">
 							<MajesticonsScrollText width={25} height={25} />
-							{/* Recursos */}
 						</button>
 					}
 					content={<Referencias />}

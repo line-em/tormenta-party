@@ -8,7 +8,6 @@ const Input = ({
 	id,
 	label,
 	disabled,
-	initialData,
 	type = "text"
 }) => {
 	const { register } = useFormContext();

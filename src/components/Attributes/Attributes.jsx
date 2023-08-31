@@ -3,7 +3,7 @@ import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
 import { useFormContext } from "react-hook-form";
 
-export default function Attributes({ data }) {
+export default function Attributes() {
 	const baseAttributes = {
 		FOR: 0,
 		DES: 0,
@@ -15,11 +15,7 @@ export default function Attributes({ data }) {
 
 	const { setValue, getValues } = useFormContext();
 
-	let sortedDatabaseResult = data?.attributes
-		? sortObjectBasedOnObject(data.attributes, baseAttributes)
-		: null;
-
-	const attributes = getValues("attributes") || sortedDatabaseResult || baseAttributes;
+	const attributes = getValues("attributes") || baseAttributes;
 
 	const updateAttribute = (attribute, newValue) => {
 		setValue("attributes", {
@@ -30,7 +26,7 @@ export default function Attributes({ data }) {
 
 	return (
 		<ul className={styles.attrGrid}>
-			{Object.entries(attributes).map(([attribute, attributeValue]) => (
+			{Object.entries(sortObjectBasedOnObject(attributes, baseAttributes)).map(([attribute, attributeValue]) => (
 				<AttributeCell
 					key={attribute}
 					attribute={attribute}

@@ -4,7 +4,7 @@ import Armor from "./Armor";
 import ProfileImage from "./ProfileImage";
 import StatusBar from "./StatusBar";
 
-const Geral = ({ data }) => {
+const Geral = () => {
 	return (
 		<>
 			<section className={`no-shadow no-padding grid auto-grid`}>
@@ -18,7 +18,7 @@ const Geral = ({ data }) => {
 						<StatusBar type={"PM"} />
 					</section>
 				</section>
-				<BasicInfo data={data} />
+				<BasicInfo />
 			</section>
 
 			<section className="grid no-shadow no-padding">

@@ -1,7 +1,7 @@
 'use client';
 import { useFormContext } from "react-hook-form";
 
-const SelectInput = ({ rowCss, inputCss, id, label, disabled, initialData, options }) => {
+const SelectInput = ({ rowCss, inputCss, id, label, disabled, options }) => {
 	const { register } = useFormContext();
 
 	return (
