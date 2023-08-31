@@ -38,6 +38,10 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 	console.log({ watch: watchAllFields });
 
 	const handleChanges = async (data, e) => {
+		if (e) {
+			e.preventDefault && e.preventDefault();
+			e.persist && e.persist();
+		}
 		console.log("click");
 		try {
 			e.preventDefault();
