@@ -30,7 +30,11 @@ const Attacks = ({ data }) => {
 		unregister(fields);
 	};
 
-	const addAttack = () => {
+	const addAttack = (e) => {
+		if (e) {
+			e.preventDefault && e.preventDefault();
+			e.persist && e.persist();
+		}
 		const newAttack = {
 			ataque: getValues("new_ataque"),
 			bonus: getValues("new_bonus") === "" ? "—" : getValues("new_bonus"),
@@ -78,7 +82,7 @@ const Attacks = ({ data }) => {
 					removeFunc={() => removeAttack(index)}
 				/>
 			))}
-			<AddRow styles={styles.addGrid} func={addAttack}>
+			<AddRow styles={styles.addGrid} func={(e) => addAttack(e)}>
 				<Input id={"new_ataque"} label={"Ataques"} />
 				<Input id={"new_bonus"} label={"Bonus"} />
 				<Input id={"new_dano"} label={"Dano"} />
