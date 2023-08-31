@@ -2,7 +2,7 @@
 import BasicInfo from "./BasicInfo";
 import SmallNotes from "./SmallNotes";
 import Armor from "./Armor";
-import ProfileImage from "../ProfileImage";
+import ProfileImage from "./ProfileImage";
 import StatusBar from "./StatusBar";
 
 const Geral = ({ data }) => {

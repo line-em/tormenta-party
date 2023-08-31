@@ -31,7 +31,8 @@
 	--spacing-l: 35px;
 
 	--transition: 100ms ease-in-out;
-	--shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.2);
+	--shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.1);
+	--shadow-light: 0 3px var(--spacing-xs) rgba(0, 0, 0, 0.1);
 }
 
 ::selection {
@@ -64,6 +65,10 @@ h3 {
 a {
 	text-decoration: none;
 	color: var(--red);
+}
+
+body::backdrop {
+	background-color: var(--black);
 }
 
 body {

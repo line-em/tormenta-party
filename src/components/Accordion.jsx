@@ -19,9 +19,17 @@ const Accordion = ({
 		setIsOpen(false);
 	};
 
+	const handleAccordionClick = (event) => {
+		if (event.target.closest(".accordion-content")) {
+			event.stopPropagation();
+		} else {
+			setIsOpen(!isOpen);
+		}
+	};
+
 	if (prefersClick) {
 		return (
-			<div className="accordion" onClick={() => setIsOpen(!isOpen)}>
+			<div className="accordion" onClick={handleAccordionClick}>
 				{header}
 				<article
 					className={`accordion-content ${absolute ? "absolute" : ""}`}

@@ -47,6 +47,7 @@ button.secondary,
 	color: var(--red);
 	padding: var(--spacing-xxs) var(--spacing-xs);
 	position: relative;
+	box-shadow: var(--shadow-light);
 }
 
 button.secondary:not(:disabled):hover,
@@ -79,14 +80,17 @@ button.headless:not(:disabled):hover,
 	background-color: transparent;
 }
 
-button.fit {
+button.fit,
+.link-button.fit {
 	width: fit-content;
 }
 
-button.center {
+button.center,
+.link-button.center {
 	margin: 0 auto;
 }
 
-button.extra-mt {
+button.extra-mt,
+.link-button.extra-mt {
 	margin-block-start: var(--spacing-xs);
 }

@@ -14,7 +14,8 @@ const Notas = ({ data }) => {
 		]
 	);
 
-	const handleAddField = () => {
+	const handleAddField = (e) => {
+		e.preventDefault();
 		const newFieldLabel = prompt("Título da Nota: ");
 		if (!newFieldLabel) {
 			return;
@@ -35,18 +36,9 @@ const Notas = ({ data }) => {
 		setFields((prevFields) => prevFields.filter((field) => field.id !== id));
 	};
 
-	// const onSubmit = () => {
-	// 	const values = getValues();
-	// 	const updatedFields = fields.map((field) => ({
-	// 		...field,
-	// 		content: values[field.id]
-	// 	}));
-	// 	console.log(updatedFields);
-	// };
-
 	return (
 		<>
-			<button className="fit center secondary" onClick={handleAddField}>
+			<button className="fit center secondary" onClick={(e) => handleAddField(e)}>
 				Adicionar Notas <Actions />
 			</button>
 			<section className="no-padding no-shadow grid place-center">

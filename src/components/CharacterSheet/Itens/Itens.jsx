@@ -24,7 +24,12 @@ const Itens = ({ data }) => {
 		unregister(fields);
 	};
 
-	const addItem = () => {
+	const addItem = (e) => {
+		console.log("add item");
+		if (e) {
+			e.preventDefault && e.preventDefault();
+			e.persist && e.persist();
+		}
 		const newItem = {
 			item: getValues("new_item"),
 			espaco: getValues("new_space") === "" ? "—" : getValues("new_space"),
@@ -100,7 +105,10 @@ const Itens = ({ data }) => {
 					/>
 				))}
 			</section>
-			<AddRow styles={`${styles.itemGrid} + ${styles.addGrid}`} func={addItem}>
+			<AddRow
+				styles={`${styles.itemGrid} + ${styles.addGrid}`}
+				func={(e) => addItem(e)}
+			>
 				<Input id={"new_item"} label={"Item"} />
 				<Input id={"new_space"} label={"Slot"} />
 				<Input id={"new_qntd"} label={"Qntd"} />
