@@ -4,7 +4,7 @@ import krom from "@/assets/profile/Small_Kroc2.webp";
 import kieran from "@/assets/profile/Small_kieran.webp";
 import aimon from "@/assets/profile/Small_aimon.webp";
 
-const ImageCircle = ({ type, text = "Character Image", width = 200, height = 200 }) => {
+const ImageCircle = ({ type, text = "Character Image", width = 250, height = 250 }) => {
 	const getImage = () => {
 		switch (type) {
 			case "Khron Arkenath":

@@ -21,13 +21,18 @@ button.smaller-padding,
 }
 
 button:not(:disabled):hover,
-.link-button:hover {
+.link-button:not(:disabled):hover {
 	background-color: var(--red-dark);
 	color: var(--golden-dark);
 }
 
+.link-button[aria-disabled="true"]:hover {
+	background-color: var(--red);
+	color: var(--golden);
+}
+
 button:not(:disabled):active,
-.link-button:active {
+.link-button:not(:disabled):active {
 	transform: translateY(2px);
 }
 
@@ -36,20 +41,25 @@ button:disabled,
 	cursor: default;
 }
 
-button.secondary {
+button.secondary,
+.link-button.secondary {
 	background-color: var(--warm-grey-light);
 	color: var(--red);
 	padding: var(--spacing-xxs) var(--spacing-xs);
 	position: relative;
+	box-shadow: var(--shadow-light);
 }
 
-button.secondary:not(:disabled):hover {
+button.secondary:not(:disabled):hover,
+.link-button.secondary:not(:disabled):hover {
 	background-color: var(--warm-grey);
 	color: var(--black);
 }
 
 button.secondary:disabled,
-button:disabled {
+button:disabled,
+.link-button.secondary:disabled,
+.link-button:disabled {
 	background-color: var(--warm-grey-light);
 	border: 1px solid var(--red);
 	color: var(--red);
@@ -70,14 +80,17 @@ button.headless:not(:disabled):hover,
 	background-color: transparent;
 }
 
-button.fit {
+button.fit,
+.link-button.fit {
 	width: fit-content;
 }
 
-button.center {
+button.center,
+.link-button.center {
 	margin: 0 auto;
 }
 
-button.extra-mt {
+button.extra-mt,
+.link-button.extra-mt {
 	margin-block-start: var(--spacing-xs);
 }

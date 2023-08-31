@@ -11,7 +11,7 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 	const decodedCharName = decodeURIComponent(params.name);
 	const { getCharacterByName, currentChar } = useDataStore();
 	const methods = useForm({
-		mode: "onSubmit",
+		mode: "onChange",
 		resetOptions: {
 			keepDirtyValues: true
 		},
@@ -37,9 +37,10 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 	const watchAllFields = methods.watch();
 	console.log({ watch: watchAllFields });
 
-	const handleChanges = async (data) => {
+	const handleChanges = async (data, e) => {
 		console.log("click");
 		try {
+			e.preventDefault();
 			console.log("Validation succeeded:", data);
 			const { error } = await addData("characters", data.charName, {
 				uid: 123,
@@ -62,13 +63,17 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 
 	return (
 		<FormProvider {...methods}>
-			<form
-				onSubmit={methods.handleSubmit(onSubmit ? onSubmit : handleChanges)}
-				{...props}
-			>
+			<form {...props}>
 				{children}
 				<footer>
-					<button type="submit">{buttonText}</button>
+					<button
+						type="submit"
+						onSubmit={methods.handleSubmit(
+							onSubmit ? onSubmit : handleChanges
+						)}
+					>
+						{buttonText}
+					</button>
 				</footer>
 			</form>
 		</FormProvider>

@@ -3,6 +3,7 @@ import styles from "./BasicInfo.module.css";
 import SelectInput from "@/components/Form/SelectInput";
 import { todasOrigens } from "@/data/origens";
 import { todasLinhagens } from "@/data/linhagens";
+import Attributes from "@/components/Attributes/Attributes";
 
 const BasicInfo = ({ data }) => {
 	return (
@@ -27,7 +28,7 @@ const BasicInfo = ({ data }) => {
 				rowCss={styles.span2}
 				label={"Raça"}
 				initialData={data?.raca}
-				inputCss="big"
+				// inputCss="big"
 				options={todasLinhagens}
 			/>
 			<Input
@@ -35,7 +36,7 @@ const BasicInfo = ({ data }) => {
 				id={"classe"}
 				initialData={data?.classes}
 				label={"Classe"}
-				inputCss="big"
+				// inputCss="big"
 			/>
 			<SelectInput
 				rowCss={styles.span2}
@@ -56,6 +57,7 @@ const BasicInfo = ({ data }) => {
 				initialData={data?.divindade}
 				label={"Desloc."}
 			/>
+			<Attributes />
 		</article>
 	);
 };

@@ -14,3 +14,18 @@
 .span2 {
 	grid-column: span 2;
 }
+
+@media screen and (max-width: 1000px) {
+	.basic {
+		grid-template-columns: repeat(4, 1fr);
+		gap: var(--spacing-m) var(--spacing-xs);
+		grid-auto-flow: dense;
+	}
+	.span3 {
+		grid-column: span 3;
+	}
+
+	.span2 {
+		grid-column: span 1;
+	}
+}

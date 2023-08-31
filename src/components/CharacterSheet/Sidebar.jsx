@@ -24,8 +24,9 @@ const Sidebar = () => {
 					className={
 						pathname === tab.id
 							? "link-button smaller-padding active"
-							: "link-button smaller-padding"
+							: "link-button smaller-padding secondary"
 					}
+					aria-disabled={pathname === tab.id}
 				>
 					{tab.label}
 				</Link>

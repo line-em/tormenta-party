@@ -7,7 +7,7 @@
 	border-radius: 50%;
 	background-color: var(--golden-dark);
 	transition: var(--transition);
-	aspect-ratio: 1/1;
+	/* aspect-ratio: 1/1; */
 	cursor: pointer;
 	overflow: hidden;
 }
@@ -25,25 +25,29 @@
 
 .imgWrapper img {
 	object-fit: cover;
+	width: auto;
+	height: auto;
 }
 
 a > .imgWrapper img {
-	width: 150%;
-	height: 150%;
-	border: 1px solid var(--golden-dark);
+	width: 100%;
+	height: 100%;
+	border-radius: var(--spacing-s);
 }
 
 section > .imgWrapper {
-	width: 200px;
+	width: 237px;
+	border-radius: var(--spacing-s);
 	height: auto;
 	box-shadow: var(--shadow);
-	border: 3px solid var(--golden-dark);
+	border: 3px solid var(--white);
 }
 
-/* section > .addCircle {
-	width: 9vw;
-	height: auto;
-} */
+@media screen and (max-width: 1000px) {
+	section > .imgWrapper {
+		width: 190px;
+	}
+}
 
 .addCircle:hover,
 button:hover > .addCircle {

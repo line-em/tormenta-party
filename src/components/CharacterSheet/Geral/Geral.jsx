@@ -1,9 +1,8 @@
 "use client";
-import Attributes from "@/components/Attributes/Attributes";
 import BasicInfo from "./BasicInfo";
 import SmallNotes from "./SmallNotes";
 import Armor from "./Armor";
-import ProfileImage from "../ProfileImage";
+import ProfileImage from "./ProfileImage";
 import StatusBar from "./StatusBar";
 
 const Geral = ({ data }) => {
@@ -13,8 +12,8 @@ const Geral = ({ data }) => {
 				<section className={`no-shadow no-padding`}>
 					<ProfileImage hasImage={true} />
 					<section
-						className={`no-shadow no-padding grid`}
-						style={{ width: "90%" }}
+						className={`no-shadow no-padding grid will-wrap`}
+						style={{ width: "88%" }}
 					>
 						<StatusBar type={"PV"} />
 						<StatusBar type={"PM"} />
@@ -22,7 +21,6 @@ const Geral = ({ data }) => {
 				</section>
 				<BasicInfo data={data} />
 			</section>
-			<Attributes data={data} />
 
 			<section className="grid no-shadow no-padding">
 				<Armor />

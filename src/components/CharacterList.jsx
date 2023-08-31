@@ -9,25 +9,20 @@ import DefaultUser from "@/assets/svgs/DefaultUser";
 import useDataStore from "@/store/useDataStore";
 import { usePathname } from "next/navigation";
 
-const CharacterList = () => {
-	// const [charList, setCharList] = useState([]);
-	// const { user } = useAuthContext();
+const CharacterList = ({ menu = false }) => {
 	const { charNames, currentChar } = useDataStore();
 	const page = usePathname();
 
 	const newCharacter = async () => {
 		let newCharName = prompt("Nome do seu personagem: ");
-
 		if (charNames?.includes(newCharName)) {
 			alert("Usuário já existe!");
 			return;
 		}
-
 		if (!newCharName) {
 			alert("Preencha todos os campos!");
 			return;
 		}
-
 		const { error } = await addData("characters", newCharName, {
 			charName: newCharName,
 			createdAt: new Date()
@@ -48,10 +43,12 @@ const CharacterList = () => {
 	};
 
 	return (
-		// FIXME: ask fro the username/player name, and use that as reference instead of charname.
-		<section className="grid big no-shadow">
+		<section className={`grid big no-shadow ${menu && "place-center"}`}>
 			{charNames.map((character) => (
-				<section className="row">
+				<section
+					className={`row ${menu && "no-padding no-shadow"}`}
+					key={character}
+				>
 					<CircleAndTextButton
 						href={getTargetPage(character)}
 						icon={<DefaultUser width={25} height={25} />}

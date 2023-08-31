@@ -5,23 +5,33 @@ import DiceRolls from "@/components/DiceRolls/DiceRolls";
 import Accordion from "@/components/Accordion";
 import Referencias from "@/components/Referencias";
 import CharacterSheet from "@/components/CharacterSheet/CharacterSheet";
+import DefaultUser from "@/assets/svgs/DefaultUser";
+import MajesticonsScrollText from "@/assets/svgs/Scroll";
 
 const Layout = ({ children }) => {
 	return (
 		<main className="fichas">
 			<nav className="main-style">
 				<Accordion
-					header={<SectionHeading small>Aventureiros</SectionHeading>}
-					content={<CharacterList />}
+					header={
+						<button className="smaller-padding secondary">
+							<span className="icon-overlay">
+								<DefaultUser width={25} height={25} />
+							</span>{" "}
+							{/* Aventureiros */}
+						</button>
+					}
+					content={<CharacterList menu />}
 					absolute
 				/>
+
 				<Accordion
-					header={<SectionHeading small>Dados</SectionHeading>}
-					content={<DiceRolls />}
-					absolute
-				/>
-				<Accordion
-					header={<SectionHeading small>Recursos</SectionHeading>}
+					header={
+						<button className="smaller-padding secondary">
+							<MajesticonsScrollText width={25} height={25} />
+							{/* Recursos */}
+						</button>
+					}
 					content={<Referencias />}
 					absolute
 				/>
