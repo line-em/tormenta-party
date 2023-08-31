@@ -47,6 +47,14 @@ ul.itemGrid {
 	border-bottom: transparent;
 }
 
+ul.attackGrid {
+	padding-top: var(--spacing-s);
+}
+
+ul.attackGrid:first-of-type {
+	padding-top: 0;
+}
+
 ul.attackGrid:not(:last-of-type),
 ul.itemGrid:not(:last-of-type) {
 	border-bottom: 1px solid var(--warm-grey);

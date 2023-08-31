@@ -43,7 +43,10 @@ const CharacterList = ({ menu = false }) => {
 	};
 
 	return (
-		<section className={`grid big no-shadow ${menu && "place-center"}`}>
+		<section
+			className={`grid big no-shadow ${menu && "place-center"}`}
+			suppressHydrationWarning
+		>
 			{charNames.map((character) => (
 				<section
 					className={`row ${menu && "no-padding no-shadow"}`}

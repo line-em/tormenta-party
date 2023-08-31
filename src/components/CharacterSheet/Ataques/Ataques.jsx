@@ -31,6 +31,10 @@ const Attacks = ({ data }) => {
 	};
 
 	const addAttack = () => {
+		if (e) {
+			e.preventDefault && e.preventDefault();
+			e.persist && e.persist();
+		}
 		const newAttack = {
 			ataque: getValues("new_ataque"),
 			bonus: getValues("new_bonus") === "" ? "—" : getValues("new_bonus"),

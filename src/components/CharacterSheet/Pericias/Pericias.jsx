@@ -8,8 +8,11 @@ import ViewMode from "./ViewMode";
 import { calculateModifier } from "@/app/utils";
 import Eye from "@/assets/svgs/Eye";
 import Quill from "@/assets/svgs/Quill";
+import useDataStore from "@/store/useDataStore";
 
-const Pericias = ({ data }) => {
+const Pericias = () => {
+	const { currentChar } = useDataStore();
+	console.log(currentChar);
 	const tempData = {
 		lvl: 5,
 		FOR: 10,
@@ -21,61 +24,61 @@ const Pericias = ({ data }) => {
 	};
 
 	const halfLevel = Math.floor(tempData.lvl / 2);
-	const [treinadas, setTreinadas] = useState({});
-	const [outros, setOutros] = useState({});
-	const [selectedModifiers, setSelectedModifiers] = useState({});
+	// const [treinadas, setTreinadas] = useState({});
+	// const [outros, setOutros] = useState({});
+	// const [selectedModifiers, setSelectedModifiers] = useState({});
 
-	const [total, setTotal] = useState({});
-	const [editMode, setEditMode] = useState(false);
+	// const [total, setTotal] = useState({});
+	// const [editMode, setEditMode] = useState(false);
 
-	const toggleTreinada = (skill, modifier) => {
-		setTreinadas((prevTreinadas) => ({
-			...prevTreinadas,
-			[skill]: !prevTreinadas[skill]
-		}));
-		updateTotal(skill, modifier);
-	};
+	// const toggleTreinada = (skill, modifier) => {
+	// 	setTreinadas((prevTreinadas) => ({
+	// 		...prevTreinadas,
+	// 		[skill]: !prevTreinadas[skill]
+	// 	}));
+	// 	updateTotal(skill, modifier);
+	// };
 
-	const handleModifierChange = (e, skill) => {
-		const selectedModifier = e.target.value;
-		setSelectedModifiers((prevSelectedModifiers) => ({
-			...prevSelectedModifiers,
-			[skill]: selectedModifier
-		}));
-		updateTotal(skill, selectedModifier);
-	};
+	// const handleModifierChange = (e, skill) => {
+	// 	const selectedModifier = e.target.value;
+	// 	setSelectedModifiers((prevSelectedModifiers) => ({
+	// 		...prevSelectedModifiers,
+	// 		[skill]: selectedModifier
+	// 	}));
+	// 	updateTotal(skill, selectedModifier);
+	// };
 
-	const handleOutros = (change, skill, modifier) => {
-		setOutros((prevOutros) => ({
-			...prevOutros,
-			[skill]: Number((prevOutros[skill] ?? 0) + change)
-		}));
-		updateTotal(skill, modifier);
-	};
+	// const handleOutros = (change, skill, modifier) => {
+	// 	setOutros((prevOutros) => ({
+	// 		...prevOutros,
+	// 		[skill]: Number((prevOutros[skill] ?? 0) + change)
+	// 	}));
+	// 	updateTotal(skill, modifier);
+	// };
 
-	const updateTotal = (skill, modifier) => {
-		setTotal((prevTotal) => ({
-			...prevTotal,
-			[skill]:
-				Number(halfLevel) +
-				(treinadas[skill] ? 2 : 0) +
-				Number(calculateModifier(tempData[modifier])) +
-				(Number(outros[skill]) || 0)
-		}));
-	};
+	// const updateTotal = (skill, modifier) => {
+	// 	setTotal((prevTotal) => ({
+	// 		...prevTotal,
+	// 		[skill]:
+	// 			Number(halfLevel) +
+	// 			(treinadas[skill] ? 2 : 0) +
+	// 			Number(calculateModifier(tempData[modifier])) +
+	// 			(Number(outros[skill]) || 0)
+	// 	}));
+	// };
 
-	useEffect(() => {
-		pericias.forEach((item) => {
-			updateTotal(
-				item.skill,
-				selectedModifiers[item.skill] || item.defaultModifier
-			);
-		});
-	}, [total]);
+	// useEffect(() => {
+	// 	pericias.forEach((item) => {
+	// 		updateTotal(
+	// 			item.skill,
+	// 			selectedModifiers[item.skill] || item.defaultModifier
+	// 		);
+	// 	});
+	// }, [total]);
 
 	return (
 		<>
-			<button
+			{/* <button
 				onClick={() => setEditMode(!editMode)}
 				className="fit center secondary"
 			>
@@ -104,7 +107,7 @@ const Pericias = ({ data }) => {
 				) : (
 					<ViewMode pericias={pericias} total={total} />
 				)}
-			</ul>
+			</ul> */}
 		</>
 	);
 };
