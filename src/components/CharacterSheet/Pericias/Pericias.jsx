@@ -97,11 +97,16 @@ const Pericias = () => {
 				)}
 			</button>
 			<ul className={`no-shadow no-padding ${styles.list}`}>
-				<ViewMode
-					pericias={pericias}
-					attributes={currentChar?.attributes}
-					levelBonus={halfLevel}
-				/>
+				{editMode ? (
+					"hey"
+				) : (
+					<ViewMode
+						pericias={pericias}
+						levelBonus={halfLevel}
+						attributes={currentChar?.attributes}
+						db={currentChar?.skills}
+					/>
+				)}
 			</ul>
 			{/* 
 		

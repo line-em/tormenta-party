@@ -30,7 +30,7 @@ export default function AttributeCell({ attribute, attributeValue, updateAttribu
 					max={10}
 					className="big"
 					onChange={handleValueChange}
-					pattern="[0-9]{2}"
+					// pattern="[0-9]{2}"
 					maxLength="4"
 					onKeyDown={(e) => isNumberKey(e)}
 				/>
