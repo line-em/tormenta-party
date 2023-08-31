@@ -1,3 +1,4 @@
+'use client';
 import styles from "./Attributes.module.css";
 import AttributeCell from "./AttributeCell";
 import { useFormContext } from "react-hook-form";

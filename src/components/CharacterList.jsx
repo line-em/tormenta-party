@@ -16,7 +16,7 @@ const CharacterList = ({ menu = false }) => {
 	const newCharacter = async () => {
 		let newCharName = prompt("Nome do seu personagem: ");
 		if (charNames?.includes(newCharName)) {
-			alert("Usuário já existe!");
+			alert("Personagem já existe!");
 			return;
 		}
 		if (!newCharName) {

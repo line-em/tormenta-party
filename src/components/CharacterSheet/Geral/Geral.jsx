@@ -1,4 +1,3 @@
-"use client";
 import BasicInfo from "./BasicInfo";
 import SmallNotes from "./SmallNotes";
 import Armor from "./Armor";

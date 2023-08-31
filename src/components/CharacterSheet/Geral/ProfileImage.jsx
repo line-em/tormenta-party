@@ -1,3 +1,4 @@
+'use client';
 import Circle from "@/components/Circle/Circle";
 import Clips from "@/assets/svgs/Clips";
 import ImageCircle from "../../Circle/ImageCircle";

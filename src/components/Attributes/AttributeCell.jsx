@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { calculateModifier, isNumberKey } from "@/app/utils";
+import { isNumberKey } from "@/app/utils";
 
 export default function AttributeCell({ attribute, attributeValue, updateAttribute }) {
 	const handleValueChange = (e) => {

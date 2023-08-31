@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+'use client';
+import React from "react";
 import { default as ArmorIcon } from "@/assets/svgs/Armor";
 import Input from "@/components/Form/Input";
 import { useFormContext } from "react-hook-form";

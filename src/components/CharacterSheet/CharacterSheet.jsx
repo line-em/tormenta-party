@@ -4,7 +4,7 @@ import Form from "../Form/Form";
 import "@/styles/floating-input.css";
 import "@/styles/checkbox.css";
 
-export default function CharacterSheet({ children, data }) {
+export default function CharacterSheet({ children }) {
 	return (
 		<div className={styles.characterSheet}>
 			<Sidebar />
