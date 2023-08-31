@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import { default as ArmorIcon } from "@/assets/svgs/Armor";
 import Input from "@/components/Form/Input";
@@ -12,7 +12,7 @@ const Armor = () => {
 	// console.log(des);
 	const updateArmorDB = () => {
 		const newDefesa = {
-			des: ~~getValues("defesa.des") || 0,
+			// des: ~~getValues("defesa.des") || 0,
 			escudo: getValues("defesa.escudo") || "—",
 			escudo_bonus: ~~getValues("defesa.escudo_bonus") || 0,
 			escudo_penalidade: ~~getValues("defesa.escudo_penalidade") || 0,
@@ -52,7 +52,7 @@ const Armor = () => {
 					/>
 				</div>
 				<section className="grid no-shadow no-padding fit-grid">
-					<Input id="defesa.des" label={"DES"} value={5} disabled />
+					{/* <Input id="defesa.des" label={"DES"} value={5} disabled /> */}
 					<Input id="defesa.bns_equipamento" label={"Bônus"} disabled />
 					<Input id="defesa.penalidade" label={"Penalidade"} disabled />
 					<Input id="defesa.outros" label={"Outros"} onChange={updateArmorDB} />

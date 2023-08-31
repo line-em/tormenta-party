@@ -9,13 +9,18 @@ import { useFormContext } from "react-hook-form";
 import useDataStore from "@/store/useDataStore";
 
 const StatusBar = ({ type, data }) => {
-	const { charData } = useDataStore();
+	const { currentChar } = useDataStore();
 	const { setValue } = useFormContext();
-	// console.log({ status: charData });
 	const [category, setCategory] = useState("current");
 	const [status, setStatus] = useState({
-		PV: { total: 20, current: 19 },
-		PM: { total: 10, current: 6 }
+		PV: {
+			total: currentChar?.status?.PV?.total || 0,
+			current: currentChar?.status?.PV?.current || 0
+		},
+		PM: {
+			total: currentChar?.status?.PM?.total || 0,
+			current: currentChar?.status?.PM?.current || 0
+		}
 	});
 
 	const { current, total } = status[type];
@@ -25,10 +30,14 @@ const StatusBar = ({ type, data }) => {
 		PV: <Life opacity={0.7} width={55} height={55} />
 	};
 
-	const handleStatus = ({ newValue, action }) => {
+	const handleStatus = ({ newValue, action }, e) => {
 		const updatedStatus = updateStatus(status, type, category, newValue, action);
 		setStatus(updatedStatus);
 		setValue("status", { ...status, ...updatedStatus });
+		if (e) {
+			e.preventDefault && e.preventDefault();
+			e.persist && e.persist();
+		}
 	};
 
 	const renderValue = (value, tab) => {
@@ -55,12 +64,12 @@ const StatusBar = ({ type, data }) => {
 			<div className={styles.modify}>
 				<ModifierButton
 					type={"remove"}
-					func={() => handleStatus({ newValue: 1, action: "decrease" })}
+					func={(e) => handleStatus({ newValue: 1, action: "decrease" }, e)}
 				/>
 				{icon[type]}
 				<ModifierButton
 					type={"add"}
-					func={() => handleStatus({ newValue: 1, action: "increase" })}
+					func={(e) => handleStatus({ newValue: 1, action: "increase" }, e)}
 				/>
 			</div>
 			<div className={styles.progress}>
