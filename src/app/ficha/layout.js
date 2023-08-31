@@ -11,17 +11,25 @@ const Layout = ({ children }) => {
 		<main className="fichas">
 			<nav className="main-style">
 				<Accordion
-					header={<SectionHeading small>Aventureiros</SectionHeading>}
-					content={<CharacterList />}
+					header={
+						// <SectionHeading small menu>Aventureiros</SectionHeading>
+						<button className="smaller-padding secondary">
+							Aventureiros
+						</button>
+					}
+					content={<CharacterList menu />}
 					absolute
 				/>
-				<Accordion
+				{/* <Accordion
 					header={<SectionHeading small>Dados</SectionHeading>}
 					content={<DiceRolls />}
 					absolute
-				/>
+				/> */}
 				<Accordion
-					header={<SectionHeading small>Recursos</SectionHeading>}
+					header={
+						// <SectionHeading small>Recursos</SectionHeading>
+						<button className="smaller-padding secondary">Recursos</button>
+					}
 					content={<Referencias />}
 					absolute
 				/>

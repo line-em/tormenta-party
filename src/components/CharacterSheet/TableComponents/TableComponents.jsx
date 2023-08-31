@@ -52,7 +52,7 @@ export const AddRow = ({ styles, func, children, prefersClick = true }) => {
 		<Accordion
 			prefersClick={prefersClick}
 			header={
-				<button className={`center extra-mt smaller-padding`}>
+				<button className={`center extra-mt smaller-padding secondary`}>
 					Adicionar <Plus />
 				</button>
 			}

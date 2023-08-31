@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { calculateModifier, isNumberKey } from "@/app/utils";
 
-export default function AttributeCell({
-	attribute,
-	attributeValue,
-	updateAttribute,
-	isLocked
-}) {
+export default function AttributeCell({ attribute, attributeValue, updateAttribute }) {
 	const handleValueChange = (e) => {
 		// check if isNumberKey is true. If not, set to 0.
 		// check value. if > 10, set to 10. if < -10, set to -10.
@@ -30,7 +25,7 @@ export default function AttributeCell({
 			<span>{attribute}</span>
 			<div>
 				<input
-					type="number"
+					// type="number"
 					value={attributeValue}
 					min={-10}
 					max={10}
@@ -38,7 +33,7 @@ export default function AttributeCell({
 					onChange={handleValueChange}
 					pattern="[0-9]{2}"
 					maxLength="4"
-					// onKeyDown={(e) => isNumberKey(e)}
+					onKeyDown={(e) => isNumberKey(e)}
 				/>
 				{/* <p>{attributeValue}</p> */}
 			</div>

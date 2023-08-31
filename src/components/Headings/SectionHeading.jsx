@@ -27,10 +27,6 @@ const SectionHeading = ({ icon = "none", small = false, children }) => {
 						return <RiSwordFill {...iconProps} />;
 					case "spells":
 						return <Spells {...iconProps} />;
-					case "armor":
-						return <Armor {...iconProps} />;
-					case "user":
-						return <DefaultUser {...iconProps} />;
 					case "none":
 						return;
 				}

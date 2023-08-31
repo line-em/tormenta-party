@@ -11,14 +11,15 @@ main.fichas {
 }
 
 nav.main-style {
-	margin-block-start: var(--spacing-xs);
-	padding: var(--spacing-xs) var(--spacing-sm);
+	position: absolute;
 	border-inline: none;
 	background-color: transparent;
 	display: flex;
+	flex-direction: column;
 	z-index: 1;
-	gap: var(--spacing-sm);
-	justify-content: space-evenly;
+	gap: var(--spacing-xs);
+	/* justify-content: space-evenly; */
+	top: -85px;
 }
 
 nav.main-style section.grid:not(.place-center) {

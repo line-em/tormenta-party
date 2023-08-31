@@ -5,16 +5,16 @@
 	--golden: hsl(40, 100%, 72%);
 	--golden-dark: hsl(40, 90%, 55%);
 	--grey: hsl(60, 5%, 50%);
-	--warm-grey: #d1c9c3;
-	--warm-grey-light: #e1dbd6;
+	--warm-grey: #ac988a;
+	--warm-grey-light: #d8d0cb;
 
+	--true-black: hsla(0, 0%, 5%, 0.9);
 	--black: hsla(0, 0%, 11%, 0.9);
 	--black-alpha: hsla(0, 0%, 11%, 0.5);
 	--white: hsl(60, 3%, 94%);
 	--white-alpha: hsla(60, 3%, 94%, 0.8);
 	--white-alpha-50: hsla(60, 3%, 94%, 0.5);
-	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
-		url(../assets/bgTormenta.jpg);
+	--bg-image: url(../assets/bgTormenta2.jpg);
 
 	--small: 0.85rem;
 	--regular: 1.1rem;
@@ -33,16 +33,6 @@
 	--transition: 100ms ease-in-out;
 	--shadow: 0 5px var(--spacing-s) rgba(0, 0, 0, 0.2);
 }
-
-/* [data-theme="dark"] :root {
-	--white: hsla(0, 0%, 11%, 1);
-	--white-alpha: hsla(0, 0%, 11%, 0.8);
-	--white-alpha-50: hsla(0, 0%, 11%, 0.5);
-	--black: hsl(60, 3%, 94%);
-
-	--bg-image: linear-gradient(var(--white-alpha-50), var(--white-alpha-50)),
-		url(../assets/bgTormenta2.jpg);
-} */
 
 ::selection {
 	background-color: var(--red);
@@ -76,13 +66,9 @@ a {
 	color: var(--red);
 }
 
-/* header {
-	margin-block-end: var(--spacing-m);
-} */
-
 body {
 	background-image: var(--bg-image);
-	backdrop-filter: grayscale(0.8);
+	backdrop-filter: grayscale(0.5);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -100,7 +86,7 @@ main,
 	background-color: var(--white-alpha);
 	padding: var(--spacing-xs) var(--spacing-m);
 	backdrop-filter: blur(3px);
-	border-inline: 10px solid var(--black);
+	border-inline: 10px solid var(--true-black);
 }
 
 main.center-align {
@@ -113,7 +99,8 @@ main.center-align {
 
 @media screen and (max-width: 1100px) {
 	main,
-	.main-style {
+	.main-style,
+	main.center-align {
 		min-width: 90%;
 	}
 }
@@ -193,6 +180,12 @@ section.item-3-grid,
 .section-style.item-3-grid {
 	grid-template-columns: auto repeat(2, minmax(50px, 1fr));
 	gap: var(--spacing-xs);
+}
+
+@media screen and (max-width: 1000px) {
+	section.grid.will-wrap {
+		grid-template-columns: 1fr;
+	}
 }
 
 ul.section-style {

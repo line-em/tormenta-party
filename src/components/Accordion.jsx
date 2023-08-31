@@ -19,6 +19,20 @@ const Accordion = ({
 		setIsOpen(false);
 	};
 
+	if (prefersClick) {
+		return (
+			<div className="accordion" onClick={() => setIsOpen(!isOpen)}>
+				{header}
+				<article
+					className={`accordion-content ${absolute ? "absolute" : ""}`}
+					aria-expanded={isOpen}
+				>
+					{content}
+				</article>
+			</div>
+		);
+	}
+
 	return (
 		<div
 			className="accordion"

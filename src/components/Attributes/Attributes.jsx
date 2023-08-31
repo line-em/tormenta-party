@@ -4,13 +4,14 @@ import { useFormContext } from "react-hook-form";
 
 export default function Attributes({ data }) {
 	const baseAttributes = {
-		FOR: { value: 10, modifier: 0 },
-		DES: { value: 10, modifier: 0 },
-		CON: { value: 10, modifier: 0 },
-		INT: { value: 10, modifier: 0 },
-		SAB: { value: 10, modifier: 0 },
-		CAR: { value: 10, modifier: 0 }
+		FOR: 0,
+		DES: 0,
+		CON: 0,
+		INT: 0,
+		SAB: 0,
+		CAR: 0
 	};
+
 	const { setValue, getValues } = useFormContext();
 
 	let sortedDatabaseResult = data?.attributes
@@ -27,18 +28,16 @@ export default function Attributes({ data }) {
 	};
 
 	return (
-		<div className={styles.attrGrid}>
-			<ul>
-				{Object.entries(attributes).map(([attribute, { value }]) => (
-					<AttributeCell
-						key={attribute}
-						attribute={attribute}
-						attributeValue={value}
-						updateAttribute={updateAttribute}
-					/>
-				))}
-			</ul>
-		</div>
+		<ul className={styles.attrGrid}>
+			{Object.entries(attributes).map(([attribute, attributeValue]) => (
+				<AttributeCell
+					key={attribute}
+					attribute={attribute}
+					attributeValue={attributeValue}
+					updateAttribute={updateAttribute}
+				/>
+			))}
+		</ul>
 	);
 }
 
