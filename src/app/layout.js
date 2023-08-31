@@ -41,11 +41,6 @@ const loraFont = localFont({
 	display: "swap"
 });
 
-export const metadata = {
-	title: "Aventura Tormenta 20",
-	description: "Website para ajudar na nossa campanha!"
-};
-
 export default function RootLayout({ children }) {
 	const { getCharacterCollection } = useDataStore();
 
