@@ -23,13 +23,23 @@ const Pericias = () => {
 		CAR: 15
 	};
 
-	const halfLevel = Math.floor(tempData.lvl / 2);
+	const halfLevel =
+		Math.floor(Number(currentChar?.level) / 2) > 1
+			? Math.floor(Number(currentChar?.level) / 2)
+			: 1;
 	// const [treinadas, setTreinadas] = useState({});
 	// const [outros, setOutros] = useState({});
 	// const [selectedModifiers, setSelectedModifiers] = useState({});
 
 	// const [total, setTotal] = useState({});
-	// const [editMode, setEditMode] = useState(false);
+	const [editMode, setEditMode] = useState(false);
+	const handleEditMode = (e) => {
+		if (e) {
+			e.preventDefault && e.preventDefault();
+			e.persist && e.persist();
+		}
+		setEditMode(!editMode);
+	};
 
 	// const toggleTreinada = (skill, modifier) => {
 	// 	setTreinadas((prevTreinadas) => ({
@@ -78,10 +88,7 @@ const Pericias = () => {
 
 	return (
 		<>
-			{/* <button
-				onClick={() => setEditMode(!editMode)}
-				className="fit center secondary"
-			>
+			<button onClick={(e) => handleEditMode(e)} className="fit center secondary">
 				{editMode ? "Visualizar" : "Editar"}
 				{editMode ? (
 					<Eye width={19} height={19} style={{ marginTop: 1 }} />
@@ -89,6 +96,20 @@ const Pericias = () => {
 					<Quill width={17} height={17} />
 				)}
 			</button>
+			<ul className={`no-shadow no-padding ${styles.list}`}>
+				{editMode ? (
+					"hey"
+				) : (
+					<ViewMode
+						pericias={pericias}
+						levelBonus={halfLevel}
+						attributes={currentChar?.attributes}
+						db={currentChar?.skills}
+					/>
+				)}
+			</ul>
+			{/* 
+		
 			<ul className={`no-shadow no-padding ${styles.list}`}>
 				{editMode ? (
 					<EditMode
