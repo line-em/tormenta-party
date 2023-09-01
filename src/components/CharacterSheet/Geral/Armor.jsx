@@ -1,18 +1,21 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { default as ArmorIcon } from "@/assets/svgs/Armor";
 import Input from "@/components/Form/Input";
+import SelectInput from "@/components/Form/SelectInput";
+import { baseAttributes } from "@/components/Attributes/Attributes";
 import { useFormContext } from "react-hook-form";
 
 const Armor = () => {
-	const { setValue, getValues, unregister } = useFormContext();
+	const { setValue, getValues } = useFormContext();
+	
+	const armor = getValues("defesa") || null;
+	const attributes = getValues("attributes") || baseAttributes;
 
-	const armor = getValues("defesa") || 10;
-	// const des = getValues("attributes") || 5;
-	// console.log(des);
 	const updateArmorDB = () => {
 		const newDefesa = {
-			// des: ~~getValues("defesa.des") || 0,
+			attr: getValues("defesa.attr") || 'DES',
+			attr_value: attributes[getValues("defesa.attr")] || 0,
 			escudo: getValues("defesa.escudo") || "—",
 			escudo_bonus: ~~getValues("defesa.escudo_bonus") || 0,
 			escudo_penalidade: ~~getValues("defesa.escudo_penalidade") || 0,
@@ -29,15 +32,16 @@ const Armor = () => {
 				~~getValues("defesa.bns_equipamento") +
 				~~getValues("defesa.outros") +
 				10 +
-				~~getValues("defesa.des")
+				~~getValues("defesa.attr_value")
 		};
 
 		setValue("defesa", {
 			...armor,
 			...newDefesa
 		});
-		console.log({ armor });
 	};
+
+	armor == null && updateArmorDB();
 
 	return (
 		<article className="align-start">
@@ -48,11 +52,12 @@ const Armor = () => {
 						type="text"
 						disabled
 						style={absoluteStyles}
-						value={getValues("defesa.total") || 10}
+						value={armor?.total || 10}
 					/>
 				</div>
 				<section className="grid no-shadow no-padding fit-grid">
-					{/* <Input id="defesa.des" label={"DES"} value={5} disabled /> */}
+					<SelectInput id="defesa.attr" label={"Attributo"}
+					options={Object.keys(attributes)} onChange={updateArmorDB} />
 					<Input id="defesa.bns_equipamento" label={"Bônus"} disabled />
 					<Input id="defesa.penalidade" label={"Penalidade"} disabled />
 					<Input id="defesa.outros" label={"Outros"} onChange={updateArmorDB} />
@@ -61,19 +66,16 @@ const Armor = () => {
 					<Input
 						id="defesa.escudo"
 						label={"Escudo"}
-						// inputCss="small"
 						onChange={updateArmorDB}
 					/>
 					<Input
 						id="defesa.escudo_bonus"
 						label={"Def."}
-						// inputCss="small"
 						onChange={updateArmorDB}
 					/>
 					<Input
 						id="defesa.escudo_penalidade"
 						label={"Pen."}
-						// inputCss="small"
 						onChange={updateArmorDB}
 					/>
 					<Input
@@ -115,28 +117,3 @@ const relativeStyles = {
 	width: "fit-content"
 };
 
-const fieldsToReset = [
-	"armadura_bonus",
-	"escudo_bonus",
-	"escudo_penalidade",
-	"armadura_penalidade",
-	"des",
-	"outros",
-	"penalidade",
-	"total",
-	"armadura",
-	"escudo",
-	"bns_equipamento"
-];
-
-{
-	/* <section className="no-padding no-shadow margin-null smaller">
-						Destreza: <strong>{des}</strong>
-					</section>
-					<section className="no-padding no-shadow margin-null smaller">
-						Bônus: <strong>{getValues("defesa.bns_equipamento")}</strong>
-					</section>
-					<section className="no-padding no-shadow margin-null smaller">
-						Penalidade: <strong>{getValues("defesa.penalidade")}</strong>
-					</section> */
-}
