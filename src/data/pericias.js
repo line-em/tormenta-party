@@ -30,11 +30,4 @@ export const pericias = {
 	Sobrevivência: "SAB"
 };
 
-export const periciasCols = [
-	// "Total",
-	"Perícia",
-	"Treinada",
-	"Bônus Nível",
-	"Atributo",
-	"Outros"
-];
+export const periciasCols = ["Perícia", "Treinada", "Bônus Nível", "Atributo", "Outros"];
