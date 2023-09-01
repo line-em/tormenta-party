@@ -31,7 +31,7 @@ export const pericias = {
 };
 
 export const periciasCols = [
-	"Total",
+	// "Total",
 	"Perícia",
 	"Treinada",
 	"1/2 Nível",
