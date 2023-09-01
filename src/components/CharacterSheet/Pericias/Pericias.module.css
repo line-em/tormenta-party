@@ -1,18 +1,21 @@
 .list {
 	display: grid;
 	/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr; */
-	grid-template-columns: 1fr 1fr 1fr 0.5fr 0.5fr;
+	grid-template-columns: 2fr 0.5fr 1fr 0.5fr 0.5fr;
 	grid-template-rows: auto auto;
 	row-gap: var(--spacing-xxs);
 	grid-auto-flow: dense;
 	grid-template-areas: "pericia treinada nivel modificador outros";
+	max-width: 80ch;
+	margin: 0 auto;
 	/* grid-template-areas: "total pericia treinada nivel modificador outros"; */
 	/* height: 50vh; */
 	/* overflow-y: auto; */
 }
 
 .viewList {
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+	max-width: 120ch;
 }
 
 .list [role="columnheader"] {
@@ -26,6 +29,7 @@
 
 .list [role="columnheader"]:not(:first-child) {
 	justify-content: center;
+	text-align: center;
 }
 
 .pericia {
@@ -64,13 +68,27 @@
 	padding: var(--spacing-xs) var(--spacing-xxs);
 }
 
-/* .list > li:nth-child(2n) {
-	background-color: var(--warm-grey-light);
-} */
+.list select,
+.list input {
+	text-align: center;
+	padding: var(--spacing-xs) var(--spacing-xxs) var(--spacing-xs) var(--spacing-s);
+}
+
+.list label {
+	top: -4px !important;
+	right: 50% !important;
+	font-size: 0.7em !important;
+	text-align: center;
+	color: var(--warm-grey);
+	transform: translateX(50%);
+}
 
 .list select {
 	width: fit-content;
-	padding: var(--spacing-xs) var(--spacing-s);
+}
+
+.list input[type="number"] {
+	width: 60px;
 }
 
 .list div {

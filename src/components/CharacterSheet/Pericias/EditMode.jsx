@@ -4,6 +4,7 @@ import { calculateModifier } from "@/app/utils";
 import ModifierButton from "@/components/ModifierButton";
 import SelectInput from "@/components/Form/SelectInput";
 import { useFormContext } from "react-hook-form";
+import Input from "@/components/Form/Input";
 
 const EditMode = ({
 	pericias,
@@ -17,7 +18,8 @@ const EditMode = ({
 	tempData,
 	total,
 	handleModifierChange,
-	selectedModifiers
+	selectedModifiers,
+	db
 }) => {
 	// const { getValues } = useFormContext();
 	// const attributes = getValues("attributes") || {};
@@ -36,28 +38,27 @@ const EditMode = ({
 				<React.Fragment key={item + i}>
 					<li className={styles.pericia}>{item}</li>
 					<li className={styles.nivel}>{levelBonus}</li>
-					<li className={styles.treinada}>lala</li>
-
+					<Input
+						type="checkbox"
+						rowCss={styles.treinada}
+						id={`pericias.${item}.treinada`}
+						checked={db && db[item]?.treinada}
+					/>
 					<SelectInput
 						id={`pericias.${item}.attr`}
 						options={Object.keys(attributes)}
 						inputCss={"small"}
 						rowCss={styles.modificador}
-						value={[pericias[item]]}
+						value={db ? db[item]?.attr : [pericias[item]]}
+						label={pericias[item]}
 					/>
-
-					<li className={styles.outros}>lala</li>
-					{/* <select
-						value={selectedModifiers[item.skill] || item.defaultModifier}
-						onChange={(e) => handleModifierChange(e, item.skill)}
-						className="small"
-					>
-						{Object.entries(tempData).map(([modifier, value]) => (
-							<option key={modifier} value={modifier}>
-								{`${calculateModifier(value)} (${modifier})`}
-							</option>
-						))}
-					</select> */}
+					<Input
+						type="number"
+						id={`pericias.${item}.outros`}
+						rowCss={styles.outros}
+						inputCss={"small"}
+						value={db ? db[item]?.outros : 0}
+					/>
 				</React.Fragment>
 			))}
 			{/* {pericias.map((item, i) => (

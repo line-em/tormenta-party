@@ -22,9 +22,11 @@ const Input = ({
 				disabled={disabled}
 				{...register(id, { ...props })}
 			/>
-			<label htmlFor={id} className={`${inputCss && inputCss} floating-text`}>
-				{label}
-			</label>
+			{label && (
+				<label htmlFor={id} className={`${inputCss && inputCss} floating-text`}>
+					{label}
+				</label>
+			)}
 		</div>
 	);
 };

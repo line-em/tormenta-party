@@ -95,6 +95,7 @@ const Pericias = () => {
 						pericias={pericias}
 						levelBonus={halfLevel}
 						attributes={currentChar?.attributes}
+						db={currentChar?.pericias}
 					/>
 				) : (
 					<ViewMode
