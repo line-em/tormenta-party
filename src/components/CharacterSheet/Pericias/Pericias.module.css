@@ -1,17 +1,26 @@
 .list {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+	/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr; */
+	grid-template-columns: 2fr 0.5fr 1fr 0.5fr 0.5fr;
 	grid-template-rows: auto auto;
-	row-gap: var(--spacing-xs);
+	row-gap: var(--spacing-xxs);
 	grid-auto-flow: dense;
-	grid-template-areas: "total pericia treinada nivel modificador outros";
+	grid-template-areas: "pericia treinada nivel modificador outros";
+	max-width: 80ch;
+	margin: 0 auto;
+	/* grid-template-areas: "total pericia treinada nivel modificador outros"; */
 	/* height: 50vh; */
 	/* overflow-y: auto; */
 }
 
+.viewList {
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+	max-width: 120ch;
+	margin-top: -0.5rem;
+}
+
 .list [role="columnheader"] {
 	background-color: var(--warm-grey-light);
-	padding: var(--spacing-xxs) 0;
 	z-index: 1;
 	font-weight: 700;
 	position: sticky;
@@ -19,28 +28,33 @@
 	border-bottom: 2px solid var(--red);
 }
 
+.list [role="columnheader"]:not(:first-child) {
+	justify-content: center;
+	text-align: center;
+}
+
 .pericia {
 	grid-column: pericia;
 }
 
-.total {
-	grid-column: total;
-}
-
 .modificador {
 	grid-column: modificador;
+	justify-content: center;
 }
 
 .outros {
 	grid-column: outros;
+	justify-content: center;
 }
 
 .treinada {
 	grid-column: treinada;
+	justify-content: center;
 }
 
 .nivel {
 	grid-column: nivel;
+	justify-content: center;
 }
 
 .list li {
@@ -48,14 +62,41 @@
 	display: flex;
 	border-bottom: 1px solid var(--warm-grey-light);
 	align-items: center;
+	padding: var(--spacing-s);
 }
 
-/* .list > li:nth-child(2n) {
-	background-color: var(--warm-grey-light);
-} */
+.viewList li {
+	padding: var(--spacing-xs) var(--spacing-xxs);
+}
 
+.list select,
 .list input {
-	width: auto;
+	text-align: center;
+	padding: var(--spacing-xs) var(--spacing-xxs) var(--spacing-xs) var(--spacing-s);
+}
+
+.list label {
+	top: -4px !important;
+	right: 50% !important;
+	font-size: 0.7em !important;
+	text-align: center;
+	color: var(--warm-grey);
+	transform: translateX(50%);
+}
+
+.list select {
+	width: fit-content;
+}
+
+.list input[type="number"] {
+	width: 60px;
+}
+
+.list div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid var(--warm-grey-light);
 }
 
 .list strong {

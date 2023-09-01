@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import { useFormContext } from "react-hook-form";
 
-const SelectInput = ({ rowCss, inputCss, id, label, disabled, options , ...props}) => {
+const SelectInput = ({ rowCss, inputCss, id, label, disabled, options, ...props }) => {
 	const { register } = useFormContext();
 
 	return (
@@ -19,9 +19,11 @@ const SelectInput = ({ rowCss, inputCss, id, label, disabled, options , ...props
 					</option>
 				))}
 			</select>
-			<label htmlFor={id} className={`${inputCss} floating-text`}>
-				{label}
-			</label>
+			{label && (
+				<label htmlFor={id} className={`${inputCss} floating-text`}>
+					{label}
+				</label>
+			)}
 		</div>
 	);
 };

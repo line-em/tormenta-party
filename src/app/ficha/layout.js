@@ -8,7 +8,7 @@ import MajesticonsScrollText from "@/assets/svgs/Scroll";
 
 const Layout = ({ children }) => {
 	return (
-		<main className="fichas">
+		<main className="fichas" suppressHydrationWarning>
 			<nav className="main-style">
 				<Accordion
 					header={
