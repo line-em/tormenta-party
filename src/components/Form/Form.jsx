@@ -46,10 +46,9 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 				...data
 			});
 			if (error) {
-				alert(error.message)
-			} else { 
+				alert(error.message);
+			} else {
 				alert("Ficha salva!");
-				getCharacterByName(decodedCharName);
 			}
 		} catch (error) {
 			if (error.name === "ValidationError") {
@@ -66,10 +65,16 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 
 	return (
 		<FormProvider {...methods}>
-			<form onSubmit={methods.handleSubmit(onSubmit ? onSubmit : handleChanges)} {...props}>
+			<form
+				onSubmit={methods.handleSubmit(onSubmit ? onSubmit : handleChanges)}
+				{...props}
+			>
 				{children}
 				<footer>
-					<button type="submit" disabled={Object.keys(watchAllFields).length === 0}>
+					<button
+						type="submit"
+						disabled={Object.keys(watchAllFields).length === 0}
+					>
 						{buttonText}
 					</button>
 				</footer>
