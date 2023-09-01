@@ -5,7 +5,6 @@ import styles from "./Pericias.module.css";
 import React from "react";
 import EditMode from "./EditMode";
 import ViewMode from "./ViewMode";
-import { calculateModifier } from "@/app/utils";
 import Eye from "@/assets/svgs/Eye";
 import Quill from "@/assets/svgs/Quill";
 import useDataStore from "@/store/useDataStore";
@@ -15,7 +14,7 @@ const Pericias = () => {
 	const halfLevel =
 		Math.floor(Number(currentChar?.level) / 2) > 1
 			? Math.floor(Number(currentChar?.level) / 2)
-			: 1;
+			: 0;
 	const [editMode, setEditMode] = useState(false);
 	const handleEditMode = (e) => {
 		if (e) {
@@ -85,9 +84,18 @@ const Pericias = () => {
 					<Quill width={17} height={17} />
 				)}
 			</button>
-			<ul className={`no-shadow no-padding ${styles.list}`}>
+			<ul
+				className={`no-shadow no-padding ${styles.list} ${
+					!editMode && styles.viewList
+				}`}
+			>
 				{editMode ? (
-					"hey"
+					<EditMode
+						periciasCols={periciasCols}
+						pericias={pericias}
+						levelBonus={halfLevel}
+						attributes={currentChar?.attributes}
+					/>
 				) : (
 					<ViewMode
 						pericias={pericias}

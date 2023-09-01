@@ -2,20 +2,26 @@ import React from "react";
 import styles from "./Pericias.module.css";
 import { calculateModifier } from "@/app/utils";
 import ModifierButton from "@/components/ModifierButton";
+import SelectInput from "@/components/Form/SelectInput";
+import { useFormContext } from "react-hook-form";
 
 const EditMode = ({
 	pericias,
 	periciasCols,
+	attributes,
 	treinadas,
 	outros,
 	toggleTreinada,
 	handleOutros,
-	halfLevel,
+	levelBonus,
 	tempData,
 	total,
 	handleModifierChange,
 	selectedModifiers
 }) => {
+	// const { getValues } = useFormContext();
+	// const attributes = getValues("attributes") || {};
+
 	return (
 		<>
 			{periciasCols.map((item, index) => {
@@ -25,17 +31,44 @@ const EditMode = ({
 					</li>
 				);
 			})}
-			{pericias.map((item, i) => (
+
+			{Object.keys(pericias).map((item, i) => (
+				<React.Fragment key={item + i}>
+					<li className={styles.pericia}>{item}</li>
+					<li className={styles.nivel}>{levelBonus}</li>
+					<li className={styles.treinada}>lala</li>
+
+					<SelectInput
+						id={`pericias.${item}.attr`}
+						options={Object.keys(attributes)}
+						inputCss={"small"}
+						rowCss={styles.modificador}
+					/>
+					<li className={styles.outros}>lala</li>
+					{/* <select
+						value={selectedModifiers[item.skill] || item.defaultModifier}
+						onChange={(e) => handleModifierChange(e, item.skill)}
+						className="small"
+					>
+						{Object.entries(tempData).map(([modifier, value]) => (
+							<option key={modifier} value={modifier}>
+								{`${calculateModifier(value)} (${modifier})`}
+							</option>
+						))}
+					</select> */}
+				</React.Fragment>
+			))}
+			{/* {pericias.map((item, i) => (
 				<React.Fragment key={item.skill}>
-					{/* Render "Total" */}
+			
 					<li className={styles.total}>
 						<strong>{total[item.skill]}</strong>
 					</li>
 
-					{/* Render pericia */}
+				
 					<li className={styles.pericia}>{item.skill}</li>
 
-					{/* Render treinada */}
+					
 					<li className={styles.treinada}>
 						<input
 							type="checkbox"
@@ -50,10 +83,7 @@ const EditMode = ({
 						/>
 					</li>
 
-					{/* Render "LEVEL" */}
 					<li className={styles.nivel}>{halfLevel}</li>
-
-					{/* Render "Modificador" */}
 
 					<select
 						value={selectedModifiers[item.skill] || item.defaultModifier}
@@ -67,7 +97,6 @@ const EditMode = ({
 						))}
 					</select>
 
-					{/* Render "Outros" */}
 					<li className={styles.outros}>
 						<ModifierButton
 							type={"remove"}
@@ -95,7 +124,7 @@ const EditMode = ({
 						/>
 					</li>
 				</React.Fragment>
-			))}
+			))} */}
 		</>
 	);
 };

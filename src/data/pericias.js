@@ -35,6 +35,6 @@ export const periciasCols = [
 	"Perícia",
 	"Treinada",
 	"1/2 Nível",
-	"Modificador",
+	"Atributo",
 	"Outros"
 ];
