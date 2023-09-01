@@ -49,7 +49,7 @@ const useDataStore = create(
 			getCharacterByName: async (charName) => {
 				const allData = get().charData;
 				const character = allData[charName];
-				console.log(character);
+				console.log({ character: character, "getCharacterByName run": true });
 				set((state) => ({
 					...state,
 					currentChar: character
