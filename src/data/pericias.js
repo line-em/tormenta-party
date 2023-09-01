@@ -19,22 +19,22 @@ export const pericias = {
 	Ladinagem: "DES",
 	Luta: "FOR",
 	Misticismo: "INT",
-	Navegação: "INT",
 	Nobreza: "INT",
 	Ofício: "INT",
 	Percepção: "SAB",
+	Pilotagem: "DES",
 	Pontaria: "DES",
 	Reflexos: "DES",
-	Religião: "INT",
+	Religião: "SAB",
 	Vontade: "SAB",
 	Sobrevivência: "SAB"
 };
 
 export const periciasCols = [
-	"Total",
+	// "Total",
 	"Perícia",
 	"Treinada",
-	"1/2 Nível",
-	"Modificador",
+	"Bônus Nível",
+	"Atributo",
 	"Outros"
 ];
