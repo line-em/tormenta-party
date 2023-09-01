@@ -43,7 +43,9 @@ const EditMode = ({
 						options={Object.keys(attributes)}
 						inputCss={"small"}
 						rowCss={styles.modificador}
+						value={[pericias[item]]}
 					/>
+
 					<li className={styles.outros}>lala</li>
 					{/* <select
 						value={selectedModifiers[item.skill] || item.defaultModifier}

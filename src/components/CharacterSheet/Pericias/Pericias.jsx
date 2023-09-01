@@ -101,7 +101,7 @@ const Pericias = () => {
 						pericias={pericias}
 						levelBonus={halfLevel}
 						attributes={currentChar?.attributes}
-						db={currentChar?.skills}
+						db={currentChar?.pericias}
 					/>
 				)}
 			</ul>
