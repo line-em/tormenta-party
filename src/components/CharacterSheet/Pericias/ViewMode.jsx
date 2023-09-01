@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Pericias.module.css";
 
 const ViewMode = ({ pericias, attributes, levelBonus, db }) => {
-	const getTotal = (attr, trained) => {
-		return Number(attr) + Number(levelBonus) + (trained ? 2 : 0);
+	const getTotal = (attr, treinada, outros = 0) => {
+		return Number(attr) + Number(levelBonus) + (treinada ? 2 : 0) + Number(outros);
 	};
 	const getAttr = (item) => {
 		return db ? attributes[db[item]?.attr] : attributes[pericias[item]];
@@ -15,12 +15,26 @@ const ViewMode = ({ pericias, attributes, levelBonus, db }) => {
 					<li>{item}</li>
 					<li>
 						<strong>
-							{getTotal(getAttr(item), db && db[item]?.trained)}
+							{getTotal(
+								getAttr(item),
+								db && db[item]?.treinada,
+								db && db[item]?.outros
+							)}
 						</strong>{" "}
-						<sup style={{ fontSize: "var(--small)", opacity: 0.5 }}>
-							({levelBonus} + {getAttr(item)}
-							{db && db[item]?.trained && "+ 2"}
-							{db && db[item]?.other && db[item]?.other})
+						<sup
+							style={{
+								fontSize: ".7em",
+								opacity: 0.5,
+								wordBreak: "break-all",
+								maxWidth: "40px",
+								marginLeft: "1ch",
+								lineHeight: "1em"
+								// textAlign: "right"
+							}}
+						>
+							{levelBonus} + {getAttr(item)}
+							{db && db[item]?.treinada && " + 2"}
+							{db && db[item]?.outros !== 0 && " + " + db[item]?.outros}
 						</sup>
 					</li>
 				</React.Fragment>

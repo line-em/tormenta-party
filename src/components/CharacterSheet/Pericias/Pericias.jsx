@@ -2,6 +2,7 @@
 import { pericias, periciasCols } from "@/data/pericias";
 import { useEffect, useState } from "react";
 import styles from "./Pericias.module.css";
+import { addData } from "@/firebase/firestore/addData";
 import React from "react";
 import EditMode from "./EditMode";
 import ViewMode from "./ViewMode";
@@ -16,63 +17,13 @@ const Pericias = () => {
 			? Math.floor(Number(currentChar?.level) / 2)
 			: 0;
 	const [editMode, setEditMode] = useState(false);
-	const handleEditMode = (e) => {
-		if (e) {
-			e.preventDefault && e.preventDefault();
-			e.persist && e.persist();
-		}
+	const handleEditMode = async (e) => {
+		// if (e) {
+		// 	e.preventDefault && e.preventDefault();
+		// 	e.persist && e.persist();
+		// }
 		setEditMode(!editMode);
 	};
-	// const [treinadas, setTreinadas] = useState({});
-	// const [outros, setOutros] = useState({});
-	// const [selectedModifiers, setSelectedModifiers] = useState({});
-
-	// const [total, setTotal] = useState({});
-
-	// const toggleTreinada = (skill, modifier) => {
-	// 	setTreinadas((prevTreinadas) => ({
-	// 		...prevTreinadas,
-	// 		[skill]: !prevTreinadas[skill]
-	// 	}));
-	// 	updateTotal(skill, modifier);
-	// };
-
-	// const handleModifierChange = (e, skill) => {
-	// 	const selectedModifier = e.target.value;
-	// 	setSelectedModifiers((prevSelectedModifiers) => ({
-	// 		...prevSelectedModifiers,
-	// 		[skill]: selectedModifier
-	// 	}));
-	// 	updateTotal(skill, selectedModifier);
-	// };
-
-	// const handleOutros = (change, skill, modifier) => {
-	// 	setOutros((prevOutros) => ({
-	// 		...prevOutros,
-	// 		[skill]: Number((prevOutros[skill] ?? 0) + change)
-	// 	}));
-	// 	updateTotal(skill, modifier);
-	// };
-
-	// const updateTotal = (skill, modifier) => {
-	// 	setTotal((prevTotal) => ({
-	// 		...prevTotal,
-	// 		[skill]:
-	// 			Number(halfLevel) +
-	// 			(treinadas[skill] ? 2 : 0) +
-	// 			Number(calculateModifier(tempData[modifier])) +
-	// 			(Number(outros[skill]) || 0)
-	// 	}));
-	// };
-
-	// useEffect(() => {
-	// 	pericias.forEach((item) => {
-	// 		updateTotal(
-	// 			item.skill,
-	// 			selectedModifiers[item.skill] || item.defaultModifier
-	// 		);
-	// 	});
-	// }, [total]);
 
 	return (
 		<>

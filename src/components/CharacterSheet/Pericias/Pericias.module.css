@@ -16,6 +16,7 @@
 .viewList {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
 	max-width: 120ch;
+	margin-top: -0.5rem;
 }
 
 .list [role="columnheader"] {
