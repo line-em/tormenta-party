@@ -4,7 +4,7 @@ import React from "react";
 import { addData } from "@/firebase/firestore/addData";
 import { useParams } from "next/navigation";
 import useDataStore from "@/store/useDataStore";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider, get } from "react-hook-form";
 
 const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) => {
 	const params = useParams();
@@ -36,7 +36,7 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 			e.preventDefault && e.preventDefault();
 			e.persist && e.persist();
 		}
-		console.log("click");
+		console.log("save");
 		try {
 			e.preventDefault();
 			console.log("Validation succeeded:", data);
@@ -45,7 +45,12 @@ const Form = ({ children, onSubmit = null, buttonText = "Salvar", ...props }) =>
 				lastUpdate: new Date(),
 				...data
 			});
-			error ? alert(error.message) : alert("Ficha salva!");
+			if (error) {
+				alert(error.message)
+			} else { 
+				alert("Ficha salva!");
+				getCharacterByName(decodedCharName);
+			}
 		} catch (error) {
 			if (error.name === "ValidationError") {
 				const validationErrors = error.inner.reduce((errors, err) => {

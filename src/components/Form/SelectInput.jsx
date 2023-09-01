@@ -1,7 +1,7 @@
 'use client';
 import { useFormContext } from "react-hook-form";
 
-const SelectInput = ({ rowCss, inputCss, id, label, disabled, options }) => {
+const SelectInput = ({ rowCss, inputCss, id, label, disabled, options , ...props}) => {
 	const { register } = useFormContext();
 
 	return (
@@ -11,7 +11,7 @@ const SelectInput = ({ rowCss, inputCss, id, label, disabled, options }) => {
 				className={`${inputCss} floating-select`}
 				placeholder=" "
 				disabled={disabled}
-				{...register(id)}
+				{...register(id, { ...props })}
 			>
 				{options.map((value) => (
 					<option key={value} value={value}>

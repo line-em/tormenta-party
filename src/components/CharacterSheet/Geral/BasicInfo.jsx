@@ -3,7 +3,7 @@ import styles from "./BasicInfo.module.css";
 import SelectInput from "@/components/Form/SelectInput";
 import { todasOrigens } from "@/data/origens";
 import { todasLinhagens } from "@/data/linhagens";
-import Attributes from "@/components/Attributes/Attributes";
+import { Attributes } from "@/components/Attributes/Attributes";
 
 const BasicInfo = () => {
 	return (

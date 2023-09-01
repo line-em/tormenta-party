@@ -1,23 +1,17 @@
 'use client';
 import styles from "./Attributes.module.css";
-import AttributeCell from "./AttributeCell";
 import { useFormContext } from "react-hook-form";
 
-export default function Attributes() {
-	const baseAttributes = {
-		FOR: 0,
-		DES: 0,
-		CON: 0,
-		INT: 0,
-		SAB: 0,
-		CAR: 0
-	};
-
+export function Attributes() {
 	const { setValue, getValues } = useFormContext();
 
-	const attributes = getValues("attributes") || baseAttributes;
+	let attributes = getValues("attributes") || baseAttributes;
 
-	const updateAttribute = (attribute, newValue) => {
+	const updateAttribute = (e, attribute) => {
+		if (!e.target.value) {
+			e.target.value = 0;
+		}
+		let newValue = parseInt(e.target.value, 10);
 		setValue("attributes", {
 			...attributes,
 			[attribute]: newValue
@@ -27,12 +21,19 @@ export default function Attributes() {
 	return (
 		<ul className={styles.attrGrid}>
 			{Object.entries(sortObjectBasedOnObject(attributes, baseAttributes)).map(([attribute, attributeValue]) => (
-				<AttributeCell
-					key={attribute}
-					attribute={attribute}
-					attributeValue={attributeValue}
-					updateAttribute={updateAttribute}
-				/>
+				<li key={attribute}>
+					<span>{attribute}</span>
+					<div>
+						<input
+							value={attributeValue}
+							min={-10}
+							max={20}
+							className="big"
+							onChange={(e) => updateAttribute(e, attribute)}
+							maxLength="4"
+						/>
+					</div>
+				</li>
 			))}
 		</ul>
 	);
@@ -45,3 +46,12 @@ function sortObjectBasedOnObject(obj, baseObj) {
 	});
 	return sortedObj;
 }
+
+export const baseAttributes = {
+		FOR: 0,
+		DES: 0,
+		CON: 0,
+		INT: 0,
+		SAB: 0,
+		CAR: 0
+};

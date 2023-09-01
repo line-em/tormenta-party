@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -8,7 +8,8 @@ const Input = ({
 	id,
 	label,
 	disabled,
-	type = "text"
+	type = "text",
+	...props
 }) => {
 	const { register } = useFormContext();
 	return (
@@ -19,7 +20,7 @@ const Input = ({
 				className={`${inputCss && inputCss} floating-input`}
 				placeholder=" "
 				disabled={disabled}
-				{...register(id)}
+				{...register(id, { ...props })}
 			/>
 			<label htmlFor={id} className={`${inputCss && inputCss} floating-text`}>
 				{label}
