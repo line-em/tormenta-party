@@ -12,26 +12,10 @@ import useDataStore from "@/store/useDataStore";
 
 const Pericias = () => {
 	const { currentChar } = useDataStore();
-	console.log(currentChar);
-	const tempData = {
-		lvl: 5,
-		FOR: 10,
-		CON: 8,
-		DES: 8,
-		INT: 12,
-		SAB: 10,
-		CAR: 15
-	};
-
 	const halfLevel =
 		Math.floor(Number(currentChar?.level) / 2) > 1
 			? Math.floor(Number(currentChar?.level) / 2)
 			: 1;
-	// const [treinadas, setTreinadas] = useState({});
-	// const [outros, setOutros] = useState({});
-	// const [selectedModifiers, setSelectedModifiers] = useState({});
-
-	// const [total, setTotal] = useState({});
 	const [editMode, setEditMode] = useState(false);
 	const handleEditMode = (e) => {
 		if (e) {
@@ -40,6 +24,11 @@ const Pericias = () => {
 		}
 		setEditMode(!editMode);
 	};
+	// const [treinadas, setTreinadas] = useState({});
+	// const [outros, setOutros] = useState({});
+	// const [selectedModifiers, setSelectedModifiers] = useState({});
+
+	// const [total, setTotal] = useState({});
 
 	// const toggleTreinada = (skill, modifier) => {
 	// 	setTreinadas((prevTreinadas) => ({

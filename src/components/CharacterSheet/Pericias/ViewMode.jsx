@@ -19,9 +19,9 @@ const ViewMode = ({ pericias, attributes, levelBonus, db }) => {
 							)}
 						</strong>{" "}
 						<sup style={{ fontSize: "var(--small)", opacity: 0.5 }}>
-							{levelBonus} + {attributes[pericias[item]]}
+							({levelBonus} + {attributes[pericias[item]]}
 							{db && db[item]?.trained && "+ 2"}
-							{db && db[item]?.other && db[item]?.other}
+							{db && db[item]?.other && db[item]?.other})
 						</sup>
 					</li>
 				</React.Fragment>
